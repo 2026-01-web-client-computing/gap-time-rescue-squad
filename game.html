@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KMU Campus Game</title>
+
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- 헤더 -->
+  <header>
+
+    <div class="logo">
+      공강구조대
+    </div>
+
+    <nav>
+      <a href="#">MAIN</a>
+      <a href="#">GAME</a>
+      <a href="#">FORM</a>
+      <a href="#">TEAM</a>
+    </nav>
+
+  </header>
+
+  <!-- 메인 -->
+  <main>
+
+      <!-- 메인 화면 -->
+      <div id="mainScreen">
+
+          <!-- 제목 -->
+          <section class="top-section">
+
+              <h1>게임하기🎮</h1>
+
+          </section>
+
+          <!-- 게임 카드 -->
+          <section class="game-container">
+
+              <!-- 장소 맞히기 -->
+              <div class="game-card" id="placeGame">
+
+                  <div class="game-image">
+                      <img src="assets/images/Place_icon.png" alt="장소 맞히기">
+                  </div>
+
+                  <h2>장소 맞히기</h2>
+
+              </div>
+
+              <!-- OX 퀴즈 -->
+              <div class="game-card" id="oxGame">
+
+                  <div class="game-image">
+                      <img src="assets/images/ox.png" alt="OX 퀴즈">
+                  </div>
+
+                  <h2>OX 퀴즈</h2>
+
+              </div>
+
+          </section>
+
+      </div>
+
+      <!-- 장소 맞히기 화면 -->
+      <section id="placeScreen" style="display:none;">
+
+          <h1>장소 맞히기 🎯</h1>
+
+          <img id="placeImage" src="assets/images/image1.jpg" class="quiz-image">
+
+          <div class="answer-box">
+              <input
+                  type="text"
+                  id="placeAnswer"
+                  placeholder="정답 입력"
+              >
+
+              <button id="submitAnswer">제출</button>
+          </div>
+
+          <h2 id="placeResult"></h2>
+
+          <button id="nextPlace" style="display:none;">
+              다음 문제
+          </button>
+
+      </section>
+
+      <!-- OX 화면 -->
+      <section id="oxScreen" style="display:none;">
+
+          <h1>OX 퀴즈 ⭕❌</h1>
+
+          <div id="questionBox">
+              문제 1
+          </div>
+
+          <div class="ox-buttons">
+              <button id="oBtn">O</button>
+              <button id="xBtn">X</button>
+          </div>
+
+          <h2 id="oxResult"></h2>
+
+          <button id="nextOx" style="display:none;">
+              다음 문제
+          </button>
+
+      </section>
+
+  </main>
+
+  <script src="assets/js/script.js"></script>
+
+</body>
+</html>
