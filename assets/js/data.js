@@ -394,28 +394,208 @@ const MOCK_DATA = {
     ],
 
     menu: [
+
+        // ── 학생식당 LUNCH ──────────────────────────────
         {
             restaurant: "학생식당 (가마 코너)", time: "LUNCH", menuName: "고추장 제육볶음과 쌈밥",
             multilingual: {
-                ko: { intro: "매콤달콤한 고추장 양념에 재워둔 돼지고기를 볶아낸 한국의 대표 음식입니다.", ing: "돼지고기(국산), 고추장, 마늘, 양파, 상추" },
-                en: { intro: "Slices of pork marinated in spicy gochujang sauce, stir-fried.", ing: "Pork, Gochujang, Garlic, Onion, Lettuce" },
-                zh: { intro: "香辣辣椒酱腌制的猪肉炒制而成的韩国代表美食。", ing: "猪肉, 辣椒酱, 大蒜, 洋葱, 生菜" },
-                ja: { intro: "甘辛いコチュジャンだれに漬け込んだ豚肉を炒めた韓国料理です。", ing: "豚肉, コチュジャン, ニンニク, 玉ねぎ, サンチュ" },
-                de: { intro: "In scharfer Gochujang mariniertes Schweinefleisch.", ing: "Schweinefleisch, Gochujang, Knoblauch, Zwiebel, Blattsalat" },
-                fr: { intro: "Tranches de porc marinées dans une sauce gochujang piquante.", ing: "Porc, Gochujang, Ail, Oignon, Laitue" },
-                ru: { intro: "Свинина, маринованная в остром соусе кочхуджан.", ing: "Свинина, Кочхуджан, Чеснок, Лук, Листья салата" }
+                ko: { intro: "매콤달콤한 고추장 양념에 재워둔 돼지고기를 직화로 볶아내어 신선한 쌈채소와 함께 즐기는 한국의 대표적인 대중 음식입니다.", ing: "돼지고기(국산), 고추장, 마늘, 양파, 상추" },
+                en: { intro: "Slices of pork marinated in a spicy-sweet gochujang sauce, stir-fried over direct flame and served with fresh wrap vegetables.", ing: "Pork, Gochujang, Garlic, Onion, Lettuce" },
+                zh: { intro: "将腌制在香辣带甜辣椒酱中的猪肉用大火翻炒，与新鲜蔬菜一同包着食用的韩国代表性美食。", ing: "猪肉, 辣椒酱, 大蒜, 洋葱, 生菜" },
+                ja: { intro: "甘辛いコチュジャンだれに漬け込んだ豚肉を直火で炒め、新鮮なサンチュと一緒に包んで食べる韓国の定番料理です。", ing: "豚肉, コチュジャン, ニンニク, 玉ねぎ, サンチュ" },
+                de: { intro: "In süß-scharfer Gochujang mariniertes Schweinefleisch, direkt geflämmt und mit frischem Salatblättern serviert.", ing: "Schweinefleisch, Gochujang, Knoblauch, Zwiebel, Blattsalat" },
+                fr: { intro: "Tranches de porc marinées dans une sauce gochujang piquante-sucrée, sautées à la flamme et servies avec des légumes à enrouler.", ing: "Porc, Gochujang, Ail, Oignon, Laitue" },
+                ru: { intro: "Свинина, маринованная в остро-сладком соусе кочхуджан, обжаренная на открытом огне и подаваемая со свежими овощами для заворачивания.", ing: "Свинина, Кочхуджан, Чеснок, Лук, Листья салата" }
+            }
+        },
+        {
+            restaurant: "학생식당 (뚝배기 코너)", time: "LUNCH", menuName: "된장찌개 백반",
+            multilingual: {
+                ko: { intro: "구수한 재래식 된장을 베이스로 두부, 호박, 버섯을 넣어 뚝배기에 끓여낸 한국의 소울 푸드 정식입니다.", ing: "된장, 두부, 애호박, 팽이버섯, 대파, 멸치육수" },
+                en: { intro: "A Korean soul food set meal: savory fermented soybean paste stew with tofu, zucchini, and mushrooms, served sizzling in a stone pot.", ing: "Doenjang paste, Tofu, Zucchini, Enoki mushroom, Green onion, Anchovy broth" },
+                zh: { intro: "以醇香传统大酱为底，加入豆腐、西葫芦、蘑菇在砂锅中熬煮的韩国灵魂料理定食。", ing: "大酱, 豆腐, 西葫芦, 金针菇, 大葱, 鳀鱼汤" },
+                ja: { intro: "昔ながらの味噌をベースに豆腐・ズッキーニ・きのこを入れ、土鍋で煮込んだ韓国のソウルフード定食です。", ing: "テンジャン味噌, 豆腐, ズッキーニ, えのき, 長ねぎ, いりこだし" },
+                de: { intro: "Koreanisches Soulfood: würzige fermentierte Sojabohnenpaste mit Tofu, Zucchini und Pilzen im Steintopf.", ing: "Doenjang-Paste, Tofu, Zucchini, Enoki-Pilze, Frühlingszwiebel, Sardellenbrühe" },
+                fr: { intro: "Le comfort food coréen : ragoût de pâte de soja fermentée avec tofu, courgette et champignons dans une marmite en pierre.", ing: "Pâte doenjang, Tofu, Courgette, Champignon enoki, Ciboulette, Bouillon d'anchois" },
+                ru: { intro: "Корейское блюдо-душа: тушёная паста из ферментированных соевых бобов с тофу, кабачком и грибами в глиняном горшке.", ing: "Паста тенджан, Тофу, Кабачок, Грибы эноки, Зелёный лук, Анчоусный бульон" }
             }
         },
         {
             restaurant: "학생식당 (인터셰프 코너)", time: "LUNCH", menuName: "수제 등심 돈까스",
             multilingual: {
-                ko: { intro: "두툼한 돼지 등심에 빵가루를 입혀 튀긴 경양식 돈까스입니다.", ing: "돼지등심, 빵가루, 계란, 돈까스소스" },
-                en: { intro: "Thick pork loin coated in breadcrumbs and deep-fried.", ing: "Pork loin, Breadcrumbs, Egg, Tonkatsu sauce" },
-                zh: { intro: "厚实的猪里脊肉裹上面包糠炸至酥脆的炸猪排。", ing: "猪里脊肉, 面包糠, 鸡蛋, 炸猪排酱" },
-                ja: { intro: "厚切りの豚ロースにパン粉をまぶして揚げた洋風カツです。", ing: "豚ロース, パン粉, 卵, とんかつソース" },
-                de: { intro: "Dickes Schweinsfilet in Semmelbröseln frittiert.", ing: "Schweinefilet, Semmelbrösel, Ei, Tonkatsu-Sauce" },
-                fr: { intro: "Longe de porc épaisse enrobée de chapelure et frite.", ing: "Longe de porc, Chapelure, Œuf, Sauce tonkatsu" },
-                ru: { intro: "Толстая свиная корейка в сухарях, обжаренная во фритюре.", ing: "Свиная корейка, Панировочные сухари, Яйцо, Соус" }
+                ko: { intro: "두툼한 돼지 등심에 바삭한 빵가루를 입혀 황금색으로 튀겨낸 경양식 돈까스로, 달콤한 돈까스 소스와 함께 즐깁니다.", ing: "돼지등심, 빵가루, 계란, 밀가루, 돈까스소스" },
+                en: { intro: "Thick pork loin coated in crispy golden breadcrumbs, deep-fried to perfection and paired with a sweet tonkatsu sauce.", ing: "Pork loin, Breadcrumbs, Egg, Flour, Tonkatsu sauce" },
+                zh: { intro: "厚实的猪里脊肉裹上酥脆金黄面包糠炸制而成的西式炸猪排，搭配甜口炸猪排酱享用。", ing: "猪里脊肉, 面包糠, 鸡蛋, 面粉, 炸猪排酱" },
+                ja: { intro: "厚切りの豚ロースにサクサクのパン粉をまぶしてきつね色に揚げた洋風カツで、甘口のとんかつソースと一緒に楽しみます。", ing: "豚ロース, パン粉, 卵, 小麦粉, とんかつソース" },
+                de: { intro: "Dickes Schweinelendchen in knusprigen goldenen Semmelbröseln frittiert, serviert mit süßer Tonkatsu-Sauce.", ing: "Schweinefilet, Semmelbrösel, Ei, Mehl, Tonkatsu-Sauce" },
+                fr: { intro: "Longe de porc épaisse enrobée d'une chapelure croustillante dorée, frite à la perfection et accompagnée de sauce tonkatsu sucrée.", ing: "Longe de porc, Chapelure, Œuf, Farine, Sauce tonkatsu" },
+                ru: { intro: "Толстая свиная корейка в хрустящей золотистой панировке, обжаренная до совершенства и подаваемая со сладким соусом тонкацу.", ing: "Свиная корейка, Панировочные сухари, Яйцо, Мука, Соус тонкацу" }
+            }
+        },
+        {
+            restaurant: "학생식당 (아시안플래터 코너)", time: "LUNCH", menuName: "태국식 팟타이",
+            multilingual: {
+                ko: { intro: "쌀국수를 새우, 두부, 숙주와 함께 달콤짭조름한 타마린드 소스로 볶아낸 태국의 국민 볶음면 요리입니다.", ing: "쌀국수, 새우, 두부, 숙주, 타마린드소스, 땅콩" },
+                en: { intro: "Thailand's iconic stir-fried rice noodles with shrimp, tofu, and bean sprouts tossed in a sweet-savory tamarind sauce.", ing: "Rice noodles, Shrimp, Tofu, Bean sprouts, Tamarind sauce, Peanuts" },
+                zh: { intro: "将米粉与虾、豆腐、豆芽一同用甜咸罗望子酱翻炒的泰国国民炒面料理。", ing: "米粉, 虾, 豆腐, 豆芽, 罗望子酱, 花生" },
+                ja: { intro: "タイの定番炒め麺。ライスヌードルをエビ・豆腐・もやしと一緒に甘じょっぱいタマリンドソースで炒めた料理です。", ing: "ライスヌードル, エビ, 豆腐, もやし, タマリンドソース, ピーナッツ" },
+                de: { intro: "Thailands klassische gebratene Reisnudeln mit Garnelen, Tofu und Sprossen in süß-herber Tamarinden-Sauce.", ing: "Reisnudeln, Garnelen, Tofu, Sprossen, Tamarindensauce, Erdnüsse" },
+                fr: { intro: "Les célèbres nouilles de riz sautées de Thaïlande avec crevettes, tofu et germes de soja dans une sauce tamarind sucrée-salée.", ing: "Nouilles de riz, Crevettes, Tofu, Germes de soja, Sauce tamarind, Cacahuètes" },
+                ru: { intro: "Знаменитая тайская обжаренная рисовая лапша с креветками, тофу и ростками в кисло-сладком соусе из тамаринда.", ing: "Рисовая лапша, Креветки, Тофу, Ростки, Соус тамаринд, Арахис" }
+            }
+        },
+        {
+            restaurant: "학생식당 (델리카슨 코너)", time: "LUNCH", menuName: "훈제 연어 샐러드 플레이트",
+            multilingual: {
+                ko: { intro: "훈제 연어 슬라이스를 루꼴라, 방울토마토, 케이퍼와 함께 레몬 비네그렛으로 가볍게 버무린 유러피안 스타일의 샐러드입니다.", ing: "훈제연어, 루꼴라, 방울토마토, 케이퍼, 레몬, 올리브오일" },
+                en: { intro: "European-style smoked salmon slices tossed with rocket, cherry tomatoes, and capers in a light lemon vinaigrette.", ing: "Smoked salmon, Rocket, Cherry tomatoes, Capers, Lemon, Olive oil" },
+                zh: { intro: "将烟熏三文鱼片与芝麻菜、圣女果、刺山柑一同用清爽柠檬油醋汁拌匀的欧式沙拉。", ing: "烟熏三文鱼, 芝麻菜, 圣女果, 刺山柑, 柠檬, 橄榄油" },
+                ja: { intro: "スモークサーモンのスライスをルッコラ・チェリートマト・ケーパーとともにレモンビネグレットで和えたヨーロッパスタイルのサラダです。", ing: "スモークサーモン, ルッコラ, ミニトマト, ケーパー, レモン, オリーブオイル" },
+                de: { intro: "Europäischer Salat: Räucherlachsscheiben mit Rucola, Kirschtomaten und Kapern in leichter Zitronen-Vinaigrette.", ing: "Räucherlachs, Rucola, Kirschtomaten, Kapern, Zitrone, Olivenöl" },
+                fr: { intro: "Salade style européen : tranches de saumon fumé avec roquette, tomates cerises et câpres en vinaigrette légère au citron.", ing: "Saumon fumé, Roquette, Tomates cerises, Câpres, Citron, Huile d'olive" },
+                ru: { intro: "Европейский салат: ломтики копчёного лосося с рукколой, черри, каперсами под лёгким лимонным винегретом.", ing: "Копчёный лосось, Руккола, Черри, Каперсы, Лимон, Оливковое масло" }
+            }
+        },
+
+        // ── 학생식당 DINNER ──────────────────────────────
+        {
+            restaurant: "학생식당 (가마 코너)", time: "DINNER", menuName: "닭갈비 볶음밥",
+            multilingual: {
+                ko: { intro: "춘천식 매콤 닭갈비를 볶다가 밥을 넣어 함께 볶아낸 고소하고 칼칼한 볶음밥입니다. 고소한 참기름이 풍미를 더합니다.", ing: "닭고기, 고추장, 고구마, 양배추, 쌀밥, 참기름" },
+                en: { intro: "Chuncheon-style spicy stir-fried chicken mixed right into steamed rice, finished with a drizzle of nutty sesame oil.", ing: "Chicken, Gochujang, Sweet potato, Cabbage, Steamed rice, Sesame oil" },
+                zh: { intro: "将春川风格的香辣炒鸡与米饭同炒而成的香辣炒饭，最后淋上香醇芝麻油提味。", ing: "鸡肉, 辣椒酱, 红薯, 卷心菜, 米饭, 芝麻油" },
+                ja: { intro: "春川スタイルの辛口ダッカルビを炒めながらご飯を加えて一緒に炒めた旨味たっぷりのチャーハンです。胡麻油の香りが引き立てます。", ing: "鶏肉, コチュジャン, さつまいも, キャベツ, 白飯, ごま油" },
+                de: { intro: "Chuncheon-Hähnchen in scharfer Sauce mit Reis gebraten, abgerundet mit nussigem Sesamöl.", ing: "Hühnchen, Gochujang, Süßkartoffel, Kohl, Reis, Sesamöl" },
+                fr: { intro: "Poulet épicé style Chuncheon sauté avec du riz, fini d'un filet d'huile de sésame parfumée.", ing: "Poulet, Gochujang, Patate douce, Chou, Riz, Huile de sésame" },
+                ru: { intro: "Острая курица по-чхунчхонски, обжаренная вместе с рисом, сдобренная кунжутным маслом.", ing: "Курица, Кочхуджан, Батат, Капуста, Рис, Кунжутное масло" }
+            }
+        },
+        {
+            restaurant: "학생식당 (뚝배기 코너)", time: "DINNER", menuName: "순두부찌개 정식",
+            multilingual: {
+                ko: { intro: "부드러운 순두부를 해물과 함께 칼칼하게 끓여낸 뚝배기 찌개로, 흰쌀밥 및 반찬 3종과 함께 나오는 정식 메뉴입니다.", ing: "순두부, 바지락, 새우, 고춧가루, 계란, 대파" },
+                en: { intro: "Silky soft tofu simmered in a spicy seafood broth in a stone pot, served as a set meal with steamed rice and three side dishes.", ing: "Soft tofu, Short-neck clams, Shrimp, Red pepper flakes, Egg, Green onion" },
+                zh: { intro: "将嫩滑豆腐与海鲜一同在砂锅中辛辣熬煮的锅物料理，搭配白米饭和三种小菜的套餐。", ing: "嫩豆腐, 花蛤, 虾, 辣椒粉, 鸡蛋, 大葱" },
+                ja: { intro: "なめらかな純豆腐を海鮮と一緒に辛口に煮込んだ土鍋チゲで、白ご飯とおかず3品がセットになった定食メニューです。", ing: "純豆腐, あさり, エビ, 唐辛子粉, 卵, 長ねぎ" },
+                de: { intro: "Seidenweiches Tofu mit Meeresfrüchten in einer würzigen Brühe im Steintopf, serviert als Menü mit Reis und drei Beilagen.", ing: "Seidentofu, Venusmuscheln, Garnelen, Paprikaflocken, Ei, Frühlingszwiebel" },
+                fr: { intro: "Tofu soyeux mijoté dans un bouillon épicé aux fruits de mer dans une marmite en pierre, servi en repas complet avec riz et trois accompagnements.", ing: "Tofu soyeux, Palourdes, Crevettes, Flocons de piment, Œuf, Ciboulette" },
+                ru: { intro: "Нежный шёлковый тофу с морепродуктами, приготовленный в остром бульоне в глиняном горшке, подаётся как комплексный обед с рисом и тремя гарнирами.", ing: "Шёлковый тофу, Моллюски, Креветки, Хлопья перца, Яйцо, Зелёный лук" }
+            }
+        },
+        {
+            restaurant: "학생식당 (인터셰프 코너)", time: "DINNER", menuName: "크림 파스타",
+            multilingual: {
+                ko: { intro: "알 덴테로 삶은 스파게티에 생크림과 파르메산 치즈를 베이스로 베이컨과 버섯을 곁들인 부드럽고 진한 크림 파스타입니다.", ing: "스파게티, 생크림, 파르메산치즈, 베이컨, 양송이버섯, 마늘" },
+                en: { intro: "Al dente spaghetti in a rich cream and Parmesan base, tossed with crispy bacon and sautéed mushrooms.", ing: "Spaghetti, Heavy cream, Parmesan, Bacon, Button mushroom, Garlic" },
+                zh: { intro: "以浓郁鲜奶油和帕尔玛干酪为底，加入培根和蘑菇，与弹牙意面拌匀的奶油意粉。", ing: "意大利面, 鲜奶油, 帕尔玛干酪, 培根, 口蘑, 大蒜" },
+                ja: { intro: "アルデンテのスパゲッティに生クリームとパルメザンチーズをベースにベーコンとマッシュルームを合わせた、濃厚クリームパスタです。", ing: "スパゲッティ, 生クリーム, パルメザンチーズ, ベーコン, マッシュルーム, ニンニク" },
+                de: { intro: "Al dente Spaghetti in reichhaltiger Sahne-Parmesan-Sauce mit knusprigem Speck und Champignons.", ing: "Spaghetti, Sahne, Parmesan, Speck, Champignons, Knoblauch" },
+                fr: { intro: "Spaghetti al dente dans une sauce crémeuse au parmesan, mêlée de lardons croustillants et de champignons sautés.", ing: "Spaghetti, Crème entière, Parmesan, Lardons, Champignons, Ail" },
+                ru: { intro: "Спагетти аль денте в насыщенном сливочно-пармезановом соусе с хрустящим беконом и грибами.", ing: "Спагетти, Жирные сливки, Пармезан, Бекон, Шампиньоны, Чеснок" }
+            }
+        },
+
+        // ── 교직원식당 LUNCH / DINNER ──────────────────
+        {
+            restaurant: "교직원식당", time: "LUNCH", menuName: "오늘의 뷔페 정식",
+            multilingual: {
+                ko: { intro: "매일 바뀌는 한식 뷔페로, 국·탕·볶음·나물 반찬 등 10여 가지 메뉴를 자유롭게 선택할 수 있는 교직원 전용 구내식당입니다.", ing: "당일 식재료(국내산 위주), 잡곡밥, 국, 나물, 김치" },
+                en: { intro: "A daily rotating Korean buffet exclusive to faculty & staff, with over 10 dishes including soups, stir-fries, and seasoned vegetables.", ing: "Daily seasonal produce (domestic), Mixed grain rice, Soup, Namul, Kimchi" },
+                zh: { intro: "每天更换菜品的韩式自助餐，设有汤品、炒菜、凉拌菜等10余种菜肴，专供教职员工。", ing: "当日食材（以国产为主）, 杂粮饭, 汤品, 凉拌菜, 泡菜" },
+                ja: { intro: "毎日変わる韓食ビュッフェで、スープ・炒め物・ナムルなど10種以上のメニューを自由に選べる教職員専用食堂です。", ing: "当日食材（国産中心）, 雑穀ご飯, スープ, ナムル, キムチ" },
+                de: { intro: "Täglich wechselndes koreanisches Buffet exklusiv für Lehrkräfte und Personal mit über 10 Gerichten.", ing: "Saisonale Zutaten (überwiegend inländisch), Mehrkornreis, Suppe, Namul, Kimchi" },
+                fr: { intro: "Buffet coréen quotidien réservé au personnel, avec plus de 10 plats incluant soupes, sautés et légumes assaisonnés.", ing: "Produits saisonniers (majoritairement locaux), Riz multigrains, Soupe, Namul, Kimchi" },
+                ru: { intro: "Ежедневный корейский буфет эксклюзивно для преподавателей и персонала: более 10 блюд — супы, жареное, намул.", ing: "Сезонные продукты (преим. отечественные), Многозерновой рис, Суп, Намул, Кимчи" }
+            }
+        },
+        {
+            restaurant: "교직원식당", time: "DINNER", menuName: "오늘의 뷔페 저녁",
+            multilingual: {
+                ko: { intro: "저녁 뷔페는 점심보다 간소화된 메뉴로 운영되며, 따뜻한 국과 메인 반찬 5~6가지를 자유롭게 이용할 수 있습니다.", ing: "당일 식재료, 쌀밥, 찌개, 조림, 나물, 김치" },
+                en: { intro: "The dinner buffet is a lighter version of lunch with a warm soup and 5–6 main side dishes served freely.", ing: "Daily ingredients, Steamed rice, Jjigae stew, Braised dish, Namul, Kimchi" },
+                zh: { intro: "晚餐自助餐菜品比午餐简化，提供热汤及5至6种主菜，可自由取用。", ing: "当日食材, 米饭, 汤锅, 炖菜, 凉拌菜, 泡菜" },
+                ja: { intro: "夕食のビュッフェは昼よりシンプルで、温かいスープとメインおかず5〜6種を自由に利用できます。", ing: "当日食材, 白ご飯, チゲ, 煮物, ナムル, キムチ" },
+                de: { intro: "Das Abendbuffet ist einfacher als das Mittagessen: warme Suppe und 5–6 Hauptbeilagen zur freien Auswahl.", ing: "Tagesfrische Zutaten, Gedämpfter Reis, Jjigae-Eintopf, Geschmortes, Namul, Kimchi" },
+                fr: { intro: "Le buffet du soir est plus léger que le déjeuner : soupe chaude et 5 à 6 plats principaux en libre-service.", ing: "Ingrédients du jour, Riz, Ragoût jjigae, Plat mijoté, Namul, Kimchi" },
+                ru: { intro: "Вечерний буфет проще обеда: тёплый суп и 5–6 основных блюд в свободном доступе.", ing: "Дневные продукты, Варёный рис, Тушёное чиге, Тушёнка, Намул, Кимчи" }
+            }
+        },
+
+        // ── 생활관식당 ──────────────────────────────────
+        {
+            restaurant: "생활관식당", time: "LUNCH", menuName: "기숙사 정식 (중식)",
+            multilingual: {
+                ko: { intro: "기숙사 관생을 위한 고정 정식 메뉴로, 영양 균형을 고려한 메인 요리와 국, 반찬 3종으로 구성됩니다.", ing: "당일 식재료(국내산), 쌀밥, 국, 메인반찬, 김치" },
+                en: { intro: "A fixed lunch set for dormitory residents, balanced with a main dish, soup, and three side dishes.", ing: "Daily domestic produce, Steamed rice, Soup, Main dish, Kimchi" },
+                zh: { intro: "为宿舍住客提供的固定午餐套餐，由考虑营养均衡的主菜、汤品及三种小菜组成。", ing: "当日食材（国产）, 米饭, 汤, 主菜, 泡菜" },
+                ja: { intro: "寮生向けの固定定食メニューで、栄養バランスを考慮したメイン料理・スープ・おかず3品で構成されます。", ing: "当日食材（国産）, 白ご飯, スープ, メインおかず, キムチ" },
+                de: { intro: "Festes Mittagsmenü für Wohnheimbewohner: ausgewogenes Hauptgericht, Suppe und drei Beilagen.", ing: "Tagesfrische Zutaten (inländisch), Gedämpfter Reis, Suppe, Hauptgericht, Kimchi" },
+                fr: { intro: "Menu fixe de déjeuner pour les résidents du dortoir : plat principal équilibré, soupe et trois accompagnements.", ing: "Produits locaux du jour, Riz, Soupe, Plat principal, Kimchi" },
+                ru: { intro: "Фиксированный обеденный комплекс для жильцов общежития: основное блюдо, суп и три гарнира с учётом баланса питания.", ing: "Дневные продукты (отечественные), Рис, Суп, Основное блюдо, Кимчи" }
+            }
+        },
+        {
+            restaurant: "생활관식당", time: "DINNER", menuName: "기숙사 정식 (석식)",
+            multilingual: {
+                ko: { intro: "저녁 기숙사 정식은 중식 메뉴와 다른 구성으로 제공되며, 따뜻한 찌개와 단백질 위주의 메인 반찬이 포함됩니다.", ing: "당일 식재료, 잡곡밥, 찌개, 구이류, 나물, 김치" },
+                en: { intro: "The dinner set differs from lunch and features a warm jjigae stew alongside a protein-focused main side dish.", ing: "Daily ingredients, Multigrain rice, Jjigae stew, Grilled dish, Namul, Kimchi" },
+                zh: { intro: "晚餐宿舍套餐与午餐菜品不同，含热汤锅及以蛋白质为主的主菜。", ing: "当日食材, 杂粮饭, 汤锅, 烤肉类, 凉拌菜, 泡菜" },
+                ja: { intro: "夕食の寮定食は昼とは異なる構成で、温かいチゲとタンパク質中心のメインおかずが含まれます。", ing: "当日食材, 雑穀ご飯, チゲ, 焼き物, ナムル, キムチ" },
+                de: { intro: "Das Abendmenü unterscheidet sich vom Mittagessen und umfasst einen warmen Jjigae-Eintopf und ein proteinreiches Hauptgericht.", ing: "Tagesfrische Zutaten, Mehrkornreis, Jjigae, Gegrilltes, Namul, Kimchi" },
+                fr: { intro: "Le repas du soir diffère du déjeuner et comprend un ragoût jjigae chaud et un plat principal riche en protéines.", ing: "Ingrédients du jour, Riz multigrains, Ragoût jjigae, Grillé, Namul, Kimchi" },
+                ru: { intro: "Вечерний комплекс отличается от обеда: тёплый суп чиге и основное блюдо с упором на белок.", ing: "Дневные продукты, Многозерновой рис, Суп чиге, Гриль, Намул, Кимчи" }
+            }
+        },
+
+        // ── 청향 (한식 / 양식) ──────────────────────────
+        {
+            restaurant: "법학관 5층 청향 (한식)", time: "LUNCH", menuName: "영양 명품 갈비탕",
+            multilingual: {
+                ko: { intro: "엄선된 소갈비를 오랜 시간 고아내어 맑고 깊은 육수를 내고, 무와 인삼을 넣어 끓인 프리미엄 보양식입니다.", ing: "소갈비, 무, 대추, 인삼, 당면, 마늘" },
+                en: { intro: "A premium nourishing soup made by simmering select beef short ribs for hours with radish and ginseng in a clear, deep broth.", ing: "Beef short ribs, Radish, Jujube, Ginseng, Glass noodles, Garlic" },
+                zh: { intro: "选用优质牛排骨长时间熬煮出清澈浓郁的高汤，加入大萝卜和人参一同煮制的滋补汤品。", ing: "牛排骨, 大萝卜, 红枣, 人参, 粉丝, 大蒜" },
+                ja: { intro: "厳選された牛カルビを長時間煮込んで澄んだ深いスープを出し、大根と高麗人参を入れて作ったプレミアムスープです。", ing: "牛カルビ, 大根, なつめ, 高麗人参, 春雨, ニンニク" },
+                de: { intro: "Eine nahrhafte Premium-Suppe, zubereitet durch stundenlang köchelnde Rinderrippen mit Rettich und Ginseng in einer klaren, tiefen Brühe.", ing: "Rinderrippen, Rettich, Jujube, Ginseng, Glasnudeln, Knoblauch" },
+                fr: { intro: "Une soupe nourrissante haut de gamme préparée en faisant mijoter des travers de bœuf sélectionnés avec du radis et du ginseng dans un bouillon clair et profond.", ing: "Travers de bœuf, Radis, Jujube, Ginseng, Vermicelles, Ail" },
+                ru: { intro: "Питательный суп премиум-класса из отборных говяжьих ребрышек, варёных часами с редькой и женьшенем в прозрачном насыщенном бульоне.", ing: "Говяжьи ребрышки, Редька, Финики, Женьшень, Стеклянная лапша, Чеснок" }
+            }
+        },
+        {
+            restaurant: "법학관 5층 청향 (양식)", time: "DINNER", menuName: "그릴드 안심 스테이크",
+            multilingual: {
+                ko: { intro: "가장 부드러운 소고기 안심 부위를 그릴에 구워 육즙을 보존하고, 레드 와인 소스를 곁들인 최고급 스테이크입니다.", ing: "소안심, 아스파라거스, 양송이버섯, 레드와인, 버터" },
+                en: { intro: "Tender beef tenderloin grilled to preserve its rich juices, paired with a deep-flavored red wine reduction sauce.", ing: "Beef tenderloin, Asparagus, Button mushroom, Red wine, Butter" },
+                zh: { intro: "将最鲜嫩的牛菲力部分在烤网上翻烤以锁住肉汁，搭配风味醇厚红酒酱汁的高级牛排。", ing: "牛菲力, 芦笋, 口蘑, 红酒, 黄油" },
+                ja: { intro: "最も柔らかい牛ヒレ肉をグリルで焼いて肉汁を閉じ込め、赤ワインソースを添えた高級ステーキです。", ing: "牛ヒレ肉, アスパラガス, マッシュルーム, 赤ワイン, バター" },
+                de: { intro: "Zartes Rinderfilet vom Grill, um den Saft zu bewahren, serviert mit einer aromatischen Rotweinreduktion.", ing: "Rinderfilet, Spargel, Champignons, Rotwein, Butter" },
+                fr: { intro: "Filet de bœuf tendre grillé pour préserver son jus, accompagné d'une sauce réduction au vin rouge à la saveur profonde.", ing: "Filet de bœuf, Asperges, Champignons, Vin rouge, Beurre" },
+                ru: { intro: "Нежнейшее говяжье филе, обжаренное на гриле с сохранением сочности, под изысканным соусом из красного вина.", ing: "Говяжья вырезка, Спаржа, Шампиньоны, Красное вино, Сливочное масло" }
+            }
+        },
+
+        // ── 한울식당 ────────────────────────────────────
+        {
+            restaurant: "한울식당 (법학관 지하)", time: "LUNCH", menuName: "치즈 돈까스 김치나베",
+            multilingual: {
+                ko: { intro: "바삭한 돈까스를 칼칼한 김치 전골 육수에 졸여내어 계란과 모짜렐라 치즈를 얹어 부드럽게 먹는 창의적인 퓨전 요리입니다.", ing: "돈까스, 배추김치, 우동쯔유, 계란, 모짜렐라치즈" },
+                en: { intro: "Crispy pork cutlet simmered in a spicy kimchi stew broth, topped with a poached egg and melted mozzarella in a creative fusion dish.", ing: "Pork cutlet, Kimchi, Udon tsuyu, Egg, Mozzarella cheese" },
+                zh: { intro: "将酥脆的炸猪排放入香辣泡菜火锅高汤中略微炖煮，淋上鸡蛋液和马苏里拉芝士的创意融合料理。", ing: "炸猪排, 白菜泡菜, 乌冬酱油, 鸡蛋, 马苏里拉奶酪" },
+                ja: { intro: "サクサクのトンカツをピリ辛キムチ鍋のスープで煮込み、卵とモッツァレラチーズをのせた創作フュージョン料理です。", ing: "トンカツ, 白菜キムチ, うどんつゆ, 卵, モッツァレラチーズ" },
+                de: { intro: "Knuspriges Schweinekotelett in scharfer Kimchi-Brühe, gekrönt mit pochiertem Ei und geschmolzenem Mozzarella – ein kreativer Fusion-Teller.", ing: "Schweinekotelett, Kimchi, Udon-Tsuyu, Ei, Mozzarella" },
+                fr: { intro: "Cutlet de porc croustillant mijoté dans un bouillon kimchi épicé, garni d'un œuf poché et de mozzarella fondue — un plat fusion créatif.", ing: "Cutlet de porc, Kimchi, Tsuyu d'udon, Œuf, Mozzarella" },
+                ru: { intro: "Хрустящая свиная котлета, тушенная в остром бульоне с кимчи, с яйцом пашот и расплавленной моцареллой — творческий фьюжн.", ing: "Свиная котлета, Кимчи, Бульон цую, Яйцо, Моцарелла" }
+            }
+        },
+        {
+            restaurant: "한울식당 (법학관 지하)", time: "DINNER", menuName: "전주식 야채 비빔밥",
+            multilingual: {
+                ko: { intro: "콩나물, 호박, 고사리 등 다양한 나물 야채를 참기름과 매콤한 약고추장으로 비벼 먹는 건강한 한식입니다.", ing: "콩나물, 애호박, 당근, 고사리, 고추장, 참기름" },
+                en: { intro: "A healthy Korean rice bowl topped with assorted seasoned vegetables, sesame oil, and spicy gochujang paste in the Jeonju tradition.", ing: "Bean sprouts, Zucchini, Carrot, Bracken, Gochujang, Sesame oil" },
+                zh: { intro: "在米饭上放上黄豆芽、西葫芦、胡萝卜、蕨菜等多种蔬菜，加入香油和药辣椒酱拌食的健康韩食。", ing: "黄豆芽, 西葫芦, 胡萝卜, 蕨菜, 辣椒酱, 香油" },
+                ja: { intro: "豆もやし・ズッキーニ・ワラビなど様々なナムルをご飯にのせ、ごま油と薬コチュジャンで混ぜて食べる全州スタイルの料理です。", ing: "豆もやし, ズッキーニ, 人参, ワラビ, コチュジャン, ごま油" },
+                de: { intro: "Gesunde koreanische Reisschüssel im Jeonju-Stil mit verschiedenen gewürzten Gemüsesorten, Sesamöl und würziger Gochujang.", ing: "Sprossen, Zucchini, Karotte, Farnkraut, Gochujang, Sesamöl" },
+                fr: { intro: "Bol de riz coréen sain dans la tradition de Jeonju, garni de légumes variés assaisonnés, d'huile de sésame et de pâte gochujang.", ing: "Pousses de soja, Courgette, Carotte, Fougère, Gochujang, Huile de sésame" },
+                ru: { intro: "Полезная корейская рисовая миска в традиции Чоnju: ассорти сезонных овощей, кунжутное масло и паста кочхуджан.", ing: "Ростки маша, Кабачок, Морковь, Папоротник, Кочхуджан, Кунжутное масло" }
             }
         }
     ]
