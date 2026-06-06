@@ -1,25 +1,38 @@
 // --- 국민대학교 교내복지시설 공식 데이터 ---
 const campusData = [
-    { name: "복사실 (북악관)", location: "북악관 1층", desc: "북악관 1층에 위치하며 교재 인쇄, 제본, 복사 서비스를 제공합니다.", enName: "Copy Room (Bugak Hall)", enLocation: "Bugak Hall 1st Floor", enDesc: "Located on the 1st floor of Bugak Hall, providing printing, binding, and copying services." },
-    { name: "우리은행", location: "종합복지관 2층", desc: "종합복지관 2층에 있는 교내 주거래 은행으로 다양한 금융 업무를 처리합니다.", enName: "Woori Bank", enLocation: "Welfare Complex 2nd Floor", enDesc: "The main campus bank located on the 2nd floor of the Welfare Complex, handling financial tasks." },
-    { name: "우편취급국", location: "종합복지관 2층", desc: "종합복지관 2층에 위치하여 우편물 및 택배 발송이 가능합니다.", enName: "Post Office", enLocation: "Welfare Complex 2nd Floor", enDesc: "Located on the 2nd floor of the Welfare Complex, handling mail and package delivery." },
-    { name: "서점", location: "종합복지관 1층", desc: "종합복지관 1층에 있으며 전공 서적과 교재를 구입할 수 있습니다.", enName: "Bookstore", enLocation: "Welfare Complex 1st Floor", enDesc: "Located on the 1st floor of the Welfare Complex, where textbooks can be purchased." },
-    { name: "기념품점", location: "북악관 1층", desc: "북악관 1층에 있으며 국민대만의 다양한 굿즈와 기념품을 판매합니다.", enName: "Souvenir Shop", enLocation: "Bugak Hall 1st Floor", enDesc: "Located on the 1st floor of Bugak Hall, selling various Kookmin Univ. merchandise." },
-    { name: "휴대전화 판매점", location: "종합복지관 1층 (서점 내부)", desc: "종합복지관 1층 구내서점 내부에 입점해 있는 통신 기기 매장입니다.", enName: "Mobile Phone Shop", enLocation: "Welfare Complex 1st Floor (Inside Bookstore)", enDesc: "A mobile device retail shop located inside the bookstore on the 1st floor of the Welfare Complex." },
-    { name: "문구잡화점", location: "종합복지관 지하 1층", desc: "종합복지관 지하 1층에 있으며 각종 문구류와 사무용품을 판매합니다.", enName: "Stationery & Variety Shop", enLocation: "Welfare Complex B1", enDesc: "Located on the B1 floor of the Welfare Complex, selling office and school supplies." },
-    { name: "화훼점", location: "종합복지관 지하 1층", desc: "종합복지관 지하 1층에 있는 꽃집으로 화분이나 꽃다발을 구매할 수 있습니다.", enName: "Flower Shop", enLocation: "Welfare Complex B1", enDesc: "A florist on the B1 floor of the Welfare Complex, where plants and bouquets can be bought." },
-    { name: "생활잡화점", location: "종합복지관 지하 1층", desc: "종합복지관 지하 1층에서 일상생활에 필요한 다양한 잡화를 판매합니다.", enName: "Daily Necessities Shop", enLocation: "Welfare Complex B1", enDesc: "Selling various general store goods on the B1 floor of the Welfare Complex." },
-    { name: "컴퓨터매장", location: "종합복지관 지하 1층", desc: "종합복지관 지하 1층에 위치하며 PC 주변기기 및 전자기기를 다룹니다.", enName: "Computer Shop", enLocation: "Welfare Complex B1", enDesc: "Located on the B1 floor of the Welfare Complex, handling PC components and devices." },
-    { name: "화방", location: "조형관 1층", desc: "조형관 1층에 위치하여 미술 용품과 전문 설계 및 디자인 재료를 판매합니다.", enName: "Art Supply Shop", enLocation: "Chodyung Hall 1st Floor", enDesc: "Located on the 1st floor of Chodyung Hall, offering professional fine art and design tools." },
-    { name: "손세차장", location: "미래관 주차장", desc: "미래관 주차장에 위치하고 있으며 사전 예약제로 운영되는 세차 시설입니다.", enName: "Hand Car Wash", enLocation: "Mirae Hall Parking Lot", enDesc: "Located in the parking area of Mirae Hall, operated by a reservation system." },
-    { name: "여행사", location: "종합복지관 지하 1층 (서점 내부)", desc: "종합복지관 지하 1층 서점 내부에 입점해 있는 여행 상담 매장입니다.", enName: "Travel Agency", enLocation: "Welfare Complex B1 (Inside Bookstore)", enDesc: "A travel consulting office inside the B1 bookstore of the Welfare Complex." },
-    { name: "무인 세탁실", location: "생활관", desc: "생활관(기숙사) 내부에 위치하며 24시간 무인 코인 세탁기로 운영됩니다.", enName: "Laundromat", enLocation: "Dormitory", enDesc: "A self-service coin-operated laundry facility located inside the student dormitory." }
+    { name: "도시락전문점(K-BOB+)", location: "종합복지관 1층", desc: "다양한 도시락과 간편 식사를 제공하는 식당입니다.", enName: "K-BOB+", enLocation: "Welfare Complex 1F", enDesc: "Restaurant offering lunch boxes and quick meals.", src: "kbob_welfare_complex_1f.jpg" },
+    { name: "교직원식당", location: "종합복지관 1층", desc: "교직원과 학생 모두 이용 가능한 식당입니다.", enName: "Faculty Cafeteria", enLocation: "Welfare Complex 1F", enDesc: "Cafeteria open to students and faculty members.", src: "faculty_cafeteria_welfare_complex_1f.jpg" },
+    { name: "김밥ㆍ분식전문점(K-GIMBOB)", location: "북악관 1층", desc: "김밥과 분식 메뉴를 판매하는 식당입니다.", enName: "K-GIMBOB+", enLocation: "Bugak Hall 1F", enDesc: "Restaurant specializing in gimbap and snacks.", src: "k_gimbob_bugak_hall_1f.jpg" },
+    { name: "기념품점", location: "북악관 1층", desc: "교내 캐릭터 및 기념품 판매 매장입니다.", enName: "Souvenir Shop", enLocation: "Bugak Hall 1F", enDesc: "Store selling university souvenirs and merchandise.", src: "souvenir_shop_bugak_hall_1f.jpg" },
+    { name: "꽃집", location: "종합복지관 지하 1층", desc: "꽃과 화분을 판매하는 매장입니다.", enName: "Flower Shop", enLocation: "Welfare Complex B1", enDesc: "Shop selling flowers and plants.", src: "flower_shop_welfare_complex_b1.jpg" },
+    { name: "문구점", location: "종합복지관 지하 1층", desc: "학업 및 사무용품을 판매하는 매장입니다.", enName: "Stationery Shop", enLocation: "Welfare Complex B1", enDesc: "Shop for stationery and office supplies.", src: "stationery_shop_welfare_complex_b1.jpg" },
+    { name: "버거운버거", location: "종합복지관 지하 1층", desc: "다양한 버거 메뉴를 판매하는 매장입니다.", enName: "Beogeoun Burger", enLocation: "Welfare Complex B1", enDesc: "Burger shop offering various menu items.", src: "beogeoun_burger_welfare_complex_b1.jpg" },
+    { name: "샐러디", location: "종합복지관 지하 1층", desc: "샐러드와 랩(Wrap) 메뉴를 판매하는 매장입니다.", enName: "Salady", enLocation: "Welfare Complex B1", enDesc: "Store selling salads and wraps.", src: "salady_welfare_complex_b1.jpg" },
+    { name: "성곡도서관", location: "성곡도서관", desc: "학술 자료 열람 및 학습 공간입니다.", enName: "Seonggok Library", enLocation: "Seonggok Library", enDesc: "Central university library for study and research.", src: "seonggok_library_library.jpg" },
+    { name: "써브웨이", location: "북악관 1층", desc: "샌드위치와 샐러드를 주문 제작하는 매장입니다.", enName: "Subway", enLocation: "Bugak Hall 1F", enDesc: "Sandwich and salad store.", src: "subway_bugak_hall_1f.jpg" },
+    { name: "열람실(복지관 3층)", location: "종합복지관 3층", desc: "종합복지관 내 자유 학습 공간입니다.", enName: "Reading Room", enLocation: "Welfare Complex 3F", enDesc: "Free study space in Welfare Complex.", src: "reading_room_welfare_complex_3f.jpg" },
+    { name: "오지버거", location: "공학관 1층", desc: "버거 메뉴를 판매하는 매장입니다.", enName: "Aussie Burger", enLocation: "Engineering Hall 1F", enDesc: "Burger shop located in Engineering Hall.", src: "aussie_burger_eng_hall_1f.jpg" },
+    { name: "웰니스센터", location: "미래관 지하 1층", desc: "체력 단련 및 측정을 위한 복합 공간입니다.", enName: "Wellness Center", enLocation: "Mirae Hall B1", enDesc: "Facility for fitness and health assessment.", src: "wellness_center_welfare_complex.jpg" },
+    { name: "의무실(건강센터)", location: "종합복지관 4층", desc: "건강 상담 및 응급 처치를 지원하는 공간입니다.", enName: "Infirmary", enLocation: "Welfare Complex 4F", enDesc: "Facility for health counseling and first aid.", src: "infirmary_health_center.jpg" },
+    { name: "제과점(플레이스앤)", location: "종합복지관 2층", desc: "다양한 빵과 음료를 판매하는 매장입니다.", enName: "Place N Bakery", enLocation: "Welfare Complex 2F", enDesc: "Bakery offering bread and drinks.", src: "place_n_bakery_welfare_complex_2f.jpg" },
+    { name: "청향", location: "법학관 5층", desc: "교내 구성원 모두 이용 가능한 한식 및 양식 전문 식당입니다.", enName: "Cheonghyang", enLocation: "Law Hall 5F", enDesc: "Campus restaurant open to all, serving Korean and Western cuisine.", src: "cheonghyang_law_hall_5f.jpg" },
+    { name: "카페(공차)_북악관1층", location: "북악관 1층", desc: "교내에 위치한 차 음료 전문 매장입니다.", enName: "Gong Cha", enLocation: "Bugak Hall 1F", enDesc: "Tea specialty store located on campus.", src: "gongcha_bugak_hall_1f.jpg" },
+    { name: "카페_공학관1층", location: "공학관 1층", desc: "공학관 내 위치한 커피 및 음료 매장입니다.", enName: "Cafe (Engineering)", enLocation: "Engineering Hall 1F", enDesc: "Cafe located in Engineering Hall.", src: "cafe_eng_eng_hall_1f.jpg" },
+    { name: "카페_과학관1층", location: "과학관 1층", desc: "과학관 내 위치한 커피 및 음료 매장입니다.", enName: "Cafe (Science)", enLocation: "Science Hall 1F", enDesc: "Cafe located in Science Hall.", src: "cafe_sci_sci_hall_1f.jpg" },
+    { name: "카페_법대1층", location: "법학관 1층", desc: "법학관 내 위치한 커피 및 음료 매장입니다.", enName: "Cafe (Law)", enLocation: "Law Hall 1F", enDesc: "Cafe located in Law Hall.", src: "cafe_law_law_hall_1f.jpg" },
+    { name: "카페_복지관지하1층", location: "종합복지관 지하 1층", desc: "종합복지관 내 위치한 커피 및 음료 매장입니다.", enName: "Cafe (Welfare)", enLocation: "Welfare Complex B1", enDesc: "Cafe located in Welfare Complex.", src: "cafe_welfare_welfare_complex_b1.jpg" },
+    { name: "카페_본부관1층", location: "본부관 1층", desc: "본부관 내 위치한 커피 및 음료 매장입니다.", enName: "Cafe (Headquarters)", enLocation: "Headquarters 1F", enDesc: "Cafe located in Headquarters.", src: "cafe_hq_hq_1f.jpg" },
+    { name: "카페_북악관1층", location: "북악관 1층", desc: "북악관 내 위치한 커피 및 음료 매장입니다.", enName: "Cafe (Bugak)", enLocation: "Bugak Hall 1F", enDesc: "Cafe located in Bugak Hall.", src: "cafe_bugak_bugak_hall_1f.jpg" },
+    { name: "카페_예대1층", location: "예술관 1층", desc: "예술관 내 위치한 커피 및 음료 매장입니다.", enName: "Cafe (Arts)", enLocation: "Arts Hall 1F", enDesc: "Cafe located in Arts Hall.", src: "cafe_arts_arts_hall_1f.jpg" },
+    { name: "학생식당", location: "종합복지관 1층", desc: "학생과 교직원 모두 이용 가능한 교내 대형 식당으로, 다양한 메뉴를 제공합니다.", enName: "Student Cafeteria", enLocation: "Welfare Complex 1F", enDesc: "Large campus cafeteria open to students and faculty, offering a variety of menus.", src: "student_cafeteria_welfare_complex_1f.jpg" },
+    { name: "한울식당", location: "법학관 지하 1층", desc: "법학관 내 위치한 교내 식당입니다.", enName: "Hanul Cafeteria", enLocation: "Law Hall B1", enDesc: "Cafeteria located in Law Hall.", src: "hanul_cafeteria_law_hall_b1.jpg" },
+    { name: "해동할리스", location: "성곡도서관 지하 1층", desc: "성곡도서관 내 위치한 휴식 및 학습 겸용 카페입니다.", enName: "Haedong Holly's", enLocation: "Seonggok Library B1", enDesc: "Cafe in Seonggok Library for resting and studying.", src: "haedong_hollys_library_b1.jpg" }
 ];
 
 // --- 게임 텍스트 다국어 번역 사전 ---
 const translations = {
     ko: {
-        "logo": "공강구조대", "nav-main": "메인", "nav-team": "팀 소개", "nav-game": "게임", "nav-form": "추천 폼",
+        "logo": "공강구조대", "nav-main": "홈", "nav-team": "팀원 소개", "nav-game": "게임", "nav-form": "공강 추천",
         "intro-title": "캠퍼스 시설 학습 게임", "intro-desc": "게임을 통해 학교 시설 정보를 재미있게 익혀보세요!",
         "menu-place-title": "장소 맞히기", "menu-place-desc": "사진을 보고 교내 장소를 맞춰보세요.",
         "menu-ox-title": "OX 퀴즈", "menu-ox-desc": "학교 시설에 대한 OX 문제를 풀어보세요.",
@@ -28,7 +41,9 @@ const translations = {
         "timer-label": "제한시간", "sec": "초", "q-text-place": "이 사진 속 시설의 정확한 이름은 무엇일까요?",
         "q-hint": "힌트 위치", "correct-msg": "정답입니다! 🎉", "wrong-msg": "틀렸습니다! ✕", "timeout-msg": "시간 초과! ⏰",
         "ox-true-mid": "은(는)", "ox-true-end": "에 위치해 있다.", "ox-ans-o": "맞습니다!", "ox-ans-x": "틀렸습니다!",
-        "ox-explain-o": "의 정확한 위치는", "ox-explain-x": "의 실제 위치는", "ox-explain-end": "입니다.", "img-alt-text": "시설 사진 준비중"
+        "ox-explain-o": "의 정확한 위치는", "ox-explain-x": "의 실제 위치는", "ox-explain-end": "입니다.", "img-alt-text": "시설 사진 준비중",
+        "ox-explain-correct": "맞습니다! \"{name}\"의 정확한 위치는 {location}입니다.",
+        "ox-explain-wrong": "틀렸습니다. \"{name}\"의 실제 위치는 {location}입니다."
     },
     en: {
         "logo": "ClassRescue", "nav-main": "Main", "nav-team": "Team", "nav-game": "Game", "nav-form": "Form",
@@ -40,7 +55,9 @@ const translations = {
         "timer-label": "Time Limit", "sec": "s", "q-text-place": "What is the exact name of the facility in this picture?",
         "q-hint": "Hint Location", "correct-msg": "Correct! 🎉", "wrong-msg": "Wrong! ✕", "timeout-msg": "Time Out! ⏰",
         "ox-true-mid": "is located at", "ox-true-end": ".", "ox-ans-o": "Correct!", "ox-ans-x": "Wrong!",
-        "ox-explain-o": "The exact location of", "ox-explain-x": "The actual location of", "ox-explain-end": ".", "img-alt-text": "Image preparing"
+        "ox-explain-o": "The exact location of", "ox-explain-x": "The actual location of", "ox-explain-end": ".", "img-alt-text": "Image preparing",
+        "ox-explain-correct": "Correct! The exact location of \"{name}\" is {location}.",
+        "ox-explain-wrong": "Wrong. The actual location of \"{name}\" is {location}."
     },
     zh: {
         "logo": "空闲救援队", "nav-main": "主页", "nav-team": "团队介绍", "nav-game": "游戏", "nav-form": "推荐表",
@@ -52,7 +69,9 @@ const translations = {
         "timer-label": "限时", "sec": "秒", "q-text-place": "图中设施的正确名称是什么？",
         "q-hint": "提示位置", "correct-msg": "回答正确！🎉", "wrong-msg": "回答错误！✕", "timeout-msg": "时间到！⏰",
         "ox-true-mid": "位于", "ox-true-end": "。", "ox-ans-o": "正确！", "ox-ans-x": "错误！",
-        "ox-explain-o": "的正确位置是", "ox-explain-x": "的实际位置是", "ox-explain-end": "。", "img-alt-text": "设施图片准备中"
+        "ox-explain-o": "的正确位置是", "ox-explain-x": "的实际位置是", "ox-explain-end": "。", "img-alt-text": "设施图片准备中",
+        "ox-explain-correct": "正确！\"{name}\"的准确位置是{location}。",
+        "ox-explain-wrong": "错误。\"{name}\"的实际位置是{location}。"
     },
     ja: {
         "logo": "空きコマ救助隊", "nav-main": "メイン", "nav-team": "チーム紹介", "nav-game": "ゲーム", "nav-form": "おすすめフォーム",
@@ -64,7 +83,9 @@ const translations = {
         "timer-label": "制限時間", "sec": "秒", "q-text-place": "この写真の施設の正確な名前は何ですか？",
         "q-hint": "ヒント・場所", "correct-msg": "正解！🎉", "wrong-msg": "不正解！✕", "timeout-msg": "時間切れ！⏰",
         "ox-true-mid": "は", "ox-true-end": "にある。", "ox-ans-o": "正しい！", "ox-ans-x": "間違い！",
-        "ox-explain-o": "の正確な場所は", "ox-explain-x": "の実際の場所は", "ox-explain-end": "です。", "img-alt-text": "施設写真準備中"
+        "ox-explain-o": "の正確な場所は", "ox-explain-x": "の実際の場所は", "ox-explain-end": "です。", "img-alt-text": "施設写真準備中",
+        "ox-explain-correct": "正解！\"{name}\"の正確な場所は{location}です。",
+        "ox-explain-wrong": "不正解。\"{name}\"の実際の場所は{location}です。"
     },
     de: {
         "logo": "FreistundenRetter", "nav-main": "Startseite", "nav-team": "Team", "nav-game": "Spiel", "nav-form": "Empfehlung",
@@ -76,7 +97,9 @@ const translations = {
         "timer-label": "Zeitlimit", "sec": "s", "q-text-place": "Wie heißt die Einrichtung auf diesem Bild genau?",
         "q-hint": "Hinweis Ort", "correct-msg": "Richtig! 🎉", "wrong-msg": "Falsch! ✕", "timeout-msg": "Zeit abgelaufen! ⏰",
         "ox-true-mid": "befindet sich in", "ox-true-end": ".", "ox-ans-o": "Stimmt!", "ox-ans-x": "Falsch!",
-        "ox-explain-o": "Der genaue Standort von", "ox-explain-x": "Der tatsächliche Standort von", "ox-explain-end": ".", "img-alt-text": "Bild wird vorbereitet"
+        "ox-explain-o": "Der genaue Standort von", "ox-explain-x": "Der tatsächliche Standort von", "ox-explain-end": ".", "img-alt-text": "Bild wird vorbereitet",
+        "ox-explain-correct": "Richtig! Der genaue Standort von \"{name}\" ist {location}.",
+        "ox-explain-wrong": "Falsch. Der tatsächliche Standort von \"{name}\" ist {location}."
     },
     fr: {
         "logo": "SauveteurLibre", "nav-main": "Accueil", "nav-team": "Équipe", "nav-game": "Jeu", "nav-form": "Recommandation",
@@ -88,7 +111,9 @@ const translations = {
         "timer-label": "Temps limite", "sec": "s", "q-text-place": "Quel est le nom exact de l'installation sur cette photo ?",
         "q-hint": "Indice lieu", "correct-msg": "Correct ! 🎉", "wrong-msg": "Incorrect ! ✕", "timeout-msg": "Temps écoulé ! ⏰",
         "ox-true-mid": "est situé à", "ox-true-end": ".", "ox-ans-o": "Correct !", "ox-ans-x": "Incorrect !",
-        "ox-explain-o": "L'emplacement exact de", "ox-explain-x": "L'emplacement réel de", "ox-explain-end": ".", "img-alt-text": "Image en préparation"
+        "ox-explain-o": "L'emplacement exact de", "ox-explain-x": "L'emplacement réel de", "ox-explain-end": ".", "img-alt-text": "Image en préparation",
+        "ox-explain-correct": "Correct ! L'emplacement exact de \"{name}\" est {location}.",
+        "ox-explain-wrong": "Incorrect. L'emplacement réel de \"{name}\" est {location}."
     },
     ru: {
         "logo": "СпасательСвободы", "nav-main": "Главная", "nav-team": "Команда", "nav-game": "Игра", "nav-form": "Рекомендации",
@@ -100,7 +125,9 @@ const translations = {
         "timer-label": "Лимит времени", "sec": "с", "q-text-place": "Как точно называется объект на этом фото?",
         "q-hint": "Подсказка место", "correct-msg": "Правильно! 🎉", "wrong-msg": "Неправильно! ✕", "timeout-msg": "Время вышло! ⏰",
         "ox-true-mid": "находится в", "ox-true-end": ".", "ox-ans-o": "Верно!", "ox-ans-x": "Неверно!",
-        "ox-explain-o": "Точное местонахождение", "ox-explain-x": "Фактическое местонахождение", "ox-explain-end": ".", "img-alt-text": "Изображение готовится"
+        "ox-explain-o": "Точное местонахождение", "ox-explain-x": "Фактическое местонахождение", "ox-explain-end": ".", "img-alt-text": "Изображение готовится",
+        "ox-explain-correct": "Правильно! Точное местонахождение \"{name}\" — {location}.",
+        "ox-explain-wrong": "Неправильно. Фактическое местонахождение \"{name}\" — {location}."
     }
 };
 
@@ -291,10 +318,11 @@ function renderCurrentQuestionStrings() {
 
 // --- 정답 판정 및 다국어 피드백 표기 ---
 function selectAnswer(selectedOpt) {
-    clearInterval(timerInterval);
+    clearInterval(timerInterval); // 1. 타이머 정지
     let quiz = currentQuizData[currentQuizIndex];
     const isKo = (currentLang === "ko");
 
+    // 버튼 비활성화
     const buttons = document.querySelectorAll(".option-btn");
     buttons.forEach(btn => btn.disabled = true);
 
@@ -304,22 +332,19 @@ function selectAnswer(selectedOpt) {
 
     feedbackArea.classList.remove("hidden");
 
+    // 2. 정답 판정
     let isCorrect = false;
-    let answerKey = "";
-
     if (currentGameType === 'place') {
-        answerKey = quiz.originData.name;
-        if (selectedOpt === answerKey) isCorrect = true;
+        if (selectedOpt === quiz.originData.name) isCorrect = true;
     } else {
-        answerKey = quiz.isTrueType ? "O" : "X";
+        const answerKey = quiz.isTrueType ? "O" : "X";
         if (selectedOpt === answerKey) isCorrect = true;
     }
 
-    // 결과 멘트 세팅
+    // 3. 점수 업데이트 및 결과 멘트 세팅
     if (isCorrect) {
-        userScore++;
-        // [요구사항] 문제를 푸는 와중에 실시간으로 점수판 업데이트 반영
-        document.getElementById("live-score-val").textContent = userScore; 
+        userScore++; // 점수 산출
+        document.getElementById("live-score-val").textContent = userScore; // 실시간 업데이트
         feedbackResult.textContent = translations[currentLang]["correct-msg"];
         feedbackResult.className = "correct";
     } else if (selectedOpt === null) {
@@ -330,19 +355,23 @@ function selectAnswer(selectedOpt) {
         feedbackResult.className = "wrong";
     }
 
-    // 해설 문구 다국어 동적 조립
+    // 4. 해설 문구 다국어 동적 조립 (템플릿 기반 자연스러운 문장)
     if (currentGameType === 'place') {
         const nameStr = isKo ? quiz.originData.name : quiz.originData.enName;
         const descStr = isKo ? quiz.originData.desc : quiz.originData.enDesc;
         feedbackDesc.textContent = `${nameStr} - ${descStr}`;
     } else {
-        const headAns = quiz.isTrueType ? translations[currentLang]["ox-ans-o"] : translations[currentLang]["ox-ans-x"];
-        const midLocExplain = quiz.isTrueType ? translations[currentLang]["ox-explain-o"] : translations[currentLang]["ox-explain-x"];
+        // OX 퀴즈는 템플릿을 사용하여 자연스러운 문장 생성
+        const templateKey = isCorrect ? "ox-explain-correct" : "ox-explain-wrong";
+        const template = translations[currentLang][templateKey];
+        
         const nameStr = isKo ? quiz.originData.name : quiz.originData.enName;
         const realLoc = isKo ? quiz.originData.location : quiz.originData.enLocation;
-        const endStr = translations[currentLang]["ox-explain-end"];
 
-        feedbackDesc.textContent = `${headAns} ${midLocExplain} "${nameStr}"은(는) ${realLoc}${endStr}`;
+        // {name}과 {location}을 실제 값으로 교체
+        feedbackDesc.textContent = template
+            .replace("{name}", nameStr)
+            .replace("{location}", realLoc);
     }
 }
 
