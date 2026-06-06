@@ -32,7 +32,7 @@ const campusData = [
 // --- 게임 텍스트 다국어 번역 사전 ---
 const translations = {
     ko: {
-        "logo": "공강구조대", "nav-main": "메인", "nav-team": "팀 소개", "nav-game": "게임", "nav-form": "추천 폼",
+        "logo": "공강구조대", "nav-main": "홈", "nav-team": "팀원 소개", "nav-game": "게임", "nav-form": "공강 추천",
         "intro-title": "캠퍼스 시설 학습 게임", "intro-desc": "게임을 통해 학교 시설 정보를 재미있게 익혀보세요!",
         "menu-place-title": "장소 맞히기", "menu-place-desc": "사진을 보고 교내 장소를 맞춰보세요.",
         "menu-ox-title": "OX 퀴즈", "menu-ox-desc": "학교 시설에 대한 OX 문제를 풀어보세요.",
