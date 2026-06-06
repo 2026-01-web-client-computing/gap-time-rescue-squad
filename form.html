@@ -10,7 +10,7 @@
   <header class="site-header">
     <nav class="navbar">
       <a href="main.html" class="logo" data-i18n="site_logo">공강구조대</a>
-
+      
       <ul class="nav-menu">
         <li><a href="main.html" data-i18n="nav_home">홈</a></li>
         <li><a href="team.html" data-i18n="nav_team">팀원 소개</a></li>
@@ -48,7 +48,7 @@
       </div>
 
       <div class="recommend-layout">
-        <form id="recommendForm" class="recommend-form">
+        <form id="recommendForm" class="card recommend-form">
           <div class="form-group">
             <label for="time" data-i18n="label_time">공강 시간</label>
             <select id="time" required>
@@ -92,12 +92,12 @@
             </select>
           </div>
 
-          <button type="submit" class="recommend-button" data-i18n="submit_button">
+          <button type="submit" class="btn btn-primary recommend-button" data-i18n="submit_button">
             추천 받기
           </button>
         </form>
 
-        <div class="result-panel">
+        <div class="card result-panel">
           <p class="result-label" data-i18n="result_label">추천 결과</p>
           <div id="resultBox" class="result-box empty" data-i18n="result_empty">
             조건을 선택하고 추천 받기 버튼을 눌러주세요.
@@ -112,7 +112,7 @@
   </footer>
 
   <script src="assets/js/data.js"></script>
-  <script src="assets/js/page-i18n.js"></script>
+  <script src="assets/js/i18n.js"></script>
   <script src="assets/js/form.js"></script>
 </body>
 </html>

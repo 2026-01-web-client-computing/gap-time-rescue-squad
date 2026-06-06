@@ -7,16 +7,17 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-
     <header class="site-header">
         <nav class="navbar">
             <a href="main.html" class="logo" data-i18n="site_logo">공강구조대</a>
+
             <ul class="nav-menu">
                 <li><a href="main.html" data-i18n="nav_home">홈</a></li>
                 <li><a href="team.html" data-i18n="nav_team">팀원 소개</a></li>
                 <li><a href="game.html" class="active" data-i18n="nav_game">게임</a></li>
                 <li><a href="form.html" data-i18n="nav_form">공강 추천</a></li>
             </ul>
+
             <select id="lang-selector" class="language-selector" aria-label="Language selector">
                 <option value="ko">한국어</option>
                 <option value="en">English</option>
@@ -30,7 +31,6 @@
     </header>
 
     <main class="main-container">
-        
         <section id="intro-screen" class="screen">
             <div class="intro-header">
                 <h2 data-i18n="intro-title">캠퍼스 시설 학습 게임</h2>
@@ -38,20 +38,20 @@
             </div>
 
             <div class="game-selection">
-                <div class="game-card" onclick="startGame('place')">
+                <button type="button" class="card game-card" data-game-type="place">
                     <div class="icon">📍</div>
                     <h3 data-i18n="menu-place-title">장소 맞히기</h3>
                     <p data-i18n="menu-place-desc">사진을 보고 학교 시설을 맞춰보세요.</p>
-                </div>
-                <div class="game-card" onclick="startGame('ox')">
+                </button>
+                <button type="button" class="card game-card" data-game-type="ox">
                     <div class="icon">◎ ✕</div>
                     <h3 data-i18n="menu-ox-title">OX 퀴즈</h3>
                     <p data-i18n="menu-ox-desc">학교 시설에 대한 OX 문제를 풀어보세요.</p>
-                </div>
+                </button>
             </div>
 
             <div class="dashboard">
-                <div class="score-box" style="text-align: center; width: 100%;">
+                <div class="card score-box" style="text-align: center; width: 100%;">
                     <h4 data-i18n="dash-my-score">내 최근 점수</h4>
                     <p id="my-score">0 / 5</p>
                 </div>
@@ -76,25 +76,27 @@
             <div id="feedback-area" class="feedback-area hidden">
                 <div id="feedback-result"></div>
                 <div id="feedback-desc"></div>
-                <button id="next-btn" onclick="nextQuestion()" data-i18n="btn-next">다음 문제</button>
+                <button type="button" id="next-btn" class="btn btn-primary" data-i18n="btn-next">다음 문제</button>
             </div>
         </section>
 
         <section id="result-screen" class="screen hidden">
             <h2 data-i18n="result-title">게임 종료!</h2>
+
             <div class="final-score">
                 <span data-i18n="result-score-label">최종 점수:</span>
                 <span id="final-score-val">0</span> / 5
             </div>
-            <button class="retry-btn" onclick="showIntro()" data-i18n="btn-retry">처음으로 돌아가기</button>
+            
+            <button type="button" class="btn btn-primary retry-btn" id="retry-btn" data-i18n="btn-retry">처음으로 돌아가기</button>
         </section>
-
     </main>
 
     <footer class="footer">
       <p>© 2026 공강구조대 | 공강 시간, 어디서 보낼까?</p>
     </footer>
 
+    <script src="assets/js/i18n.js"></script>
     <script src="assets/js/game.js"></script>
 </body>
 </html>

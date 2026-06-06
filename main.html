@@ -36,34 +36,34 @@
   <div id="app">
     <!-- main.html 내부 헤더 -->
     <header>
-      <div class="logo" data-i18n="app_logo">공강구조대</div>
+      <div class="app-logo" data-i18n="app_logo">공강구조대</div>
     </header>
 
     <!-- main.html 내부 탭 네비게이션 -->
-    <nav>
-      <button onclick="controller.viewSection('menu')" class="nav-btn active" id="btn-menu">
+    <nav class="tab-menu">
+      <button type="button" class="btn nav-btn active" id="btn-menu" data-section="menu">
         <span class="nav-icon" aria-hidden="true">🍽️</span>
         <span data-i18n="nav_menu">오늘의 식단</span>
       </button>
 
-      <button onclick="controller.viewSection('facility')" class="nav-btn" id="btn-facility">
+      <button type="button" class="btn nav-btn" id="btn-facility" data-section="facility">
         <span class="nav-icon" aria-hidden="true">🗺️</span>
         <span data-i18n="nav_facility">교내 시설</span>
       </button>
 
-      <button onclick="controller.viewSection('club')" class="nav-btn" id="btn-club">
+      <button type="button" class="btn nav-btn" id="btn-club" data-section="club">
         <span class="nav-icon" aria-hidden="true">👥</span>
         <span data-i18n="nav_club">동아리 안내</span>
       </button>
     </nav>
 
     <div id="meal-filter-bar" class="meal-filter">
-      <button onclick="controller.changeMealTime('LUNCH')" class="meal-btn active" id="btn-lunch">
+      <button type="button" class="btn meal-btn active" id="btn-lunch" data-meal-time="LUNCH">
         <span class="nav-icon" aria-hidden="true">☀️</span>
         <span data-i18n="meal_lunch">중식 (Lunch)</span>
       </button>
 
-      <button onclick="controller.changeMealTime('DINNER')" class="meal-btn" id="btn-dinner">
+      <button type="button" class="btn meal-btn" id="btn-dinner" data-meal-time="DINNER">
         <span class="nav-icon" aria-hidden="true">🌙</span>
         <span data-i18n="meal_dinner">석식 (Dinner)</span>
       </button>
@@ -73,7 +73,7 @@
 
     <div id="ai-modal" class="modal">
       <div class="modal-content">
-        <span class="close" onclick="controller.closeAI()">&times;</span>
+        <button type="button" class="close" id="ai-modal-close" aria-label="Close">&times;</button>
 
         <h3>
           <span aria-hidden="true">✨</span>
@@ -86,6 +86,7 @@
   </div>
 
   <script src="assets/js/data.js"></script>
+  <script src="assets/js/i18n.js"></script>
   <script src="assets/js/app.js"></script>
 
   <footer class="footer">

@@ -9,13 +9,14 @@ class KookminCodeController {
         this.selectedCategory = 'STORE';
         this.selectedClubCategory = 'ALL';
         this.openFacilityIndex = -1;
+        this.aiPayloads = [];
         this.render();
     }
 
     changeLanguage(lang) {
-        const safeLang = MOCK_DATA.translations[lang] ? lang : 'ko';
+        const safeLang = normalizeI18nLanguage(lang);
         MOCK_DATA.currentLang = safeLang;
-        document.documentElement.lang = safeLang;
+        applyI18n(safeLang);
         this.render();
     }
 
@@ -62,8 +63,8 @@ class KookminCodeController {
         const result = document.getElementById('ai-result');
         const lang = MOCK_DATA.currentLang || 'ko';
         
-        // 예외 방어: 만약 언어 사전이 비어있다면 영어를 기본으로 사용
-        const t = MOCK_DATA.translations[lang] || MOCK_DATA.translations['en'];
+        // 예외 방어: 만약 언어 사전이 비어있다면 한국어를 기본으로 사용
+        const t = getI18nDict(lang);
 
         document.getElementById('ai-modal-header').innerText = t.ai_modal_title || 'AI Analysis';
         modal.style.display = 'flex';
@@ -102,24 +103,19 @@ class KookminCodeController {
         const time = MOCK_DATA.currentMealTime || 'LUNCH';
         
         // 어떤 상황에서도 에러가 나지 않도록 번역 사전 기본값 적용
-        const t = MOCK_DATA.translations[lang] || MOCK_DATA.translations['en'];
+        const t = getI18nDict(lang);
         let html = '';
-
-        // i18n 고정 태그 동기화
-        document.querySelectorAll('[data-i18n]').forEach(el => {
-            const key = el.getAttribute('data-i18n');
-            if(t[key]) {
-                el.innerText = t[key];
-            }
-        });
+        this.aiPayloads = [];
 
         // 1. 식단 탭 렌더링 구역
         if (this.currentSection === 'menu') {
             const filtered = MOCK_DATA.menu.filter(m => m.time === time);
             filtered.forEach(item => {
                 const data = item.multilingual[lang] || item.multilingual['en'];
-                // 핵심 에러 수정 구역: data.ing가 없더라도 절대 멈추지 않음!
-                const safeIng = (data.ing || '').replace(/'/g, '&apos;'); 
+                const payloadIndex = this.aiPayloads.push({
+                    menuName: item.menuName,
+                    ingredients: data.ing || ''
+                }) - 1;
                 
                 html += `
                     <div class="card">
@@ -127,7 +123,7 @@ class KookminCodeController {
                         <h3>${item.menuName}</h3>
                         <p class="intro">${data.intro || ''}</p>
                         <p class="ingredients"><span aria-hidden="true">🧺</span> <strong>Ingredients:</strong> ${data.ing || '정보 없음'}</p>
-                        <button class="ai-btn" onclick="controller.requestAI('${item.menuName}', '${safeIng}')"><span aria-hidden="true">✨</span> ${t.ai_guide_btn}</button>
+                        <button type="button" class="btn ai-btn" data-action="request-ai" data-ai-index="${payloadIndex}"><span aria-hidden="true">✨</span> ${t.ai_guide_btn}</button>
                     </div>`;
             });
 
@@ -140,7 +136,7 @@ class KookminCodeController {
                 const catName = cat.name[lang] || cat.name['en'] || cat.name['ko'];
                 
                 html += `
-                    <button onclick="controller.changeCategory('${cat.id}')" style="${btnStyle} border-radius:10px; padding:10px 4px; font-size:14px; cursor:pointer; flex:1; transition:all 0.2s ease; outline:none;">
+                    <button type="button" class="btn category-filter-btn" data-action="change-category" data-category="${cat.id}" style="${btnStyle} border-radius:10px; padding:10px 4px; font-size:14px; cursor:pointer; flex:1; transition:all 0.2s ease; outline:none;">
                         <span style="font-size:24px; display:block; margin-bottom:4px;">${cat.icon}</span>
                         <span style="font-size:11px; font-weight:700; color:#0D0D0C; white-space:nowrap;">${catName}</span>
                     </button>`;
@@ -155,14 +151,14 @@ class KookminCodeController {
                     const isOpen = (this.openFacilityIndex === index);
                     const fData = facility.multilingual[lang] || facility.multilingual['en'];
                     html += `
-                        <div class="facility-card" style="border-color:${isOpen ? '#08A470' : '#DADADA'};">
-                            <div onclick="controller.toggleFacilityDetails(${index})" style="padding:16px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; background:${isOpen ? '#E8F7F1' : '#ffffff'};">
+                        <div class="card facility-card" style="border-color:${isOpen ? '#08A470' : '#DADADA'};">
+                            <button type="button" class="facility-toggle" data-action="toggle-facility" data-index="${index}" style="width:100%; border:0; padding:16px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; background:${isOpen ? '#E8F7F1' : '#ffffff'}; text-align:left;">
                                 <div style="flex:1;">
                                     <h4 style="margin:0 0 6px 0; color:#0D0D0C; font-size:16px;">${fData.name || '알 수 없음'}</h4>
                                     <span style="font-size:12px; color:#575656;"><span aria-hidden="true" style="margin-right:4px;">📍</span>${fData.loc || facility.originalLoc}</span>
                                 </div>
                                 <div style="color:${isOpen ? '#08A470' : '#575656'};">${isOpen ? '▲' : '▼'}</div>
-                            </div>
+                            </button>
                             <div style="display:${isOpen ? 'block' : 'none'}; padding:16px; background:#FFFFFF; border-top:1px dashed #DADADA; font-size:13px;">
                                 <div style="margin-bottom:8px;"><strong>${t.label_hours}:</strong> ${fData.hours || ''}</div>
                                 <div><strong>${t.label_details}:</strong> ${fData.details || ''}</div>
@@ -186,7 +182,7 @@ class KookminCodeController {
             html += `<div class="club-filter-scroll">`;
             MOCK_DATA.clubCategories.forEach(cCat => {
                 const isActive = (this.selectedClubCategory === cCat.id);
-                html += `<button onclick="controller.changeClubCategory('${cCat.id}')" class="club-filter-btn ${isActive ? 'active' : ''}">${t[cCat.i18n]}</button>`;
+                html += `<button type="button" class="btn club-filter-btn ${isActive ? 'active' : ''}" data-action="change-club-category" data-club-category="${cCat.id}">${t[cCat.i18n]}</button>`;
             });
             html += `</div>`;
 
@@ -198,7 +194,7 @@ class KookminCodeController {
                     const cData = club.multilingual[lang] || club.multilingual['en'];
                     const hasInsta = club.instagram !== 'none';
                     html += `
-                        <div class="club-card">
+                        <div class="card club-card">
                             <h4>
                                 <span><span aria-hidden="true" style="margin-right:6px;">🧩</span>${cData.name || ''}</span>
                                 <span style="font-size:11px; background:#E8F7F1; color:#08A470; padding:2px 8px; border-radius:4px;">No.${club.no}</span>
@@ -221,9 +217,40 @@ class KookminCodeController {
 // 글로벌 컨트롤러 기동
 const controller = new KookminCodeController();
 
-const languageSelector = document.getElementById('lang-selector');
-if (languageSelector) {
-    languageSelector.addEventListener('change', (event) => {
-        controller.changeLanguage(event.target.value);
-    });
-}
+document.querySelectorAll('[data-section]').forEach((button) => {
+    button.addEventListener('click', () => controller.viewSection(button.dataset.section));
+});
+
+document.querySelectorAll('[data-meal-time]').forEach((button) => {
+    button.addEventListener('click', () => controller.changeMealTime(button.dataset.mealTime));
+});
+
+document.getElementById('ai-modal-close')?.addEventListener('click', () => controller.closeAI());
+
+document.getElementById('content')?.addEventListener('click', (event) => {
+    const target = event.target.closest('[data-action]');
+    if (!target) return;
+
+    if (target.dataset.action === 'request-ai') {
+        const payload = controller.aiPayloads[Number(target.dataset.aiIndex)];
+        if (payload) controller.requestAI(payload.menuName, payload.ingredients);
+    }
+
+    if (target.dataset.action === 'change-category') {
+        controller.changeCategory(target.dataset.category);
+    }
+
+    if (target.dataset.action === 'toggle-facility') {
+        controller.toggleFacilityDetails(Number(target.dataset.index));
+    }
+
+    if (target.dataset.action === 'change-club-category') {
+        controller.changeClubCategory(target.dataset.clubCategory);
+    }
+});
+
+document.addEventListener('i18n:change', (event) => {
+    controller.changeLanguage(event.detail.lang);
+});
+
+controller.changeLanguage(document.getElementById('lang-selector')?.value || 'ko');

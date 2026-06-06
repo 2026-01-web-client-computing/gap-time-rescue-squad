@@ -1,102 +1,6 @@
 const recommendForm = document.querySelector("#recommendForm");
 const resultBox = document.querySelector("#resultBox");
 
-const SUPPORTED_LANGS = ["ko", "en", "zh", "ja", "de", "fr", "ru"];
-
-const UI_TEXT = {
-  ko: {
-    resultBadge: "추천 장소",
-    locationLabel: "위치",
-    hoursLabel: "운영시간",
-    detailLabel: "특징",
-    reasonLabel: "추천 이유",
-    sameBuilding: "현재 위치와 같은 건물이라 짧은 공강에 이동 부담이 적습니다.",
-    otherBuilding: "공강 시간이 충분해서 다른 건물까지 추천 범위를 넓혔습니다.",
-    walkReason: "가볍게 움직이며 환기하기 좋은 산책 코스입니다.",
-    noTitle: "추천 결과가 없습니다.",
-    noDesc: "다른 조건을 선택해 다시 추천 받아보세요.",
-    dataError: "시설 데이터를 불러오지 못했습니다. form.html에서 data.js가 script.js보다 먼저 연결되어 있는지 확인하세요."
-  },
-  en: {
-    resultBadge: "Recommended Place",
-    locationLabel: "Location",
-    hoursLabel: "Hours",
-    detailLabel: "Details",
-    reasonLabel: "Why recommended",
-    sameBuilding: "It is in your current building, so it is suitable for a short break.",
-    otherBuilding: "Your break is long enough, so places in other buildings are included.",
-    walkReason: "A light walking route for fresh air during your break.",
-    noTitle: "No recommendation found.",
-    noDesc: "Try again with different conditions.",
-    dataError: "Facility data could not be loaded. Check that data.js is linked before script.js in form.html."
-  },
-  zh: {
-    resultBadge: "推荐地点",
-    locationLabel: "位置",
-    hoursLabel: "营业时间",
-    detailLabel: "特点",
-    reasonLabel: "推荐理由",
-    sameBuilding: "该地点与当前位置在同一栋楼，适合短暂空堂时间。",
-    otherBuilding: "空堂时间较充足，因此也推荐其他楼栋。",
-    walkReason: "适合在空堂时间轻松散步、转换心情的路线。",
-    noTitle: "没有找到推荐结果。",
-    noDesc: "请更换条件后重新尝试。",
-    dataError: "无法加载设施数据。请确认 form.html 中 data.js 位于 script.js 之前。"
-  },
-  ja: {
-    resultBadge: "おすすめ場所",
-    locationLabel: "位置",
-    hoursLabel: "営業時間",
-    detailLabel: "特徴",
-    reasonLabel: "おすすめ理由",
-    sameBuilding: "現在地と同じ建物にあるため、短い空き時間に適しています。",
-    otherBuilding: "空き時間に余裕があるため、他の建物も含めておすすめします。",
-    walkReason: "空き時間に気分転換しやすい軽い散歩コースです。",
-    noTitle: "おすすめ結果がありません。",
-    noDesc: "別の条件で再度試してください。",
-    dataError: "施設データを読み込めません。form.htmlでdata.jsがscript.jsより先に読み込まれているか確認してください。"
-  },
-  de: {
-    resultBadge: "Empfohlener Ort",
-    locationLabel: "Ort",
-    hoursLabel: "Öffnungszeiten",
-    detailLabel: "Details",
-    reasonLabel: "Empfehlungsgrund",
-    sameBuilding: "Der Ort liegt im selben Gebäude und passt daher gut zu einer kurzen Pause.",
-    otherBuilding: "Die Pause ist lang genug, daher werden auch andere Gebäude empfohlen.",
-    walkReason: "Eine leichte Route, um während der Pause frische Luft zu bekommen.",
-    noTitle: "Keine Empfehlung gefunden.",
-    noDesc: "Versuche es mit anderen Bedingungen erneut.",
-    dataError: "Die Einrichtungsdaten konnten nicht geladen werden. Prüfe, ob data.js vor script.js eingebunden ist."
-  },
-  fr: {
-    resultBadge: "Lieu recommandé",
-    locationLabel: "Emplacement",
-    hoursLabel: "Horaires",
-    detailLabel: "Détails",
-    reasonLabel: "Raison",
-    sameBuilding: "Ce lieu est dans le même bâtiment, donc adapté à une courte pause.",
-    otherBuilding: "La pause est assez longue, donc d'autres bâtiments sont aussi proposés.",
-    walkReason: "Un petit itinéraire agréable pour prendre l'air pendant la pause.",
-    noTitle: "Aucune recommandation trouvée.",
-    noDesc: "Essayez avec d'autres conditions.",
-    dataError: "Impossible de charger les données. Vérifiez que data.js est chargé avant script.js."
-  },
-  ru: {
-    resultBadge: "Рекомендованное место",
-    locationLabel: "Место",
-    hoursLabel: "Часы работы",
-    detailLabel: "Детали",
-    reasonLabel: "Причина",
-    sameBuilding: "Это место находится в том же здании, поэтому подходит для короткого перерыва.",
-    otherBuilding: "Перерыв достаточно длинный, поэтому включены и другие здания.",
-    walkReason: "Лёгкий маршрут для прогулки и смены обстановки.",
-    noTitle: "Рекомендации не найдены.",
-    noDesc: "Попробуйте выбрать другие условия.",
-    dataError: "Не удалось загрузить данные. Проверьте, что data.js подключён перед script.js."
-  }
-};
-
 const ACTIVITY_CATEGORY_RULES = {
   rest: ["CAFE"],
   cafe: ["CAFE"],
@@ -168,14 +72,11 @@ if (recommendForm) {
   });
 }
 
-const languageSelect = document.querySelector("#lang-selector");
-if (languageSelect) {
-  languageSelect.addEventListener("change", () => {
-    if (!resultBox.classList.contains("empty")) {
-      submitRecommendation();
-    }
-  });
-}
+document.addEventListener("i18n:change", () => {
+  if (!resultBox.classList.contains("empty")) {
+    submitRecommendation();
+  }
+});
 
 function submitRecommendation() {
   const time = document.querySelector("#time").value;
@@ -217,7 +118,7 @@ function recommendPlaces({ time, activity, location, language }) {
     .slice(0, 5)
     .map((place) => ({
       ...place,
-      reason: place.isSameBuilding ? UI_TEXT[language].sameBuilding : UI_TEXT[language].otherBuilding
+      reason: place.isSameBuilding ? getI18nDict(language).reason_same_building : getI18nDict(language).reason_other_building
     }));
 
   return candidates;
@@ -231,7 +132,7 @@ function recommendWalkPlaces(time, location, language) {
     category: "WALK",
     originalLoc: place.multilingual.ko.loc,
     isSameBuilding: isSameBuilding(place.building, location),
-    reason: UI_TEXT[language].walkReason
+    reason: getI18nDict(language).reason_walk
   }));
 
   if (sameBuildingOnly) {
@@ -244,7 +145,7 @@ function recommendWalkPlaces(time, location, language) {
       category: "WALK",
       originalLoc: place.multilingual.ko.loc,
       isSameBuilding: false,
-      reason: UI_TEXT[language].walkReason
+      reason: getI18nDict(language).reason_walk
     }));
   }
 
@@ -268,25 +169,25 @@ function categoryPriority(category, targetCategories) {
 }
 
 function normalizeLanguage(language) {
-  return SUPPORTED_LANGS.includes(language) ? language : "ko";
+  return normalizeI18nLanguage(language);
 }
 
 function renderError(language) {
   resultBox.removeAttribute("data-i18n");
   resultBox.classList.remove("empty");
-  resultBox.innerHTML = `<div class="no-result"><p>${UI_TEXT[language].dataError}</p></div>`;
+  resultBox.innerHTML = `<div class="no-result"><p>${getI18nDict(language).facility_data_error}</p></div>`;
 }
 
 function renderResult(resultList, language) {
-  const text = UI_TEXT[language];
+  const text = getI18nDict(language);
   resultBox.removeAttribute("data-i18n");
   resultBox.classList.remove("empty");
 
   if (resultList.length === 0) {
     resultBox.innerHTML = `
       <div class="no-result">
-        <h3>${text.noTitle}</h3>
-        <p>${text.noDesc}</p>
+        <h3>${text.no_result_title}</h3>
+        <p>${text.no_result_desc}</p>
       </div>
     `;
     return;
@@ -296,14 +197,14 @@ function renderResult(resultList, language) {
     const i18n = place.multilingual[language] || place.multilingual.ko;
 
     return `
-      <article class="place-card">
-        <span class="place-badge">${text.resultBadge}</span>
+      <article class="card place-card">
+        <span class="place-badge">${text.result_badge}</span>
         <h3>${i18n.name}</h3>
-        <p><strong>${text.locationLabel}</strong> ${i18n.loc}</p>
-        <p><strong>${text.hoursLabel}</strong> ${i18n.hours}</p>
-        <p><strong>${text.detailLabel}</strong> ${i18n.details}</p>
+        <p><strong>${text.result_location_label}</strong> ${i18n.loc}</p>
+        <p><strong>${text.result_hours_label}</strong> ${i18n.hours}</p>
+        <p><strong>${text.result_detail_label}</strong> ${i18n.details}</p>
         <div class="place-tip">
-          <strong>${text.reasonLabel}</strong> ${place.reason}
+          <strong>${text.result_reason_label}</strong> ${place.reason}
         </div>
       </article>
     `;
