@@ -42,7 +42,9 @@ const translations = {
         "timer-label": "제한시간", "sec": "초", "q-text-place": "이 사진 속 시설의 정확한 이름은 무엇일까요?",
         "q-hint": "힌트 위치", "correct-msg": "정답입니다! 🎉", "wrong-msg": "틀렸습니다! ✕", "timeout-msg": "시간 초과! ⏰",
         "ox-true-mid": "은(는)", "ox-true-end": "에 위치해 있다.", "ox-ans-o": "맞습니다!", "ox-ans-x": "틀렸습니다!",
-        "ox-explain-o": "의 정확한 위치는", "ox-explain-x": "의 실제 위치는", "ox-explain-end": "입니다.", "img-alt-text": "시설 사진 준비중"
+        "ox-explain-o": "의 정확한 위치는", "ox-explain-x": "의 실제 위치는", "ox-explain-end": "입니다.", "img-alt-text": "시설 사진 준비중",
+        "ox-explain-correct": "맞습니다! \"{name}\"의 정확한 위치는 {location}입니다.",
+        "ox-explain-wrong": "틀렸습니다. \"{name}\"의 실제 위치는 {location}입니다."
     },
     en: {
         "logo": "ClassRescue", "nav-main": "Main", "nav-team": "Team", "nav-game": "Game", "nav-form": "Form",
@@ -54,7 +56,9 @@ const translations = {
         "timer-label": "Time Limit", "sec": "s", "q-text-place": "What is the exact name of the facility in this picture?",
         "q-hint": "Hint Location", "correct-msg": "Correct! 🎉", "wrong-msg": "Wrong! ✕", "timeout-msg": "Time Out! ⏰",
         "ox-true-mid": "is located at", "ox-true-end": ".", "ox-ans-o": "Correct!", "ox-ans-x": "Wrong!",
-        "ox-explain-o": "The exact location of", "ox-explain-x": "The actual location of", "ox-explain-end": ".", "img-alt-text": "Image preparing"
+        "ox-explain-o": "The exact location of", "ox-explain-x": "The actual location of", "ox-explain-end": ".", "img-alt-text": "Image preparing",
+        "ox-explain-correct": "Correct! The exact location of \"{name}\" is {location}.",
+        "ox-explain-wrong": "Wrong. The actual location of \"{name}\" is {location}."
     },
     zh: {
         "logo": "空闲救援队", "nav-main": "主页", "nav-team": "团队介绍", "nav-game": "游戏", "nav-form": "推荐表",
@@ -66,7 +70,9 @@ const translations = {
         "timer-label": "限时", "sec": "秒", "q-text-place": "图中设施的正确名称是什么？",
         "q-hint": "提示位置", "correct-msg": "回答正确！🎉", "wrong-msg": "回答错误！✕", "timeout-msg": "时间到！⏰",
         "ox-true-mid": "位于", "ox-true-end": "。", "ox-ans-o": "正确！", "ox-ans-x": "错误！",
-        "ox-explain-o": "的正确位置是", "ox-explain-x": "的实际位置是", "ox-explain-end": "。", "img-alt-text": "设施图片准备中"
+        "ox-explain-o": "的正确位置是", "ox-explain-x": "的实际位置是", "ox-explain-end": "。", "img-alt-text": "设施图片准备中",
+        "ox-explain-correct": "正确！\"{name}\"的准确位置是{location}。",
+        "ox-explain-wrong": "错误。\"{name}\"的实际位置是{location}。"
     },
     ja: {
         "logo": "空きコマ救助隊", "nav-main": "メイン", "nav-team": "チーム紹介", "nav-game": "ゲーム", "nav-form": "おすすめフォーム",
@@ -78,7 +84,9 @@ const translations = {
         "timer-label": "制限時間", "sec": "秒", "q-text-place": "この写真の施設の正確な名前は何ですか？",
         "q-hint": "ヒント・場所", "correct-msg": "正解！🎉", "wrong-msg": "不正解！✕", "timeout-msg": "時間切れ！⏰",
         "ox-true-mid": "は", "ox-true-end": "にある。", "ox-ans-o": "正しい！", "ox-ans-x": "間違い！",
-        "ox-explain-o": "の正確な場所は", "ox-explain-x": "の実際の場所は", "ox-explain-end": "です。", "img-alt-text": "施設写真準備中"
+        "ox-explain-o": "の正確な場所は", "ox-explain-x": "の実際の場所は", "ox-explain-end": "です。", "img-alt-text": "施設写真準備中",
+        "ox-explain-correct": "正解！\"{name}\"の正確な場所は{location}です。",
+        "ox-explain-wrong": "不正解。\"{name}\"の実際の場所は{location}です。"
     },
     de: {
         "logo": "FreistundenRetter", "nav-main": "Startseite", "nav-team": "Team", "nav-game": "Spiel", "nav-form": "Empfehlung",
@@ -90,7 +98,9 @@ const translations = {
         "timer-label": "Zeitlimit", "sec": "s", "q-text-place": "Wie heißt die Einrichtung auf diesem Bild genau?",
         "q-hint": "Hinweis Ort", "correct-msg": "Richtig! 🎉", "wrong-msg": "Falsch! ✕", "timeout-msg": "Zeit abgelaufen! ⏰",
         "ox-true-mid": "befindet sich in", "ox-true-end": ".", "ox-ans-o": "Stimmt!", "ox-ans-x": "Falsch!",
-        "ox-explain-o": "Der genaue Standort von", "ox-explain-x": "Der tatsächliche Standort von", "ox-explain-end": ".", "img-alt-text": "Bild wird vorbereitet"
+        "ox-explain-o": "Der genaue Standort von", "ox-explain-x": "Der tatsächliche Standort von", "ox-explain-end": ".", "img-alt-text": "Bild wird vorbereitet",
+        "ox-explain-correct": "Richtig! Der genaue Standort von \"{name}\" ist {location}.",
+        "ox-explain-wrong": "Falsch. Der tatsächliche Standort von \"{name}\" ist {location}."
     },
     fr: {
         "logo": "SauveteurLibre", "nav-main": "Accueil", "nav-team": "Équipe", "nav-game": "Jeu", "nav-form": "Recommandation",
@@ -102,7 +112,9 @@ const translations = {
         "timer-label": "Temps limite", "sec": "s", "q-text-place": "Quel est le nom exact de l'installation sur cette photo ?",
         "q-hint": "Indice lieu", "correct-msg": "Correct ! 🎉", "wrong-msg": "Incorrect ! ✕", "timeout-msg": "Temps écoulé ! ⏰",
         "ox-true-mid": "est situé à", "ox-true-end": ".", "ox-ans-o": "Correct !", "ox-ans-x": "Incorrect !",
-        "ox-explain-o": "L'emplacement exact de", "ox-explain-x": "L'emplacement réel de", "ox-explain-end": ".", "img-alt-text": "Image en préparation"
+        "ox-explain-o": "L'emplacement exact de", "ox-explain-x": "L'emplacement réel de", "ox-explain-end": ".", "img-alt-text": "Image en préparation",
+        "ox-explain-correct": "Correct ! L'emplacement exact de \"{name}\" est {location}.",
+        "ox-explain-wrong": "Incorrect. L'emplacement réel de \"{name}\" est {location}."
     },
     ru: {
         "logo": "СпасательСвободы", "nav-main": "Главная", "nav-team": "Команда", "nav-game": "Игра", "nav-form": "Рекомендации",
@@ -114,7 +126,9 @@ const translations = {
         "timer-label": "Лимит времени", "sec": "с", "q-text-place": "Как точно называется объект на этом фото?",
         "q-hint": "Подсказка место", "correct-msg": "Правильно! 🎉", "wrong-msg": "Неправильно! ✕", "timeout-msg": "Время вышло! ⏰",
         "ox-true-mid": "находится в", "ox-true-end": ".", "ox-ans-o": "Верно!", "ox-ans-x": "Неверно!",
-        "ox-explain-o": "Точное местонахождение", "ox-explain-x": "Фактическое местонахождение", "ox-explain-end": ".", "img-alt-text": "Изображение готовится"
+        "ox-explain-o": "Точное местонахождение", "ox-explain-x": "Фактическое местонахождение", "ox-explain-end": ".", "img-alt-text": "Изображение готовится",
+        "ox-explain-correct": "Правильно! Точное местонахождение \"{name}\" — {location}.",
+        "ox-explain-wrong": "Неправильно. Фактическое местонахождение \"{name}\" — {location}."
     }
 }; 
 
@@ -305,10 +319,11 @@ function renderCurrentQuestionStrings() {
 
 // --- 정답 판정 및 다국어 피드백 표기 ---
 function selectAnswer(selectedOpt) {
-    clearInterval(timerInterval);
+    clearInterval(timerInterval); // 1. 타이머 정지
     let quiz = currentQuizData[currentQuizIndex];
     const isKo = (currentLang === "ko");
 
+    // 버튼 비활성화
     const buttons = document.querySelectorAll(".option-btn");
     buttons.forEach(btn => btn.disabled = true);
 
@@ -318,22 +333,19 @@ function selectAnswer(selectedOpt) {
 
     feedbackArea.classList.remove("hidden");
 
+    // 2. 정답 판정
     let isCorrect = false;
-    let answerKey = "";
-
     if (currentGameType === 'place') {
-        answerKey = quiz.originData.name;
-        if (selectedOpt === answerKey) isCorrect = true;
+        if (selectedOpt === quiz.originData.name) isCorrect = true;
     } else {
-        answerKey = quiz.isTrueType ? "O" : "X";
+        const answerKey = quiz.isTrueType ? "O" : "X";
         if (selectedOpt === answerKey) isCorrect = true;
     }
 
-    // 결과 멘트 세팅
+    // 3. 점수 업데이트 및 결과 멘트 세팅
     if (isCorrect) {
-        userScore++;
-        // [요구사항] 문제를 푸는 와중에 실시간으로 점수판 업데이트 반영
-        document.getElementById("live-score-val").textContent = userScore; 
+        userScore++; // 점수 산출
+        document.getElementById("live-score-val").textContent = userScore; // 실시간 업데이트
         feedbackResult.textContent = translations[currentLang]["correct-msg"];
         feedbackResult.className = "correct";
     } else if (selectedOpt === null) {
@@ -344,19 +356,23 @@ function selectAnswer(selectedOpt) {
         feedbackResult.className = "wrong";
     }
 
-    // 해설 문구 다국어 동적 조립
+    // 4. 해설 문구 다국어 동적 조립 (템플릿 기반 자연스러운 문장)
     if (currentGameType === 'place') {
         const nameStr = isKo ? quiz.originData.name : quiz.originData.enName;
         const descStr = isKo ? quiz.originData.desc : quiz.originData.enDesc;
         feedbackDesc.textContent = `${nameStr} - ${descStr}`;
     } else {
-        const headAns = quiz.isTrueType ? translations[currentLang]["ox-ans-o"] : translations[currentLang]["ox-ans-x"];
-        const midLocExplain = quiz.isTrueType ? translations[currentLang]["ox-explain-o"] : translations[currentLang]["ox-explain-x"];
+        // OX 퀴즈는 템플릿을 사용하여 자연스러운 문장 생성
+        const templateKey = isCorrect ? "ox-explain-correct" : "ox-explain-wrong";
+        const template = translations[currentLang][templateKey];
+        
         const nameStr = isKo ? quiz.originData.name : quiz.originData.enName;
         const realLoc = isKo ? quiz.originData.location : quiz.originData.enLocation;
-        const endStr = translations[currentLang]["ox-explain-end"];
 
-        feedbackDesc.textContent = `${headAns} ${midLocExplain} "${nameStr}"은(는) ${realLoc}${endStr}`;
+        // {name}과 {location}을 실제 값으로 교체
+        feedbackDesc.textContent = template
+            .replace("{name}", nameStr)
+            .replace("{location}", realLoc);
     }
 }
 
