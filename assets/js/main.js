@@ -68,7 +68,7 @@ class KookminCodeController {
 
         result.innerHTML = `
             <div style="text-align:center; padding: 25px;">
-                <i class="fa-solid fa-spinner fa-spin fa-2x" style="color:#00C897;"></i>
+                <span style="font-size:30px; display:inline-block;">⏳</span>
                 <br><br>Analyzing context language...
             </div>`;
 
@@ -121,47 +121,47 @@ class KookminCodeController {
                 
                 html += `
                     <div class="card">
-                        <span class="tag" style="background:#e0f2fe; color:#0369a1;"><i class="fa-solid fa-shop"></i> ${item.restaurant}</span>
+                        <span class="tag" style="background:#E8F7F1; color:#08A470;"><span aria-hidden="true">🏫</span> ${item.restaurant}</span>
                         <h3>${item.menuName}</h3>
                         <p class="intro">${data.intro || ''}</p>
-                        <p class="ingredients"><i class="fa-solid fa-basket-shopping" style="color:var(--accent);"></i> <strong>Ingredients:</strong> ${data.ing || '정보 없음'}</p>
-                        <button class="ai-btn" onclick="controller.requestAI('${item.menuName}', '${safeIng}')"><i class="fa-solid fa-wand-magic-sparkles"></i> ${t.ai_guide_btn}</button>
+                        <p class="ingredients"><span aria-hidden="true">🧺</span> <strong>Ingredients:</strong> ${data.ing || '정보 없음'}</p>
+                        <button class="ai-btn" onclick="controller.requestAI('${item.menuName}', '${safeIng}')"><span aria-hidden="true">✨</span> ${t.ai_guide_btn}</button>
                     </div>`;
             });
 
         // 2. 교내 시설 가이드 구역 (이모티콘 서브탭)
         } else if (this.currentSection === 'facility') {
-            html += `<div class="emoji-container" style="display:flex; justify-content:space-between; margin: 10px 0 20px 0; background:#f8fafc; padding:12px; border-radius:14px; gap:6px; border:1px solid #e2e8f0; overflow-x:auto; -webkit-overflow-scrolling:touch;">`;
+            html += `<div class="emoji-container" style="display:flex; justify-content:space-between; margin: 10px 0 20px 0; background:#FFFFFF; padding:12px; border-radius:14px; gap:6px; border:1px solid #DADADA; overflow-x:auto; -webkit-overflow-scrolling:touch;">`;
             MOCK_DATA.categories.forEach(cat => {
                 const isSelected = (this.selectedCategory === cat.id);
-                const btnStyle = isSelected ? 'background:#ffffff; border:2px solid #00C897; transform:scale(1.05);' : 'background:#f1f5f9; border:2px solid transparent; opacity:0.7;';
+                const btnStyle = isSelected ? 'background:#ffffff; border:2px solid #08A470; transform:scale(1.05);' : 'background:#F8F5EA; border:2px solid transparent; opacity:0.7;';
                 const catName = cat.name[lang] || cat.name['en'] || cat.name['ko'];
                 
                 html += `
                     <button onclick="controller.changeCategory('${cat.id}')" style="${btnStyle} border-radius:10px; padding:10px 4px; font-size:14px; cursor:pointer; flex:1; transition:all 0.2s ease; outline:none;">
                         <span style="font-size:24px; display:block; margin-bottom:4px;">${cat.icon}</span>
-                        <span style="font-size:11px; font-weight:700; color:#1e293b; white-space:nowrap;">${catName}</span>
+                        <span style="font-size:11px; font-weight:700; color:#0D0D0C; white-space:nowrap;">${catName}</span>
                     </button>`;
             });
             html += `</div>`;
 
             const matched = MOCK_DATA.facilities.filter(f => f.category === this.selectedCategory);
             if (matched.length === 0) {
-                html += `<div style="text-align:center; padding:30px; color:#94a3b8;">${t.empty_facility}</div>`;
+                html += `<div style="text-align:center; padding:30px; color:#575656;">${t.empty_facility}</div>`;
             } else {
                 matched.forEach((facility, index) => {
                     const isOpen = (this.openFacilityIndex === index);
                     const fData = facility.multilingual[lang] || facility.multilingual['en'];
                     html += `
-                        <div class="facility-card" style="border-color:${isOpen ? '#00C897' : '#e2e8f0'};">
-                            <div onclick="controller.toggleFacilityDetails(${index})" style="padding:16px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; background:${isOpen ? '#f0fdf4' : '#ffffff'};">
+                        <div class="facility-card" style="border-color:${isOpen ? '#08A470' : '#DADADA'};">
+                            <div onclick="controller.toggleFacilityDetails(${index})" style="padding:16px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; background:${isOpen ? '#E8F7F1' : '#ffffff'};">
                                 <div style="flex:1;">
-                                    <h4 style="margin:0 0 6px 0; color:#002D56; font-size:16px;">${fData.name || '알 수 없음'}</h4>
-                                    <span style="font-size:12px; color:#64748b;"><i class="fa-solid fa-location-dot" style="color:#00C897; margin-right:4px;"></i>${fData.loc || facility.originalLoc}</span>
+                                    <h4 style="margin:0 0 6px 0; color:#0D0D0C; font-size:16px;">${fData.name || '알 수 없음'}</h4>
+                                    <span style="font-size:12px; color:#575656;"><span aria-hidden="true" style="margin-right:4px;">📍</span>${fData.loc || facility.originalLoc}</span>
                                 </div>
-                                <div style="color:${isOpen ? '#00C897' : '#94a3b8'};"><i class="fa-solid ${isOpen ? 'fa-chevron-up' : 'fa-chevron-down'}"></i></div>
+                                <div style="color:${isOpen ? '#08A470' : '#575656'};">${isOpen ? '▲' : '▼'}</div>
                             </div>
-                            <div style="display:${isOpen ? 'block' : 'none'}; padding:16px; background:#f8fafc; border-top:1px dashed #e2e8f0; font-size:13px;">
+                            <div style="display:${isOpen ? 'block' : 'none'}; padding:16px; background:#FFFFFF; border-top:1px dashed #DADADA; font-size:13px;">
                                 <div style="margin-bottom:8px;"><strong>${t.label_hours}:</strong> ${fData.hours || ''}</div>
                                 <div><strong>${t.label_details}:</strong> ${fData.details || ''}</div>
                             </div>
@@ -190,7 +190,7 @@ class KookminCodeController {
 
             const filteredClubs = (this.selectedClubCategory === 'ALL') ? MOCK_DATA.clubs : MOCK_DATA.clubs.filter(c => c.category === this.selectedClubCategory);
             if (filteredClubs.length === 0) {
-                html += `<div style="text-align:center; padding:30px; color:#94a3b8;">${t.empty_club}</div>`;
+                html += `<div style="text-align:center; padding:30px; color:#575656;">${t.empty_club}</div>`;
             } else {
                 filteredClubs.forEach(club => {
                     const cData = club.multilingual[lang] || club.multilingual['en'];
@@ -198,14 +198,14 @@ class KookminCodeController {
                     html += `
                         <div class="club-card">
                             <h4>
-                                <span><i class="fa-solid fa-puzzle-piece" style="color:#00C897; margin-right:6px;"></i>${cData.name || ''}</span>
-                                <span style="font-size:11px; background:#e0f2fe; color:#0369a1; padding:2px 8px; border-radius:4px;">No.${club.no}</span>
+                                <span><span aria-hidden="true" style="margin-right:6px;">🧩</span>${cData.name || ''}</span>
+                                <span style="font-size:11px; background:#E8F7F1; color:#08A470; padding:2px 8px; border-radius:4px;">No.${club.no}</span>
                             </h4>
                             <div class="club-info-row"><strong>${t.label_loc}:</strong> ${cData.loc || club.originalLoc}</div>
                             <div class="club-info-row"><strong>${t.label_purpose}:</strong> ${cData.purpose || ''}</div>
-                            <div style="margin-top:10px; border-top:1px dashed #f1f5f9; padding-top:8px;">
+                            <div style="margin-top:10px; border-top:1px dashed #F8F5EA; padding-top:8px;">
                                 <a href="https://instagram.com/${club.instagram}" target="_blank" class="club-instagram-tag ${hasInsta?'':'none'}">
-                                    <i class="fa-brands fa-instagram"></i> ${hasInsta?`@${club.instagram}`:'SNS 미확인'}
+                                    <span aria-hidden="true">📷</span> ${hasInsta?`@${club.instagram}`:'SNS 미확인'}
                                 </a>
                             </div>
                         </div>`;

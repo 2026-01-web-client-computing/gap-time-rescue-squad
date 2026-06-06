@@ -1,33 +1,19 @@
 // --- 국민대학교 교내복지시설 공식 데이터 ---
 const campusData = [
-    { name: "도시락전문점(K-BOB+)", location: "종합복지관 1층", desc: "도시락 전문점입니다.", enName: "K-BOB+", enLocation: "Welfare Complex 1F", enDesc: "A restaurant specializing in convenient lunch boxes.", src: "kbob_welfare_complex_1f.jpg" },
-    { name: "교직원식당", location: "종합복지관 1층", desc: "교직원 전용 식당입니다.", enName: "Faculty Cafeteria", enLocation: "Welfare Complex 1F", enDesc: "Cafeteria exclusively for faculty members.", src: "faculty_cafeteria_welfare_complex_1f.jpg" },
-    { name: "김밥ㆍ분식전문점(K-GIMBOB)", location: "북악관 1층", desc: "김밥 및 분식 전문점입니다.", enName: "K-GIMBOB+", enLocation: "Bugak Hall 1F", enDesc: "A restaurant specializing in gimbap and snacks.", src: "k_gimbob_bugak_hall_1f.jpg" },
-    { name: "기념품점", location: "북악관 1층", desc: "국민대 굿즈 매장입니다.", enName: "Souvenir Shop", enLocation: "Bugak Hall 1F", enDesc: "Kookmin Univ. merchandise shop.", src: "souvenir_shop_bugak_hall_1f.jpg" },
-    { name: "꽃집", location: "종합복지관 지하 1층", desc: "꽃과 화분을 판매합니다.", enName: "Flower Shop", enLocation: "Welfare Complex B1", enDesc: "Shop selling flowers and plants.", src: "flower_shop_welfare_complex_b1.jpg" },
-    { name: "문구점", location: "종합복지관 지하 1층", desc: "문구 및 사무용품 매장입니다.", enName: "Stationery Shop", enLocation: "Welfare Complex B1", enDesc: "Shop for stationery and office supplies.", src: "stationery_shop_welfare_complex_b1.jpg" },
-    { name: "버거운버거", location: "종합복지관 지하 1층", desc: "수제 버거 전문점입니다.", enName: "Beogeoun Burger", enLocation: "Welfare Complex B1", enDesc: "Shop selling handmade burgers.", src: "beogeoun_burger_welfare_complex_b1.jpg" },
-    { name: "빵집", location: "종합복지관 2층", desc: "다양한 빵과 음료를 판매합니다.", enName: "Bakery", enLocation: "Welfare Complex 2F", enDesc: "Shop selling various bread and drinks.", src: "bakery_welfare_complex_2f.jpg" },
-    { name: "샐러디", location: "종합복지관 지하 1층", desc: "신선한 샐러드를 판매합니다.", enName: "Salady", enLocation: "Welfare Complex B1", enDesc: "Shop selling fresh salads.", src: "salady_welfare_complex_b1.jpg" },
-    { name: "성곡도서관", location: "성곡도서관", desc: "학교 중앙 도서관입니다.", enName: "Seonggok Library", enLocation: "Seonggok Library", enDesc: "The central library of the university.", src: "seonggok_library_library.jpg" },
-    { name: "써브웨이", location: "북악관 1층", desc: "샌드위치 전문 프랜차이즈입니다.", enName: "Subway", enLocation: "Bugak Hall 1F", enDesc: "Sandwich franchise.", src: "subway_bugak_hall_1f.jpg" },
-    { name: "열람실(복지관 3층)", location: "종합복지관 3층", desc: "공용 열람실입니다.", enName: "Reading Room", enLocation: "Welfare Complex 3F", enDesc: "Common study room.", src: "reading_room_welfare_complex_3f.jpg" },
-    { name: "오지버거", location: "공학관 1층", desc: "버거 매장입니다.", enName: "Aussie Burger", enLocation: "Engineering Hall 1F", enDesc: "Burger shop located in Engineering Hall.", src: "aussie_burger_eng_hall_1f.jpg" },
-    { name: "웰니스센터", location: "미래관 지하 1층", desc: "건강 증진을 위한 센터입니다.", enName: "Wellness Center", enLocation: "Mirae Hall B1", enDesc: "Center for health promotion.", src: "wellness_center_welfare_complex.jpg" },
-    { name: "의무실(건강센터)", location: "종합복지관 4층", desc: "간단한 응급 처치가 가능합니다.", enName: "Infirmary", enLocation: "Welfare Complex 4F", enDesc: "Place for basic first aid.", src: "infirmary_health_center.jpg" },
-    { name: "제과점(플레이스앤)", location: "종합복지관 2층", desc: "베이커리 및 카페입니다.", enName: "Place N Bakery", enLocation: "Welfare Complex 2F", enDesc: "Bakery and cafe.", src: "place_n_bakery_welfare_complex_2f.jpg" },
-    { name: "청향", location: "법학관 5층", desc: "한식당입니다.", enName: "Cheonghyang", enLocation: "Law Hall 5F", enDesc: "Korean restaurant.", src: "cheonghyang_law_hall_5f.jpg" },
-    { name: "카페(공차)_북악관1층", location: "북악관 1층", desc: "밀크티 전문점입니다.", enName: "Gong Cha", enLocation: "Bugak Hall 1F", enDesc: "Milk tea specialty store.", src: "gongcha_bugak_hall_1f.jpg" },
-    { name: "카페_공학관1층", location: "공학관 1층", desc: "공학관 내 카페입니다.", enName: "Cafe (Engineering)", enLocation: "Engineering Hall 1F", enDesc: "Cafe located in Engineering Hall.", src: "cafe_eng_eng_hall_1f.jpg" },
-    { name: "카페_과학관1층", location: "과학관 1층", desc: "과학관 내 카페입니다.", enName: "Cafe (Science)", enLocation: "Science Hall 1F", enDesc: "Cafe located in Science Hall.", src: "cafe_sci_sci_hall_1f.jpg" },
-    { name: "카페_법대1층", location: "법학관 1층", desc: "법학관 내 카페입니다.", enName: "Cafe (Law)", enLocation: "Law Hall 1F", enDesc: "Cafe located in Law Hall.", src: "cafe_law_law_hall_1f.jpg" },
-    { name: "카페_복지관지하1층", location: "종합복지관 지하 1층", desc: "복지관 내 카페입니다.", enName: "Cafe (Welfare)", enLocation: "Welfare Complex B1", enDesc: "Cafe located in Welfare Complex.", src: "cafe_welfare_welfare_complex_b1.jpg" },
-    { name: "카페_본부관1층", location: "본부관 1층", desc: "본부관 내 카페입니다.", enName: "Cafe (Headquarters)", enLocation: "Headquarters 1F", enDesc: "Cafe located in Headquarters.", src: "cafe_hq_hq_1f.jpg" },
-    { name: "카페_북악관1층", location: "북악관 1층", desc: "북악관 내 카페입니다.", enName: "Cafe (Bugak)", enLocation: "Bugak Hall 1F", enDesc: "Cafe located in Bugak Hall.", src: "cafe_bugak_bugak_hall_1f.jpg" },
-    { name: "카페_예대1층", location: "예술관 1층", desc: "예술관 내 카페입니다.", enName: "Cafe (Arts)", enLocation: "Arts Hall 1F", enDesc: "Cafe located in Arts Hall.", src: "cafe_arts_arts_hall_1f.jpg" },
-    { name: "학생식당", location: "종합복지관 1층", desc: "학생 식당입니다.", enName: "Student Cafeteria", enLocation: "Welfare Complex 1F", enDesc: "Student cafeteria.", src: "student_cafeteria_welfare_complex_1f.jpg" },
-    { name: "한울식당", location: "법학관 지하 1층", desc: "법학관 지하 식당입니다.", enName: "Hanul Cafeteria", enLocation: "Law Hall B1", enDesc: "Cafeteria in Law Hall.", src: "hanul_cafeteria_law_hall_b1.jpg" },
-    { name: "해동할리스", location: "성곡도서관 지하 1층", desc: "도서관 카페입니다.", enName: "Haedong Holly's", enLocation: "Seonggok Library B1", enDesc: "Library cafe.", src: "haedong_hollys_library_b1.jpg" }
+    { name: "복사실 (북악관)", location: "북악관 1층", desc: "북악관 1층에 위치하며 교재 인쇄, 제본, 복사 서비스를 제공합니다.", enName: "Copy Room (Bugak Hall)", enLocation: "Bugak Hall 1st Floor", enDesc: "Located on the 1st floor of Bugak Hall, providing printing, binding, and copying services." },
+    { name: "우리은행", location: "종합복지관 2층", desc: "종합복지관 2층에 있는 교내 주거래 은행으로 다양한 금융 업무를 처리합니다.", enName: "Woori Bank", enLocation: "Welfare Complex 2nd Floor", enDesc: "The main campus bank located on the 2nd floor of the Welfare Complex, handling financial tasks." },
+    { name: "우편취급국", location: "종합복지관 2층", desc: "종합복지관 2층에 위치하여 우편물 및 택배 발송이 가능합니다.", enName: "Post Office", enLocation: "Welfare Complex 2nd Floor", enDesc: "Located on the 2nd floor of the Welfare Complex, handling mail and package delivery." },
+    { name: "서점", location: "종합복지관 1층", desc: "종합복지관 1층에 있으며 전공 서적과 교재를 구입할 수 있습니다.", enName: "Bookstore", enLocation: "Welfare Complex 1st Floor", enDesc: "Located on the 1st floor of the Welfare Complex, where textbooks can be purchased." },
+    { name: "기념품점", location: "북악관 1층", desc: "북악관 1층에 있으며 국민대만의 다양한 굿즈와 기념품을 판매합니다.", enName: "Souvenir Shop", enLocation: "Bugak Hall 1st Floor", enDesc: "Located on the 1st floor of Bugak Hall, selling various Kookmin Univ. merchandise." },
+    { name: "휴대전화 판매점", location: "종합복지관 1층 (서점 내부)", desc: "종합복지관 1층 구내서점 내부에 입점해 있는 통신 기기 매장입니다.", enName: "Mobile Phone Shop", enLocation: "Welfare Complex 1st Floor (Inside Bookstore)", enDesc: "A mobile device retail shop located inside the bookstore on the 1st floor of the Welfare Complex." },
+    { name: "문구잡화점", location: "종합복지관 지하 1층", desc: "종합복지관 지하 1층에 있으며 각종 문구류와 사무용품을 판매합니다.", enName: "Stationery & Variety Shop", enLocation: "Welfare Complex B1", enDesc: "Located on the B1 floor of the Welfare Complex, selling office and school supplies." },
+    { name: "화훼점", location: "종합복지관 지하 1층", desc: "종합복지관 지하 1층에 있는 꽃집으로 화분이나 꽃다발을 구매할 수 있습니다.", enName: "Flower Shop", enLocation: "Welfare Complex B1", enDesc: "A florist on the B1 floor of the Welfare Complex, where plants and bouquets can be bought." },
+    { name: "생활잡화점", location: "종합복지관 지하 1층", desc: "종합복지관 지하 1층에서 일상생활에 필요한 다양한 잡화를 판매합니다.", enName: "Daily Necessities Shop", enLocation: "Welfare Complex B1", enDesc: "Selling various general store goods on the B1 floor of the Welfare Complex." },
+    { name: "컴퓨터매장", location: "종합복지관 지하 1층", desc: "종합복지관 지하 1층에 위치하며 PC 주변기기 및 전자기기를 다룹니다.", enName: "Computer Shop", enLocation: "Welfare Complex B1", enDesc: "Located on the B1 floor of the Welfare Complex, handling PC components and devices." },
+    { name: "화방", location: "조형관 1층", desc: "조형관 1층에 위치하여 미술 용품과 전문 설계 및 디자인 재료를 판매합니다.", enName: "Art Supply Shop", enLocation: "Chodyung Hall 1st Floor", enDesc: "Located on the 1st floor of Chodyung Hall, offering professional fine art and design tools." },
+    { name: "손세차장", location: "미래관 주차장", desc: "미래관 주차장에 위치하고 있으며 사전 예약제로 운영되는 세차 시설입니다.", enName: "Hand Car Wash", enLocation: "Mirae Hall Parking Lot", enDesc: "Located in the parking area of Mirae Hall, operated by a reservation system." },
+    { name: "여행사", location: "종합복지관 지하 1층 (서점 내부)", desc: "종합복지관 지하 1층 서점 내부에 입점해 있는 여행 상담 매장입니다.", enName: "Travel Agency", enLocation: "Welfare Complex B1 (Inside Bookstore)", enDesc: "A travel consulting office inside the B1 bookstore of the Welfare Complex." },
+    { name: "무인 세탁실", location: "생활관", desc: "생활관(기숙사) 내부에 위치하며 24시간 무인 코인 세탁기로 운영됩니다.", enName: "Laundromat", enLocation: "Dormitory", enDesc: "A self-service coin-operated laundry facility located inside the student dormitory." }
 ];
 
 // --- 게임 텍스트 다국어 번역 사전 ---
@@ -116,7 +102,7 @@ const translations = {
         "ox-true-mid": "находится в", "ox-true-end": ".", "ox-ans-o": "Верно!", "ox-ans-x": "Неверно!",
         "ox-explain-o": "Точное местонахождение", "ox-explain-x": "Фактическое местонахождение", "ox-explain-end": ".", "img-alt-text": "Изображение готовится"
     }
-}; 
+};
 
 // --- 게임 글로벌 제어 상태 변수 ---
 let currentLang = "ko";
@@ -247,7 +233,7 @@ function renderCurrentQuestionStrings() {
         const altBase = translations[currentLang]["img-alt-text"];
         const nameStr = isKo ? quiz.originData.name : quiz.originData.enName;
         document.getElementById("place-img").setAttribute("alt", `[${altBase}] ${nameStr}`);
-        document.getElementById("place-img").src = `assets/images/game/${quiz.originData.src}`; 
+        document.getElementById("place-img").src = ""; 
 
         // 문제 텍스트 조립
         const mainQ = translations[currentLang]["q-text-place"];

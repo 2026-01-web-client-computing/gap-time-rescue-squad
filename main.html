@@ -5,8 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>공강구조대 | 메인</title>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="assets/css/style2.css">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
@@ -43,29 +42,29 @@
     <!-- main.html 내부 탭 네비게이션 -->
     <nav>
       <button onclick="controller.viewSection('menu')" class="nav-btn active" id="btn-menu">
-        <i class="fa-solid fa-utensils"></i>
+        <span class="nav-icon" aria-hidden="true">🍽️</span>
         <span data-i18n="nav_menu">오늘의 식단</span>
       </button>
 
       <button onclick="controller.viewSection('facility')" class="nav-btn" id="btn-facility">
-        <i class="fa-solid fa-map-location-dot"></i>
+        <span class="nav-icon" aria-hidden="true">🗺️</span>
         <span data-i18n="nav_facility">교내 시설</span>
       </button>
 
       <button onclick="controller.viewSection('club')" class="nav-btn" id="btn-club">
-        <i class="fa-solid fa-people-group"></i>
+        <span class="nav-icon" aria-hidden="true">👥</span>
         <span data-i18n="nav_club">동아리 안내</span>
       </button>
     </nav>
 
     <div id="meal-filter-bar" class="meal-filter">
       <button onclick="controller.changeMealTime('LUNCH')" class="meal-btn active" id="btn-lunch">
-        <i class="fa-solid fa-sun"></i>
+        <span class="nav-icon" aria-hidden="true">☀️</span>
         <span data-i18n="meal_lunch">중식 (Lunch)</span>
       </button>
 
       <button onclick="controller.changeMealTime('DINNER')" class="meal-btn" id="btn-dinner">
-        <i class="fa-solid fa-moon"></i>
+        <span class="nav-icon" aria-hidden="true">🌙</span>
         <span data-i18n="meal_dinner">석식 (Dinner)</span>
       </button>
     </div>
@@ -77,7 +76,7 @@
         <span class="close" onclick="controller.closeAI()">&times;</span>
 
         <h3>
-          <i class="fa-solid fa-wand-magic-sparkles" style="color:#00C897;"></i>
+          <span aria-hidden="true">✨</span>
           <span id="ai-modal-header">AI Cultural Guide</span>
         </h3>
 

@@ -181,7 +181,7 @@ function submitRecommendation() {
   const time = document.querySelector("#time").value;
   const activity = document.querySelector("#activity").value;
   const location = document.querySelector("#location").value;
-  const language = normalizeLanguage(document.querySelector("#language").value);
+  const language = normalizeLanguage(document.querySelector("#lang-selector")?.value || "ko");
 
   if (typeof MOCK_DATA === "undefined" || !Array.isArray(MOCK_DATA.facilities)) {
     renderError(language);
