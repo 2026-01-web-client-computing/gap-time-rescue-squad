@@ -164,20 +164,32 @@ const WALK_PLACES = [
 if (recommendForm) {
   recommendForm.addEventListener("submit", (event) => {
     event.preventDefault();
-
-    const time = document.querySelector("#time").value;
-    const activity = document.querySelector("#activity").value;
-    const location = document.querySelector("#location").value;
-    const language = normalizeLanguage(document.querySelector("#language").value);
-
-    if (typeof MOCK_DATA === "undefined" || !Array.isArray(MOCK_DATA.facilities)) {
-      renderError(language);
-      return;
-    }
-
-    const recommendations = recommendPlaces({ time, activity, location, language });
-    renderResult(recommendations, language);
+    submitRecommendation();
   });
+}
+
+const languageSelect = document.querySelector("#language");
+if (languageSelect) {
+  languageSelect.addEventListener("change", () => {
+    if (!resultBox.classList.contains("empty")) {
+      submitRecommendation();
+    }
+  });
+}
+
+function submitRecommendation() {
+  const time = document.querySelector("#time").value;
+  const activity = document.querySelector("#activity").value;
+  const location = document.querySelector("#location").value;
+  const language = normalizeLanguage(document.querySelector("#language").value);
+
+  if (typeof MOCK_DATA === "undefined" || !Array.isArray(MOCK_DATA.facilities)) {
+    renderError(language);
+    return;
+  }
+
+  const recommendations = recommendPlaces({ time, activity, location, language });
+  renderResult(recommendations, language);
 }
 
 function recommendPlaces({ time, activity, location, language }) {
@@ -260,12 +272,14 @@ function normalizeLanguage(language) {
 }
 
 function renderError(language) {
+  resultBox.removeAttribute("data-i18n");
   resultBox.classList.remove("empty");
   resultBox.innerHTML = `<div class="no-result"><p>${UI_TEXT[language].dataError}</p></div>`;
 }
 
 function renderResult(resultList, language) {
   const text = UI_TEXT[language];
+  resultBox.removeAttribute("data-i18n");
   resultBox.classList.remove("empty");
 
   if (resultList.length === 0) {
