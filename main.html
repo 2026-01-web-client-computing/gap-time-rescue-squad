@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>공강구조대 | 메인</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style2.css">
+</head>
+
+<body>
+  <!-- 공통 네비게이션 -->
+  <header class="site-header">
+    <nav class="site-nav">
+      <a href="main.html" class="site-logo" data-i18n="site_logo">공강구조대</a>
+
+      <ul class="site-menu">
+        <li><a href="main.html" class="active" data-i18n="site_home">홈</a></li>
+        <li><a href="team.html" data-i18n="site_team">팀원 소개</a></li>
+        <li><a href="game.html" data-i18n="site_game">게임</a></li>
+        <li><a href="form.html" data-i18n="site_form">공강 추천</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div id="app">
+    <!-- main.html 내부 헤더 -->
+    <header>
+      <div class="logo" data-i18n="app_logo">공강구조대</div>
+
+      <select id="lang-selector" onchange="controller.changeLanguage(this.value)">
+        <option value="ko">한국어</option>
+        <option value="en">English</option>
+        <option value="zh">中文</option>
+        <option value="ja">日本語</option>
+        <option value="de">Deutsch</option>
+        <option value="fr">Français</option>
+        <option value="ru">Русский</option>
+      </select>
+    </header>
+
+    <!-- main.html 내부 탭 네비게이션 -->
+    <nav>
+      <button onclick="controller.viewSection('menu')" class="nav-btn active" id="btn-menu">
+        <i class="fa-solid fa-utensils"></i>
+        <span data-i18n="nav_menu">오늘의 식단</span>
+      </button>
+
+      <button onclick="controller.viewSection('facility')" class="nav-btn" id="btn-facility">
+        <i class="fa-solid fa-map-location-dot"></i>
+        <span data-i18n="nav_facility">교내 시설</span>
+      </button>
+
+      <button onclick="controller.viewSection('club')" class="nav-btn" id="btn-club">
+        <i class="fa-solid fa-people-group"></i>
+        <span data-i18n="nav_club">동아리 안내</span>
+      </button>
+    </nav>
+
+    <div id="meal-filter-bar" class="meal-filter">
+      <button onclick="controller.changeMealTime('LUNCH')" class="meal-btn active" id="btn-lunch">
+        <i class="fa-solid fa-sun"></i>
+        <span data-i18n="meal_lunch">중식 (Lunch)</span>
+      </button>
+
+      <button onclick="controller.changeMealTime('DINNER')" class="meal-btn" id="btn-dinner">
+        <i class="fa-solid fa-moon"></i>
+        <span data-i18n="meal_dinner">석식 (Dinner)</span>
+      </button>
+    </div>
+
+    <main id="content"></main>
+
+    <div id="ai-modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="controller.closeAI()">&times;</span>
+
+        <h3>
+          <i class="fa-solid fa-wand-magic-sparkles" style="color:#00C897;"></i>
+          <span id="ai-modal-header">AI Cultural Guide</span>
+        </h3>
+
+        <div id="ai-result">Analyzing...</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/data2.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
