@@ -41,6 +41,66 @@ const translations = {
         "q-hint": "Hint Location", "correct-msg": "Correct! 🎉", "wrong-msg": "Wrong! ✕", "timeout-msg": "Time Out! ⏰",
         "ox-true-mid": "is located at", "ox-true-end": ".", "ox-ans-o": "Correct!", "ox-ans-x": "Wrong!",
         "ox-explain-o": "The exact location of", "ox-explain-x": "The actual location of", "ox-explain-end": ".", "img-alt-text": "Image preparing"
+    },
+    zh: {
+        "logo": "空闲救援队", "nav-main": "主页", "nav-team": "团队介绍", "nav-game": "游戏", "nav-form": "推荐表",
+        "intro-title": "校园设施学习游戏", "intro-desc": "通过游戏轻松掌握学校设施信息！",
+        "menu-place-title": "猜猜地点", "menu-place-desc": "看图猜出校内设施名称。",
+        "menu-ox-title": "判断题", "menu-ox-desc": "回答关于学校设施的判断题。",
+        "dash-my-score": "我的最近得分", "btn-next": "下一题", "live-score": "当前得分",
+        "result-title": "游戏结束！", "result-score-label": "最终得分：", "btn-retry": "返回开始",
+        "timer-label": "限时", "sec": "秒", "q-text-place": "图中设施的正确名称是什么？",
+        "q-hint": "提示位置", "correct-msg": "回答正确！🎉", "wrong-msg": "回答错误！✕", "timeout-msg": "时间到！⏰",
+        "ox-true-mid": "位于", "ox-true-end": "。", "ox-ans-o": "正确！", "ox-ans-x": "错误！",
+        "ox-explain-o": "的正确位置是", "ox-explain-x": "的实际位置是", "ox-explain-end": "。", "img-alt-text": "设施图片准备中"
+    },
+    ja: {
+        "logo": "空きコマ救助隊", "nav-main": "メイン", "nav-team": "チーム紹介", "nav-game": "ゲーム", "nav-form": "おすすめフォーム",
+        "intro-title": "キャンパス施設学習ゲーム", "intro-desc": "ゲームを通じて学校施設の情報を楽しく覚えましょう！",
+        "menu-place-title": "場所当て", "menu-place-desc": "写真を見て施設名を当ててください。",
+        "menu-ox-title": "○×クイズ", "menu-ox-desc": "学校施設に関する○×問題を解いてみましょう。",
+        "dash-my-score": "直近のスコア", "btn-next": "次の問題", "live-score": "現在のスコア",
+        "result-title": "ゲーム終了！", "result-score-label": "最終スコア：", "btn-retry": "最初に戻る",
+        "timer-label": "制限時間", "sec": "秒", "q-text-place": "この写真の施設の正確な名前は何ですか？",
+        "q-hint": "ヒント・場所", "correct-msg": "正解！🎉", "wrong-msg": "不正解！✕", "timeout-msg": "時間切れ！⏰",
+        "ox-true-mid": "は", "ox-true-end": "にある。", "ox-ans-o": "正しい！", "ox-ans-x": "間違い！",
+        "ox-explain-o": "の正確な場所は", "ox-explain-x": "の実際の場所は", "ox-explain-end": "です。", "img-alt-text": "施設写真準備中"
+    },
+    de: {
+        "logo": "FreistundenRetter", "nav-main": "Startseite", "nav-team": "Team", "nav-game": "Spiel", "nav-form": "Empfehlung",
+        "intro-title": "Campus-Einrichtungen Lernspiel", "intro-desc": "Lerne Campuseinrichtungen spielerisch kennen!",
+        "menu-place-title": "Ort erraten", "menu-place-desc": "Schau dir das Bild an und rate die Einrichtung.",
+        "menu-ox-title": "Wahr/Falsch-Quiz", "menu-ox-desc": "Beantworte Wahr/Falsch-Fragen zu Campuseinrichtungen.",
+        "dash-my-score": "Mein letzter Punktestand", "btn-next": "Nächste Frage", "live-score": "Aktueller Punktestand",
+        "result-title": "Spiel beendet!", "result-score-label": "Endergebnis:", "btn-retry": "Zurück zum Start",
+        "timer-label": "Zeitlimit", "sec": "s", "q-text-place": "Wie heißt die Einrichtung auf diesem Bild genau?",
+        "q-hint": "Hinweis Ort", "correct-msg": "Richtig! 🎉", "wrong-msg": "Falsch! ✕", "timeout-msg": "Zeit abgelaufen! ⏰",
+        "ox-true-mid": "befindet sich in", "ox-true-end": ".", "ox-ans-o": "Stimmt!", "ox-ans-x": "Falsch!",
+        "ox-explain-o": "Der genaue Standort von", "ox-explain-x": "Der tatsächliche Standort von", "ox-explain-end": ".", "img-alt-text": "Bild wird vorbereitet"
+    },
+    fr: {
+        "logo": "SauveteurLibre", "nav-main": "Accueil", "nav-team": "Équipe", "nav-game": "Jeu", "nav-form": "Recommandation",
+        "intro-title": "Jeu d'apprentissage des installations", "intro-desc": "Apprenez les installations du campus en jouant !",
+        "menu-place-title": "Devinez le lieu", "menu-place-desc": "Regardez la photo et devinez l'installation.",
+        "menu-ox-title": "Quiz Vrai/Faux", "menu-ox-desc": "Répondez aux questions vrai/faux sur les installations.",
+        "dash-my-score": "Mon dernier score", "btn-next": "Question suivante", "live-score": "Score actuel",
+        "result-title": "Jeu terminé !", "result-score-label": "Score final :", "btn-retry": "Retour au début",
+        "timer-label": "Temps limite", "sec": "s", "q-text-place": "Quel est le nom exact de l'installation sur cette photo ?",
+        "q-hint": "Indice lieu", "correct-msg": "Correct ! 🎉", "wrong-msg": "Incorrect ! ✕", "timeout-msg": "Temps écoulé ! ⏰",
+        "ox-true-mid": "est situé à", "ox-true-end": ".", "ox-ans-o": "Correct !", "ox-ans-x": "Incorrect !",
+        "ox-explain-o": "L'emplacement exact de", "ox-explain-x": "L'emplacement réel de", "ox-explain-end": ".", "img-alt-text": "Image en préparation"
+    },
+    ru: {
+        "logo": "СпасательСвободы", "nav-main": "Главная", "nav-team": "Команда", "nav-game": "Игра", "nav-form": "Рекомендации",
+        "intro-title": "Игра по изучению кампуса", "intro-desc": "Узнайте об объектах кампуса в игровой форме!",
+        "menu-place-title": "Угадай место", "menu-place-desc": "Посмотрите на фото и угадайте объект.",
+        "menu-ox-title": "Викторина Да/Нет", "menu-ox-desc": "Ответьте на вопросы об объектах кампуса.",
+        "dash-my-score": "Мой последний результат", "btn-next": "Следующий вопрос", "live-score": "Текущий счёт",
+        "result-title": "Игра окончена!", "result-score-label": "Итоговый счёт:", "btn-retry": "Вернуться к началу",
+        "timer-label": "Лимит времени", "sec": "с", "q-text-place": "Как точно называется объект на этом фото?",
+        "q-hint": "Подсказка место", "correct-msg": "Правильно! 🎉", "wrong-msg": "Неправильно! ✕", "timeout-msg": "Время вышло! ⏰",
+        "ox-true-mid": "находится в", "ox-true-end": ".", "ox-ans-o": "Верно!", "ox-ans-x": "Неверно!",
+        "ox-explain-o": "Точное местонахождение", "ox-explain-x": "Фактическое местонахождение", "ox-explain-end": ".", "img-alt-text": "Изображение готовится"
     }
 };
 
