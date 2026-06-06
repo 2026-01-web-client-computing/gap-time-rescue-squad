@@ -149,6 +149,21 @@ function changeLanguage(lang) {
             element.textContent = translations[lang][key];
         }
     });
+
+    const langLabels = {
+        ko: "한국어",
+        en: "English",
+        zh: "中文",
+        ja: "日本語",
+        de: "Deutsch",
+        fr: "Français",
+        ru: "Русский"
+    };
+    const langBtn = document.getElementById("langBtn");
+    if (langBtn) {
+        langBtn.textContent = `${langLabels[lang] || "한국어"} ▾`;
+    }
+
     // 게임 진행 도중 언어가 바뀔 때 실시간 유동 텍스트들 즉시 리렌더링
     if (!document.getElementById("game-screen").classList.contains("hidden")) {
         renderCurrentQuestionStrings();
@@ -260,7 +275,7 @@ function renderCurrentQuestionStrings() {
         const altBase = translations[currentLang]["img-alt-text"];
         const nameStr = isKo ? quiz.originData.name : quiz.originData.enName;
         document.getElementById("place-img").setAttribute("alt", `[${altBase}] ${nameStr}`);
-        document.getElementById("place-img").src = ""; 
+        document.getElementById("place-img").src = `assets/images/game/${quiz.originData.src}`;; 
 
         // 문제 텍스트 조립
         const mainQ = translations[currentLang]["q-text-place"];

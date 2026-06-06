@@ -20,15 +20,8 @@
         <li><a href="game.html" data-i18n="site_game">게임</a></li>
         <li><a href="form.html" data-i18n="site_form">공강 추천</a></li>
       </ul>
-    </nav>
-  </header>
 
-  <div id="app">
-    <!-- main.html 내부 헤더 -->
-    <header>
-      <div class="logo" data-i18n="app_logo">공강구조대</div>
-
-      <select id="lang-selector" onchange="controller.changeLanguage(this.value)">
+      <select id="lang-selector" class="language-selector" aria-label="Language selector" onchange="controller.changeLanguage(this.value)">
         <option value="ko">한국어</option>
         <option value="en">English</option>
         <option value="zh">中文</option>
@@ -37,6 +30,13 @@
         <option value="fr">Français</option>
         <option value="ru">Русский</option>
       </select>
+    </nav>
+  </header>
+
+  <div id="app">
+    <!-- main.html 내부 헤더 -->
+    <header>
+      <div class="logo" data-i18n="app_logo">공강구조대</div>
     </header>
 
     <!-- main.html 내부 탭 네비게이션 -->

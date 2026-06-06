@@ -136,7 +136,7 @@ img {
 .logo::before,
 .site-logo::before,
 .header-container .logo::before {
-  content: '⏱';
+  content: ':p';
   width: 34px;
   height: 34px;
   border-radius: 12px;
@@ -152,6 +152,8 @@ img {
 .site-menu {
   display: flex;
   align-items: center;
+  justify-content: center;
+  flex: 1;
   gap: 8px;
   padding: 0;
   margin: 0;
