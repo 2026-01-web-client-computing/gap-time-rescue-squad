@@ -13,7 +13,9 @@ class KookminCodeController {
     }
 
     changeLanguage(lang) {
-        MOCK_DATA.currentLang = lang;
+        const safeLang = MOCK_DATA.translations[lang] ? lang : 'ko';
+        MOCK_DATA.currentLang = safeLang;
+        document.documentElement.lang = safeLang;
         this.render();
     }
 
@@ -218,3 +220,10 @@ class KookminCodeController {
 
 // 글로벌 컨트롤러 기동
 const controller = new KookminCodeController();
+
+const languageSelector = document.getElementById('lang-selector');
+if (languageSelector) {
+    languageSelector.addEventListener('change', (event) => {
+        controller.changeLanguage(event.target.value);
+    });
+}

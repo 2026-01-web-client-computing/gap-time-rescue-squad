@@ -32,7 +32,7 @@ const campusData = [
 // --- 게임 텍스트 다국어 번역 사전 ---
 const translations = {
     ko: {
-        "logo": "공강구조대", "nav-main": "홈", "nav-team": "팀원 소개", "nav-game": "게임", "nav-form": "공강 추천",
+        "site_logo": "공강구조대", "nav_home": "홈", "nav_team": "팀원 소개", "nav_game": "게임", "nav_form": "공강 추천",
         "intro-title": "캠퍼스 시설 학습 게임", "intro-desc": "게임을 통해 학교 시설 정보를 재미있게 익혀보세요!",
         "menu-place-title": "장소 맞히기", "menu-place-desc": "사진을 보고 교내 장소를 맞춰보세요.",
         "menu-ox-title": "OX 퀴즈", "menu-ox-desc": "학교 시설에 대한 OX 문제를 풀어보세요.",
@@ -46,7 +46,7 @@ const translations = {
         "ox-explain-wrong": "틀렸습니다. \"{name}\"의 실제 위치는 {location}입니다."
     },
     en: {
-        "logo": "ClassRescue", "nav-main": "Main", "nav-team": "Team", "nav-game": "Game", "nav-form": "Form",
+        "site_logo": "Gap Time Rescue Squad", "nav_home": "Home", "nav_team": "Team", "nav_game": "Game", "nav_form": "Free-period Recommendation",
         "intro-title": "Campus Facility Game", "intro-desc": "Learn about campus facilities easily through quizzes!",
         "menu-place-title": "Guess the Place", "menu-place-desc": "Look at the picture and guess the facility.",
         "menu-ox-title": "OX Quiz", "menu-ox-desc": "Solve true/false questions about facilities.",
@@ -60,7 +60,7 @@ const translations = {
         "ox-explain-wrong": "Wrong. The actual location of \"{name}\" is {location}."
     },
     zh: {
-        "logo": "空闲救援队", "nav-main": "主页", "nav-team": "团队介绍", "nav-game": "游戏", "nav-form": "推荐表",
+        "site_logo": "空堂救援队", "nav_home": "首页", "nav_team": "团队介绍", "nav_game": "游戏", "nav_form": "空堂推荐",
         "intro-title": "校园设施学习游戏", "intro-desc": "通过游戏轻松掌握学校设施信息！",
         "menu-place-title": "猜猜地点", "menu-place-desc": "看图猜出校内设施名称。",
         "menu-ox-title": "判断题", "menu-ox-desc": "回答关于学校设施的判断题。",
@@ -74,7 +74,7 @@ const translations = {
         "ox-explain-wrong": "错误。\"{name}\"的实际位置是{location}。"
     },
     ja: {
-        "logo": "空きコマ救助隊", "nav-main": "メイン", "nav-team": "チーム紹介", "nav-game": "ゲーム", "nav-form": "おすすめフォーム",
+        "site_logo": "空きコマ救助隊", "nav_home": "ホーム", "nav_team": "チーム紹介", "nav_game": "ゲーム", "nav_form": "空きコマ推薦",
         "intro-title": "キャンパス施設学習ゲーム", "intro-desc": "ゲームを通じて学校施設の情報を楽しく覚えましょう！",
         "menu-place-title": "場所当て", "menu-place-desc": "写真を見て施設名を当ててください。",
         "menu-ox-title": "○×クイズ", "menu-ox-desc": "学校施設に関する○×問題を解いてみましょう。",
@@ -88,7 +88,7 @@ const translations = {
         "ox-explain-wrong": "不正解。\"{name}\"の実際の場所は{location}です。"
     },
     de: {
-        "logo": "FreistundenRetter", "nav-main": "Startseite", "nav-team": "Team", "nav-game": "Spiel", "nav-form": "Empfehlung",
+        "site_logo": "Freistunden-Rettungsteam", "nav_home": "Start", "nav_team": "Team", "nav_game": "Spiel", "nav_form": "Freistunden-Tipp",
         "intro-title": "Campus-Einrichtungen Lernspiel", "intro-desc": "Lerne Campuseinrichtungen spielerisch kennen!",
         "menu-place-title": "Ort erraten", "menu-place-desc": "Schau dir das Bild an und rate die Einrichtung.",
         "menu-ox-title": "Wahr/Falsch-Quiz", "menu-ox-desc": "Beantworte Wahr/Falsch-Fragen zu Campuseinrichtungen.",
@@ -102,7 +102,7 @@ const translations = {
         "ox-explain-wrong": "Falsch. Der tatsächliche Standort von \"{name}\" ist {location}."
     },
     fr: {
-        "logo": "SauveteurLibre", "nav-main": "Accueil", "nav-team": "Équipe", "nav-game": "Jeu", "nav-form": "Recommandation",
+        "site_logo": "Équipe Secours Temps Libre", "nav_home": "Accueil", "nav_team": "Équipe", "nav_game": "Jeu", "nav_form": "Recommandation",
         "intro-title": "Jeu d'apprentissage des installations", "intro-desc": "Apprenez les installations du campus en jouant !",
         "menu-place-title": "Devinez le lieu", "menu-place-desc": "Regardez la photo et devinez l'installation.",
         "menu-ox-title": "Quiz Vrai/Faux", "menu-ox-desc": "Répondez aux questions vrai/faux sur les installations.",
@@ -116,7 +116,7 @@ const translations = {
         "ox-explain-wrong": "Incorrect. L'emplacement réel de \"{name}\" est {location}."
     },
     ru: {
-        "logo": "СпасательСвободы", "nav-main": "Главная", "nav-team": "Команда", "nav-game": "Игра", "nav-form": "Рекомендации",
+        "site_logo": "Спасатели окон", "nav_home": "Главная", "nav_team": "Команда", "nav_game": "Игра", "nav_form": "Рекомендации",
         "intro-title": "Игра по изучению кампуса", "intro-desc": "Узнайте об объектах кампуса в игровой форме!",
         "menu-place-title": "Угадай место", "menu-place-desc": "Посмотрите на фото и угадайте объект.",
         "menu-ox-title": "Викторина Да/Нет", "menu-ox-desc": "Ответьте на вопросы об объектах кампуса.",
@@ -142,26 +142,19 @@ let timeLeft = 10;
 
 // --- 다국어 번역 시스템 ---
 function changeLanguage(lang) {
-    currentLang = lang;
-    document.querySelectorAll("[data-lang]").forEach(element => {
-        const key = element.getAttribute("data-lang");
-        if (translations[lang] && translations[lang][key]) {
-            element.textContent = translations[lang][key];
+    currentLang = translations[lang] ? lang : "ko";
+    document.documentElement.lang = currentLang;
+
+    document.querySelectorAll("[data-i18n]").forEach(element => {
+        const key = element.getAttribute("data-i18n");
+        if (translations[currentLang] && translations[currentLang][key]) {
+            element.textContent = translations[currentLang][key];
         }
     });
 
-    const langLabels = {
-        ko: "한국어",
-        en: "English",
-        zh: "中文",
-        ja: "日本語",
-        de: "Deutsch",
-        fr: "Français",
-        ru: "Русский"
-    };
-    const langBtn = document.getElementById("langBtn");
-    if (langBtn) {
-        langBtn.textContent = `${langLabels[lang] || "한국어"} ▾`;
+    const selector = document.getElementById("lang-selector");
+    if (selector) {
+        selector.value = currentLang;
     }
 
     // 게임 진행 도중 언어가 바뀔 때 실시간 유동 텍스트들 즉시 리렌더링
@@ -408,5 +401,12 @@ function endGame() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    changeLanguage('ko');
+    const selector = document.getElementById("lang-selector");
+    if (selector) {
+        selector.addEventListener("change", (event) => {
+            changeLanguage(event.target.value);
+        });
+    }
+
+    changeLanguage(selector?.value || "ko");
 });

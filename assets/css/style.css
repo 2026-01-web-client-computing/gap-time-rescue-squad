@@ -9,7 +9,15 @@
 @font-face {
   font-family: 'CookieRun';
   src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/CookieRun-Bold.woff') format('woff');
-  font-weight: 700 900;
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'CookieRun';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/CookieRun-Bold.woff') format('woff');
+  font-weight: 800 900;
   font-style: normal;
   font-display: swap;
 }
@@ -108,7 +116,6 @@ img {
 }
 
 .navbar,
-.site-nav,
 .header-container {
   width: min(1120px, calc(100% - 32px));
   min-height: 72px;
@@ -120,7 +127,6 @@ img {
 }
 
 .logo,
-.site-logo,
 .header-container .logo {
   display: inline-flex;
   align-items: center;
@@ -134,7 +140,6 @@ img {
 }
 
 .logo::before,
-.site-logo::before,
 .header-container .logo::before {
   content: ':p';
   width: 34px;
@@ -148,8 +153,7 @@ img {
   background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
 }
 
-.nav-menu,
-.site-menu {
+.nav-menu {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -160,8 +164,7 @@ img {
   list-style: none;
 }
 
-.nav-menu a,
-.site-menu a {
+.nav-menu a {
   display: block;
   padding: 10px 15px;
   border-radius: 999px;
@@ -172,17 +175,14 @@ img {
 }
 
 .nav-menu a:hover,
-.nav-menu a.active,
-.site-menu a:hover,
-.site-menu a.active {
+.nav-menu a.active {
   color: #fff;
   background: var(--color-primary);
   transform: translateY(-1px);
 }
 
 .language-selector,
-#lang-selector,
-.lang-btn {
+#lang-selector {
   min-height: 42px;
   padding: 9px 14px;
   border: 1px solid var(--color-border);
@@ -191,42 +191,6 @@ img {
   background: #fff;
   font-weight: 800;
   outline: none;
-}
-
-.lang-dropdown {
-  position: relative;
-}
-
-.lang-content {
-  position: absolute;
-  top: calc(100% + 8px);
-  right: 0;
-  min-width: 150px;
-  padding: 8px;
-  border: 1px solid var(--color-border);
-  border-radius: 16px;
-  background: #fff;
-  box-shadow: var(--shadow-card);
-  display: none;
-  z-index: 20;
-}
-
-.lang-dropdown:hover .lang-content,
-.lang-content.show {
-  display: block;
-}
-
-.lang-content a {
-  display: block;
-  padding: 8px 10px;
-  border-radius: 10px;
-  color: var(--color-muted);
-  font-size: 14px;
-}
-
-.lang-content a:hover {
-  color: #fff;
-  background: var(--color-primary);
 }
 
 /* 공통 레이아웃 */
@@ -723,6 +687,12 @@ img {
   color: var(--color-muted);
 }
 
+.place-card strong,
+.place-tip strong {
+  font-family: 'CookieRun', Arial, 'Malgun Gothic', '맑은 고딕', sans-serif;
+  font-weight: 700;
+}
+
 .place-tip {
   margin-top: 14px;
   padding: 14px;
@@ -767,17 +737,9 @@ img {
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.member-card:hover,
-.member-card:focus,
-.member-card:focus-within,
-.member-card.is-tip-open {
+.member-card:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-hover);
-}
-
-.member-card:focus {
-  outline: 3px solid rgba(254, 206, 66, 0.75);
-  outline-offset: 4px;
 }
 
 .member-image {
@@ -810,18 +772,12 @@ img {
 }
 
 .member-card:hover .member-image .default-img,
-.member-card:focus .member-image .default-img,
-.member-card:focus-within .member-image .default-img,
-.member-card.is-tip-open .member-image .default-img,
 .member-image:hover .default-img {
   opacity: 0;
   transform: scale(1.05);
 }
 
 .member-card:hover .member-image .hover-img,
-.member-card:focus .member-image .hover-img,
-.member-card:focus-within .member-image .hover-img,
-.member-card.is-tip-open .member-image .hover-img,
 .member-image:hover .hover-img {
   opacity: 1;
   transform: scale(1.05);
@@ -860,10 +816,7 @@ img {
   transform: rotate(45deg);
 }
 
-.member-card:hover .tip-bubble,
-.member-card:focus .tip-bubble,
-.member-card:focus-within .tip-bubble,
-.member-card.is-tip-open .tip-bubble {
+.member-card:hover .tip-bubble {
   opacity: 1;
   visibility: visible;
   transform: translateY(0) scale(1);
@@ -1092,7 +1045,6 @@ img {
 
 @media (max-width: 860px) {
   .navbar,
-  .site-nav,
   .header-container {
     min-height: auto;
     padding: 16px 0;
@@ -1101,8 +1053,7 @@ img {
     gap: 12px;
   }
 
-  .nav-menu,
-  .site-menu {
+  .nav-menu {
     width: 100%;
     flex-wrap: wrap;
   }
