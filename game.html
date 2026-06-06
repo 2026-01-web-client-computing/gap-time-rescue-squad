@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>game</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-container">
+            <h1 class="logo" data-lang="logo">공강구조대</h1>
+            <nav class="nav-menu">
+                <button onclick="location.href='main.html'" data-lang="nav-main">메인</button>
+                <button onclick="location.href='team.html'" data-lang="nav-team">팀 소개</button>
+                <button onclick="location.href='game.html'" class="active" data-lang="nav-game">게임</button>
+                <button onclick="location.href='form.html'" data-lang="nav-form">추천 폼</button>
+            </nav>
+            <div class="lang-dropdown">
+                <button class="lang-btn" id="langBtn">Language ▾</button>
+                <div class="lang-content" id="langContent">
+                    <a href="#" onclick="changeLanguage('ko')">한국어</a>
+                    <a href="#" onclick="changeLanguage('en')">English</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-container">
+        
+        <section id="intro-screen" class="screen">
+            <div class="intro-header">
+                <h2 data-lang="intro-title">캠퍼스 시설 학습 게임</h2>
+                <p data-lang="intro-desc">게임을 통해 학교 시설 정보를 재미있게 익혀보세요!</p>
+            </div>
+
+            <div class="game-selection">
+                <div class="game-card" onclick="startGame('place')">
+                    <div class="icon">📍</div>
+                    <h3 data-lang="menu-place-title">장소 맞히기</h3>
+                    <p data-lang="menu-place-desc">사진을 보고 학교 시설을 맞춰보세요.</p>
+                </div>
+                <div class="game-card" onclick="startGame('ox')">
+                    <div class="icon">◎ ✕</div>
+                    <h3 data-lang="menu-ox-title">OX 퀴즈</h3>
+                    <p data-lang="menu-ox-desc">학교 시설에 대한 OX 문제를 풀어보세요.</p>
+                </div>
+            </div>
+
+            <div class="dashboard">
+                <div class="score-box" style="text-align: center; width: 100%;">
+                    <h4 data-lang="dash-my-score">내 최근 점수</h4>
+                    <p id="my-score">0 / 5</p>
+                </div>
+            </div>
+
+            <div class="quick-menu">
+                <button onclick="location.href='main.html'" data-lang="nav-main">메인으로</button>
+                <button onclick="location.href='team.html'" data-lang="nav-team">팀소개로</button>
+                <button onclick="location.href='form.html'" data-lang="nav-form">추천 폼으로</button>
+            </div>
+        </section>
+
+        <section id="game-screen" class="screen hidden">
+            <div class="game-header">
+                <span id="question-number">Question 1/5</span>
+                <span id="current-score-board"><span data-lang="live-score">현재 점수</span>: <span id="live-score-val">0</span></span>
+                <span id="timer">제한시간: 10초</span>
+            </div>
+
+            <div id="image-area" class="image-area hidden">
+                <img id="place-img" src="" alt="시설 사진 준비중">
+            </div>
+
+            <div id="question-text" class="question-text"></div>
+
+            <div id="options-area" class="options-area"></div>
+
+            <div id="feedback-area" class="feedback-area hidden">
+                <div id="feedback-result"></div>
+                <div id="feedback-desc"></div>
+                <button id="next-btn" onclick="nextQuestion()" data-lang="btn-next">다음 문제</button>
+            </div>
+        </section>
+
+        <section id="result-screen" class="screen hidden">
+            <h2 data-lang="result-title">게임 종료!</h2>
+            <div class="final-score">
+                <span data-lang="result-score-label">최종 점수:</span>
+                <span id="final-score-val">0</span> / 5
+            </div>
+            <button class="retry-btn" onclick="showIntro()" data-lang="btn-retry">처음으로 돌아가기</button>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>© 공강구조대 | Email: support@kookmin.ac.kr</p>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
