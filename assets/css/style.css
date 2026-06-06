@@ -767,9 +767,17 @@ img {
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.member-card:hover {
+.member-card:hover,
+.member-card:focus,
+.member-card:focus-within,
+.member-card.is-tip-open {
   transform: translateY(-5px);
   box-shadow: var(--shadow-hover);
+}
+
+.member-card:focus {
+  outline: 3px solid rgba(254, 206, 66, 0.75);
+  outline-offset: 4px;
 }
 
 .member-image {
@@ -802,12 +810,18 @@ img {
 }
 
 .member-card:hover .member-image .default-img,
+.member-card:focus .member-image .default-img,
+.member-card:focus-within .member-image .default-img,
+.member-card.is-tip-open .member-image .default-img,
 .member-image:hover .default-img {
   opacity: 0;
   transform: scale(1.05);
 }
 
 .member-card:hover .member-image .hover-img,
+.member-card:focus .member-image .hover-img,
+.member-card:focus-within .member-image .hover-img,
+.member-card.is-tip-open .member-image .hover-img,
 .member-image:hover .hover-img {
   opacity: 1;
   transform: scale(1.05);
@@ -846,7 +860,10 @@ img {
   transform: rotate(45deg);
 }
 
-.member-card:hover .tip-bubble {
+.member-card:hover .tip-bubble,
+.member-card:focus .tip-bubble,
+.member-card:focus-within .tip-bubble,
+.member-card.is-tip-open .tip-bubble {
   opacity: 1;
   visibility: visible;
   transform: translateY(0) scale(1);
