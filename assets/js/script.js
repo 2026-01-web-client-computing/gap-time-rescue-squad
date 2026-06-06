@@ -102,7 +102,7 @@ const translations = {
         "ox-true-mid": "находится в", "ox-true-end": ".", "ox-ans-o": "Верно!", "ox-ans-x": "Неверно!",
         "ox-explain-o": "Точное местонахождение", "ox-explain-x": "Фактическое местонахождение", "ox-explain-end": ".", "img-alt-text": "Изображение готовится"
     }
-};
+}; 
 
 // --- 게임 글로벌 제어 상태 변수 ---
 let currentLang = "ko";
