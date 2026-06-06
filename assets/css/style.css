@@ -95,6 +95,28 @@ button {
   cursor: pointer;
 }
 
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 0;
+  border-radius: 999px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.btn-primary {
+  color: #fff;
+  background: var(--color-primary);
+}
+
+.btn-secondary {
+  color: var(--color-primary);
+  background: var(--color-soft-green);
+}
+
 img {
   display: block;
   max-width: 100%;
@@ -292,7 +314,7 @@ img {
   box-shadow: var(--shadow-card);
 }
 
-.card {
+#content > .card {
   padding: 24px;
   margin-bottom: 16px;
 }
@@ -354,11 +376,27 @@ img {
   box-shadow: var(--shadow-card);
 }
 
-#app > header .logo {
+#app > header .app-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
   color: #fff;
+  font-size: 22px;
+  font-weight: 900;
+  white-space: nowrap;
 }
 
-#app > header .logo::before {
+#app > header .app-logo::before {
+  content: ':p';
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 18px;
   background: rgba(255, 255, 255, 0.18);
 }
 
@@ -368,7 +406,7 @@ img {
   background: #fff;
 }
 
-#app > nav {
+.tab-menu {
   position: sticky;
   top: 82px;
   z-index: 30;
@@ -386,13 +424,9 @@ img {
 
 .nav-btn,
 .meal-btn {
-  border: 0;
-  border-radius: 999px;
   background: transparent;
   color: var(--color-muted);
   padding: 11px 10px;
-  font-weight: 900;
-  transition: 0.2s ease;
 }
 
 .nav-btn.active,
@@ -449,13 +483,12 @@ img {
 .recommend-button,
 #next-btn,
 .retry-btn {
-  border: 0;
-  border-radius: 999px;
   padding: 13px 20px;
+}
+
+.ai-btn {
   color: var(--color-text);
   background: var(--color-accent);
-  font-weight: 900;
-  transition: 0.2s ease;
 }
 
 .ai-btn:hover,
@@ -518,6 +551,10 @@ img {
   margin-bottom: 16px;
   overflow-x: auto;
   padding-bottom: 4px;
+}
+
+.category-filter-btn {
+  flex-direction: column;
 }
 
 .club-filter-btn {
@@ -593,7 +630,9 @@ img {
   position: absolute;
   top: 14px;
   right: 20px;
+  border: 0;
   color: var(--color-muted);
+  background: transparent;
   font-size: 28px;
   line-height: 1;
 }
@@ -879,6 +918,10 @@ img {
 }
 
 .game-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding: 28px;
   text-align: center;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -978,6 +1021,7 @@ img {
 
 .option-btn {
   width: 100%;
+  justify-content: flex-start;
   padding: 14px 16px;
   border: 2px solid var(--color-border);
   border-radius: 16px;
@@ -999,6 +1043,7 @@ img {
 
 .options-area.ox-layout .option-btn {
   flex: 1;
+  justify-content: center;
   padding: 24px;
   text-align: center;
   font-size: 28px;
@@ -1037,7 +1082,6 @@ img {
 }
 
 .retry-btn {
-  display: block;
   margin: 0 auto;
   color: #fff;
   background: var(--color-primary);
@@ -1097,7 +1141,7 @@ img {
   }
 
   #app > header,
-  #app > nav,
+  .tab-menu,
   .meal-filter,
   .game-selection,
   .options-area.ox-layout,
@@ -1106,7 +1150,7 @@ img {
     flex-direction: column;
   }
 
-  #app > nav {
+  .tab-menu {
     position: static;
     border-radius: 24px;
   }
