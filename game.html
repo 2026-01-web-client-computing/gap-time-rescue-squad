@@ -11,12 +11,12 @@
     <header class="header">
         <div class="header-container">
             <h1 class="logo" data-lang="logo">공강구조대</h1>
-            <nav class="nav-menu">
-                <button onclick="location.href='main.html'" data-lang="nav-main">메인</button>
-                <button onclick="location.href='team.html'" data-lang="nav-team">팀 소개</button>
-                <button onclick="location.href='game.html'" class="active" data-lang="nav-game">게임</button>
-                <button onclick="location.href='form.html'" data-lang="nav-form">추천 폼</button>
-            </nav>
+            <ul class="nav-menu">
+                <li><a href="main.html" data-lang="nav_main">메인</a></li>
+                <li><a href="team.html" data-lang="nav_team">팀원 소개</a></li>
+                <li><a href="game.html" class="active" data-lang="nav-game">게임</a></li>
+                <li><a href="form.html" class="active" data-lang="nav_form">공강 추천</a></li>
+            </ul>
             <div class="lang-dropdown">
                 <button class="lang-btn" id="langBtn">Language ▾</button>
                 <div class="lang-content" id="langContent">
@@ -101,7 +101,7 @@
     </main>
 
     <footer class="footer">
-        <p>© 공강구조대 | Email: support@kookmin.ac.kr</p>
+      <p>© 2026 공강구조대 | 공강 시간, 어디서 보낼까?</p>
     </footer>
 
     <script src="assets/js/script.js"></script>

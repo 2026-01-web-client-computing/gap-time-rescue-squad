@@ -168,7 +168,7 @@ if (recommendForm) {
   });
 }
 
-const languageSelect = document.querySelector("#language");
+const languageSelect = document.querySelector("#lang-selector");
 if (languageSelect) {
   languageSelect.addEventListener("change", () => {
     if (!resultBox.classList.contains("empty")) {
