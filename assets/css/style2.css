@@ -489,34 +489,3 @@ main {
     top: 117px;
   }
 }
-
-/* main.html 상단 공통 네비게이션 가운데 정렬 보정 */
-.site-nav {
-  justify-content: center;
-  position: relative;
-}
-
-.site-logo {
-  position: absolute;
-  left: 0;
-}
-
-.site-menu {
-  justify-content: center;
-}
-
-/* 모바일에서는 기존처럼 세로 정렬되도록 복구 */
-@media (max-width: 760px) {
-  .site-nav {
-    justify-content: flex-start;
-    position: static;
-  }
-
-  .site-logo {
-    position: static;
-  }
-
-  .site-menu {
-    justify-content: flex-start;
-  }
-}
