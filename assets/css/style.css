@@ -561,6 +561,8 @@ img {
 }
 
 .category-filter-btn {
+  flex: 1 0 0;
+  min-width: 0;
   flex-direction: column;
 }
 
@@ -653,12 +655,17 @@ img {
   display: grid;
   grid-template-columns: 420px 1fr;
   gap: 28px;
-  align-items: start;
+  align-items: stretch;
 }
 
 .recommend-form,
 .result-panel {
   padding: 30px;
+}
+
+.result-panel {
+  display: flex;
+  flex-direction: column;
 }
 
 .form-group {
@@ -712,6 +719,13 @@ img {
   background: #fafafa;
   border: 1px dashed var(--color-border);
   text-align: center;
+}
+
+.result-box.empty {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .place-card {
@@ -1164,6 +1178,16 @@ img {
 
   .meal-filter {
     border-radius: 24px;
+  }
+
+  #content > .emoji-container {
+    justify-content: flex-start !important;
+  }
+
+  #content > .emoji-container > .category-filter-btn {
+    flex: 0 0 92px;
+    width: 92px;
+    min-height: 78px;
   }
 
   .screen,

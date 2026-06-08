@@ -232,7 +232,7 @@ class KookminCodeController {
                 const catName = cat.name[lang] || cat.name['en'] || cat.name['ko'];
                 
                 html += `
-                    <button type="button" class="btn category-filter-btn" data-action="change-category" data-category="${cat.id}" style="${btnStyle} border-radius:10px; padding:10px 4px; font-size:14px; cursor:pointer; flex:1; transition:all 0.2s ease; outline:none;">
+                    <button type="button" class="btn category-filter-btn" data-action="change-category" data-category="${cat.id}" style="${btnStyle} border-radius:10px; padding:10px 4px; font-size:14px; cursor:pointer; transition:all 0.2s ease; outline:none;">
                         <span style="font-size:24px; display:block; margin-bottom:4px;">${cat.icon}</span>
                         <span style="font-size:14px; font-weight:700; color:#0D0D0C; white-space:nowrap;">${catName}</span>
                     </button>`;
