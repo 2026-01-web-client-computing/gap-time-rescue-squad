@@ -234,7 +234,7 @@ class KookminCodeController {
                 html += `
                     <button type="button" class="btn category-filter-btn" data-action="change-category" data-category="${cat.id}" style="${btnStyle} border-radius:10px; padding:10px 4px; font-size:14px; cursor:pointer; flex:1; transition:all 0.2s ease; outline:none;">
                         <span style="font-size:24px; display:block; margin-bottom:4px;">${cat.icon}</span>
-                        <span style="font-size:11px; font-weight:700; color:#0D0D0C; white-space:nowrap;">${catName}</span>
+                        <span style="font-size:14px; font-weight:700; color:#0D0D0C; white-space:nowrap;">${catName}</span>
                     </button>`;
             });
             html += `</div>`;
@@ -250,12 +250,12 @@ class KookminCodeController {
                         <div class="card facility-card" style="border-color:${isOpen ? '#08A470' : '#DADADA'};">
                             <button type="button" class="facility-toggle" data-action="toggle-facility" data-index="${index}" style="width:100%; border:0; padding:16px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; background:${isOpen ? '#E8F7F1' : '#ffffff'}; text-align:left;">
                                 <div style="flex:1;">
-                                    <h4 style="margin:0 0 6px 0; color:#0D0D0C; font-size:16px;">${fData.name || '알 수 없음'}</h4>
-                                    <span style="font-size:12px; color:#575656;"><span aria-hidden="true" style="margin-right:4px;">📍</span>${fData.loc || facility.originalLoc}</span>
+                                    <h4 style="margin:0 0 6px 0; color:#0D0D0C; font-size:14px;">${fData.name || '알 수 없음'}</h4>
+                                    <span style="font-size:14px; color:#575656;"><span aria-hidden="true" style="margin-right:4px;">📍</span>${fData.loc || facility.originalLoc}</span>
                                 </div>
                                 <div style="color:${isOpen ? '#08A470' : '#575656'};">${isOpen ? '▲' : '▼'}</div>
                             </button>
-                            <div style="display:${isOpen ? 'block' : 'none'}; padding:16px; background:#FFFFFF; border-top:1px dashed #DADADA; font-size:13px;">
+                            <div style="display:${isOpen ? 'block' : 'none'}; padding:16px; background:#FFFFFF; border-top:1px dashed #DADADA; font-size:14px;">
                                 <div style="margin-bottom:8px;"><strong>${t.label_hours}:</strong> ${fData.hours || ''}</div>
                                 <div><strong>${t.label_details}:</strong> ${fData.details || ''}</div>
                             </div>

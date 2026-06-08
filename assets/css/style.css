@@ -462,6 +462,11 @@ img {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+#content > .emoji-container,
+#content > .card.facility-card {
+  font-size: 14px;
+}
+
 #content .card:hover,
 .facility-card:hover,
 .club-card:hover {
