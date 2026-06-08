@@ -673,17 +673,19 @@ function emitI18nChange(lang) {
 
 function initI18n() {
   if (i18nInitialized) {
-    return applyI18n(document.querySelector("#lang-selector")?.value || document.documentElement.lang || "ko");
+    return applyI18n(localStorage.getItem("preferredLanguage") || document.querySelector("#lang-selector")?.value || document.documentElement.lang || "ko");
   }
 
   i18nInitialized = true;
   const selector = document.querySelector("#lang-selector") || document.querySelector("#language");
-  const initialLang = selector?.value || "ko";
+  const initialLang = localStorage.getItem("preferredLanguage") || selector?.value || "ko";
   const appliedLang = applyI18n(initialLang);
 
   if (selector) {
+    selector.value = appliedLang;
     selector.addEventListener("change", (event) => {
       const nextLang = applyI18n(event.target.value);
+      localStorage.setItem("preferredLanguage", nextLang);
       emitI18nChange(nextLang);
     });
   }
