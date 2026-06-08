@@ -1,5 +1,6 @@
 const recommendForm = document.querySelector("#recommendForm");
 const resultBox = document.querySelector("#resultBox");
+const recommendLayout = document.querySelector(".recommend-layout");
 
 const ACTIVITY_CATEGORY_RULES = {
   rest: ["CAFE"],
@@ -173,6 +174,7 @@ function normalizeLanguage(language) {
 }
 
 function renderError(language) {
+  recommendLayout?.classList.remove("is-result-empty");
   resultBox.removeAttribute("data-i18n");
   resultBox.classList.remove("empty");
   resultBox.innerHTML = `<div class="no-result"><p>${getI18nDict(language).facility_data_error}</p></div>`;
@@ -180,6 +182,7 @@ function renderError(language) {
 
 function renderResult(resultList, language) {
   const text = getI18nDict(language);
+  recommendLayout?.classList.remove("is-result-empty");
   resultBox.removeAttribute("data-i18n");
   resultBox.classList.remove("empty");
 

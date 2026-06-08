@@ -655,6 +655,10 @@ img {
   display: grid;
   grid-template-columns: 420px 1fr;
   gap: 28px;
+  align-items: start;
+}
+
+.recommend-layout.is-result-empty {
   align-items: stretch;
 }
 
