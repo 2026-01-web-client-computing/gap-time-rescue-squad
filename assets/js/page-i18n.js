@@ -1,4 +1,4 @@
-const PAGE_I18N = {
+const I18N = {
   ko: {
     site_logo: "공강구조대",
     nav_home: "홈",
@@ -123,9 +123,528 @@ const PAGE_I18N = {
   }
 };
 
-function applyPageLanguage(lang) {
-  const safeLang = PAGE_I18N[lang] ? lang : "ko";
-  const dict = PAGE_I18N[safeLang];
+const I18N_EXTRA = {
+  ko: {
+    app_logo: "공강구조대",
+    club_count_unit: "개",
+    nav_menu: "오늘의 식단",
+    nav_facility: "교내 시설",
+    nav_club: "동아리 안내",
+    meal_lunch: "중식 (Lunch)",
+    meal_dinner: "석식 (Dinner)",
+    ai_guide_btn: "AI 맞춤 가이드 분석",
+    ai_modal_title: "AI 문화적 맥락 분석",
+    label_hours: "운영시간",
+    label_details: "세부특징",
+    label_loc: "위치",
+    label_purpose: "활동내용",
+    club_title: "중앙동아리 안내",
+    club_desc: "국민대학교의 열정 넘치는 자치 동아리 네트워크입니다.",
+    club_total: "총 동아리",
+    club_divisions: "등록 분과",
+    empty_facility: "등록된 시설물이 없습니다.",
+    empty_club: "해당 분과에 등록된 동아리가 없습니다.",
+    c_all: "전체 분과",
+    c_perform: "공연예술",
+    c_service: "교양봉사",
+    c_exhibit: "전시예술",
+    c_religion: "종교",
+    c_ball: "구기레져",
+    c_sports: "체육무도",
+    c_academic: "학술",
+    "intro-title": "캠퍼스 시설 학습 게임",
+    "intro-desc": "게임을 통해 학교 시설 정보를 재미있게 익혀보세요!",
+    "menu-place-title": "장소 맞히기",
+    "menu-place-desc": "사진을 보고 교내 장소를 맞춰보세요.",
+    "menu-ox-title": "OX 퀴즈",
+    "menu-ox-desc": "학교 시설에 대한 OX 문제를 풀어보세요.",
+    "dash-my-score": "내 최근 점수",
+    "btn-next": "다음 문제",
+    "live-score": "현재 점수",
+    "result-title": "게임 종료!",
+    "result-score-label": "최종 점수:",
+    "btn-retry": "처음으로 돌아가기",
+    "timer-label": "제한시간",
+    sec: "초",
+    "q-text-place": "이 사진 속 시설의 정확한 이름은 무엇일까요?",
+    "q-hint": "힌트 위치",
+    "correct-msg": "정답입니다! 🎉",
+    "wrong-msg": "틀렸습니다! ✕",
+    "timeout-msg": "시간 초과! ⏰",
+    "ox-true-mid": "은(는)",
+    "ox-true-end": "에 위치해 있다.",
+    "ox-ans-o": "맞습니다!",
+    "ox-ans-x": "틀렸습니다!",
+    "ox-explain-o": "의 정확한 위치는",
+    "ox-explain-x": "의 실제 위치는",
+    "ox-explain-end": "입니다.",
+    "img-alt-text": "시설 사진 준비중",
+    "ox-explain-correct": "맞습니다! \"{name}\"의 정확한 위치는 {location}입니다.",
+    "ox-explain-wrong": "틀렸습니다. \"{name}\"의 실제 위치는 {location}입니다."
+  },
+  en: {
+    app_logo: "Gap Time Rescue Squad",
+    club_count_unit: "",
+    nav_menu: "Daily Menu",
+    nav_facility: "Facilities",
+    nav_club: "Club Guide",
+    meal_lunch: "Lunch",
+    meal_dinner: "Dinner",
+    ai_guide_btn: "Get AI Cultural Guide",
+    ai_modal_title: "AI Cultural Analysis",
+    label_hours: "Hours",
+    label_details: "Details",
+    label_loc: "Location",
+    label_purpose: "Purpose",
+    club_title: "Student Clubs Info",
+    club_desc: "Welcome to Kookmin University's vibrant student club network.",
+    club_total: "Total Clubs",
+    club_divisions: "Divisions",
+    empty_facility: "No facilities found.",
+    empty_club: "No clubs registered in this division.",
+    c_all: "All",
+    c_perform: "Performing Arts",
+    c_service: "Volunteer",
+    c_exhibit: "Exhibition",
+    c_religion: "Religion",
+    c_ball: "Ball Sports",
+    c_sports: "Martial Arts",
+    c_academic: "Academic",
+    "intro-title": "Campus Facility Game",
+    "intro-desc": "Learn about campus facilities easily through quizzes!",
+    "menu-place-title": "Guess the Place",
+    "menu-place-desc": "Look at the picture and guess the facility.",
+    "menu-ox-title": "OX Quiz",
+    "menu-ox-desc": "Solve true/false questions about facilities.",
+    "dash-my-score": "My Recent Score",
+    "btn-next": "Next Question",
+    "live-score": "Current Score",
+    "result-title": "Game Over!",
+    "result-score-label": "Final Score:",
+    "btn-retry": "Back to Start",
+    "timer-label": "Time Limit",
+    sec: "s",
+    "q-text-place": "What is the exact name of the facility in this picture?",
+    "q-hint": "Hint Location",
+    "correct-msg": "Correct! 🎉",
+    "wrong-msg": "Wrong! ✕",
+    "timeout-msg": "Time Out! ⏰",
+    "ox-true-mid": "is located at",
+    "ox-true-end": ".",
+    "ox-ans-o": "Correct!",
+    "ox-ans-x": "Wrong!",
+    "ox-explain-o": "The exact location of",
+    "ox-explain-x": "The actual location of",
+    "ox-explain-end": ".",
+    "img-alt-text": "Image preparing",
+    "ox-explain-correct": "Correct! The exact location of \"{name}\" is {location}.",
+    "ox-explain-wrong": "Wrong. The actual location of \"{name}\" is {location}."
+  },
+  zh: {
+    app_logo: "空堂救援队",
+    club_count_unit: "个",
+    nav_menu: "今日菜单",
+    nav_facility: "校园设施",
+    nav_club: "社团指南",
+    meal_lunch: "午餐",
+    meal_dinner: "晚餐",
+    ai_guide_btn: "获取 AI 智能指南",
+    ai_modal_title: "AI 文化背景分析",
+    label_hours: "运营时间",
+    label_details: "详细特征",
+    label_loc: "位置",
+    label_purpose: "活动内容",
+    club_title: "社团指南",
+    club_desc: "国民大学充满热情的自治学生社团信息网络。",
+    club_total: "社团总数",
+    club_divisions: "注册分部",
+    empty_facility: "没有找到相关设施。",
+    empty_club: "该分部下没有注册社团。",
+    c_all: "全部",
+    c_perform: "表演艺术",
+    c_service: "教养志愿",
+    c_exhibit: "展览艺术",
+    c_religion: "宗教",
+    c_ball: "球类休闲",
+    c_sports: "体育武道",
+    c_academic: "学术",
+    "intro-title": "校园设施学习游戏",
+    "intro-desc": "通过游戏轻松掌握学校设施信息！",
+    "menu-place-title": "猜猜地点",
+    "menu-place-desc": "看图猜出校内设施名称。",
+    "menu-ox-title": "判断题",
+    "menu-ox-desc": "回答关于学校设施的判断题。",
+    "dash-my-score": "我的最近得分",
+    "btn-next": "下一题",
+    "live-score": "当前得分",
+    "result-title": "游戏结束！",
+    "result-score-label": "最终得分：",
+    "btn-retry": "返回开始",
+    "timer-label": "限时",
+    sec: "秒",
+    "q-text-place": "图中设施的正确名称是什么？",
+    "q-hint": "提示位置",
+    "correct-msg": "回答正确！🎉",
+    "wrong-msg": "回答错误！✕",
+    "timeout-msg": "时间到！⏰",
+    "ox-true-mid": "位于",
+    "ox-true-end": "。",
+    "ox-ans-o": "正确！",
+    "ox-ans-x": "错误！",
+    "ox-explain-o": "的正确位置是",
+    "ox-explain-x": "的实际位置是",
+    "ox-explain-end": "。",
+    "img-alt-text": "设施图片准备中",
+    "ox-explain-correct": "正确！\"{name}\"的准确位置是{location}。",
+    "ox-explain-wrong": "错误。\"{name}\"的实际位置是{location}。"
+  },
+  ja: {
+    app_logo: "空きコマ救助隊",
+    club_count_unit: "件",
+    nav_menu: "今日の献立",
+    nav_facility: "学内施設",
+    nav_club: "サークル案内",
+    meal_lunch: "昼食",
+    meal_dinner: "夕食",
+    ai_guide_btn: "AI ガイド分析",
+    ai_modal_title: "AI 文化的背景の分析",
+    label_hours: "営業時間",
+    label_details: "詳細特徴",
+    label_loc: "位置",
+    label_purpose: "活動内容",
+    club_title: "サークル案内",
+    club_desc: "国民大学の情熱溢れる自治サークル情報ネットワークです。",
+    club_total: "総サークル数",
+    club_divisions: "登録部会",
+    empty_facility: "登録された施設がありません。",
+    empty_club: "この部会に登録されたサークルはありません。",
+    c_all: "全体",
+    c_perform: "公演芸術",
+    c_service: "教養ボランティア",
+    c_exhibit: "展示芸術",
+    c_religion: "宗教",
+    c_ball: "球技レジャー",
+    c_sports: "体育武道",
+    c_academic: "学術",
+    "intro-title": "キャンパス施設学習ゲーム",
+    "intro-desc": "ゲームを通じて学校施設の情報を楽しく覚えましょう！",
+    "menu-place-title": "場所当て",
+    "menu-place-desc": "写真を見て施設名を当ててください。",
+    "menu-ox-title": "○×クイズ",
+    "menu-ox-desc": "学校施設に関する○×問題を解いてみましょう。",
+    "dash-my-score": "直近のスコア",
+    "btn-next": "次の問題",
+    "live-score": "現在のスコア",
+    "result-title": "ゲーム終了！",
+    "result-score-label": "最終スコア：",
+    "btn-retry": "最初に戻る",
+    "timer-label": "制限時間",
+    sec: "秒",
+    "q-text-place": "この写真の施設の正確な名前は何ですか？",
+    "q-hint": "ヒント・場所",
+    "correct-msg": "正解！🎉",
+    "wrong-msg": "不正解！✕",
+    "timeout-msg": "時間切れ！⏰",
+    "ox-true-mid": "は",
+    "ox-true-end": "にある。",
+    "ox-ans-o": "正しい！",
+    "ox-ans-x": "間違い！",
+    "ox-explain-o": "の正確な場所は",
+    "ox-explain-x": "の実際の場所は",
+    "ox-explain-end": "です。",
+    "img-alt-text": "施設写真準備中",
+    "ox-explain-correct": "正解！\"{name}\"の正確な場所は{location}です。",
+    "ox-explain-wrong": "不正解。\"{name}\"の実際の場所は{location}です。"
+  },
+  de: {
+    app_logo: "Freistunden-Rettungsteam",
+    club_count_unit: "",
+    nav_menu: "Tagesmenü",
+    nav_facility: "Einrichtungen",
+    nav_club: "Clubs",
+    meal_lunch: "Mittagessen",
+    meal_dinner: "Abendessen",
+    ai_guide_btn: "KI-Analyse anfordern",
+    ai_modal_title: "KI Kulturelle Analyse",
+    label_hours: "Öffnungszeiten",
+    label_details: "Details",
+    label_loc: "Ort",
+    label_purpose: "Aktivität",
+    club_title: "Studentenclubs",
+    club_desc: "Willkommen im lebendigen Club-Netzwerk der Kookmin-Universität.",
+    club_total: "Clubs Gesamt",
+    club_divisions: "Bereiche",
+    empty_facility: "Keine Einrichtungen gefunden.",
+    empty_club: "Keine Clubs registriert.",
+    c_all: "Alle",
+    c_perform: "Darstellende Kunst",
+    c_service: "Freiwilligendienst",
+    c_exhibit: "Ausstellung",
+    c_religion: "Religion",
+    c_ball: "Ballsport",
+    c_sports: "Kampfsport",
+    c_academic: "Akademisch",
+    "intro-title": "Campus-Einrichtungen Lernspiel",
+    "intro-desc": "Lerne Campuseinrichtungen spielerisch kennen!",
+    "menu-place-title": "Ort erraten",
+    "menu-place-desc": "Schau dir das Bild an und rate die Einrichtung.",
+    "menu-ox-title": "Wahr/Falsch-Quiz",
+    "menu-ox-desc": "Beantworte Wahr/Falsch-Fragen zu Campuseinrichtungen.",
+    "dash-my-score": "Mein letzter Punktestand",
+    "btn-next": "Nächste Frage",
+    "live-score": "Aktueller Punktestand",
+    "result-title": "Spiel beendet!",
+    "result-score-label": "Endergebnis:",
+    "btn-retry": "Zurück zum Start",
+    "timer-label": "Zeitlimit",
+    sec: "s",
+    "q-text-place": "Wie heißt die Einrichtung auf diesem Bild genau?",
+    "q-hint": "Hinweis Ort",
+    "correct-msg": "Richtig! 🎉",
+    "wrong-msg": "Falsch! ✕",
+    "timeout-msg": "Zeit abgelaufen! ⏰",
+    "ox-true-mid": "befindet sich in",
+    "ox-true-end": ".",
+    "ox-ans-o": "Stimmt!",
+    "ox-ans-x": "Falsch!",
+    "ox-explain-o": "Der genaue Standort von",
+    "ox-explain-x": "Der tatsächliche Standort von",
+    "ox-explain-end": ".",
+    "img-alt-text": "Bild wird vorbereitet",
+    "ox-explain-correct": "Richtig! Der genaue Standort von \"{name}\" ist {location}.",
+    "ox-explain-wrong": "Falsch. Der tatsächliche Standort von \"{name}\" ist {location}."
+  },
+  fr: {
+    app_logo: "Équipe Secours Temps Libre",
+    club_count_unit: "",
+    nav_menu: "Menu du jour",
+    nav_facility: "Installations",
+    nav_club: "Clubs",
+    meal_lunch: "Déjeuner",
+    meal_dinner: "Dîner",
+    ai_guide_btn: "Guide IA",
+    ai_modal_title: "Analyse Culturelle",
+    label_hours: "Horaires",
+    label_details: "Détails",
+    label_loc: "Emplacement",
+    label_purpose: "Activité",
+    club_title: "Clubs Étudiants",
+    club_desc: "Bienvenue dans le réseau des clubs de l'Université Kookmin.",
+    club_total: "Total",
+    club_divisions: "Divisions",
+    empty_facility: "Aucune installation.",
+    empty_club: "Aucun club.",
+    c_all: "Tout",
+    c_perform: "Arts du Spectacle",
+    c_service: "Bénévolat",
+    c_exhibit: "Expositions",
+    c_religion: "Religion",
+    c_ball: "Sports de Balle",
+    c_sports: "Arts Martiaux",
+    c_academic: "Académique",
+    "intro-title": "Jeu d'apprentissage des installations",
+    "intro-desc": "Apprenez les installations du campus en jouant !",
+    "menu-place-title": "Devinez le lieu",
+    "menu-place-desc": "Regardez la photo et devinez l'installation.",
+    "menu-ox-title": "Quiz Vrai/Faux",
+    "menu-ox-desc": "Répondez aux questions vrai/faux sur les installations.",
+    "dash-my-score": "Mon dernier score",
+    "btn-next": "Question suivante",
+    "live-score": "Score actuel",
+    "result-title": "Jeu terminé !",
+    "result-score-label": "Score final :",
+    "btn-retry": "Retour au début",
+    "timer-label": "Temps limite",
+    sec: "s",
+    "q-text-place": "Quel est le nom exact de l'installation sur cette photo ?",
+    "q-hint": "Indice lieu",
+    "correct-msg": "Correct ! 🎉",
+    "wrong-msg": "Incorrect ! ✕",
+    "timeout-msg": "Temps écoulé ! ⏰",
+    "ox-true-mid": "est situé à",
+    "ox-true-end": ".",
+    "ox-ans-o": "Correct !",
+    "ox-ans-x": "Incorrect !",
+    "ox-explain-o": "L'emplacement exact de",
+    "ox-explain-x": "L'emplacement réel de",
+    "ox-explain-end": ".",
+    "img-alt-text": "Image en préparation",
+    "ox-explain-correct": "Correct ! L'emplacement exact de \"{name}\" est {location}.",
+    "ox-explain-wrong": "Incorrect. L'emplacement réel de \"{name}\" est {location}."
+  },
+  ru: {
+    app_logo: "Спасатели окон",
+    club_count_unit: "",
+    nav_menu: "Меню",
+    nav_facility: "Удобства",
+    nav_club: "Клубы",
+    meal_lunch: "Обед",
+    meal_dinner: "Ужин",
+    ai_guide_btn: "AI-гид",
+    ai_modal_title: "AI Анализ",
+    label_hours: "Часы работы",
+    label_details: "Детали",
+    label_loc: "Место",
+    label_purpose: "Деятельность",
+    club_title: "Студенческие Клубы",
+    club_desc: "Сеть студенческих клубов Университета Кукмин.",
+    club_total: "Всего",
+    club_divisions: "Направления",
+    empty_facility: "Удобства не найдены.",
+    empty_club: "В этом направлении нет клубов.",
+    c_all: "Все",
+    c_perform: "Сценическое иск-во",
+    c_service: "Волонтерство",
+    c_exhibit: "Выставки",
+    c_religion: "Религия",
+    c_ball: "Игры с мячом",
+    c_sports: "Боевые искусства",
+    c_academic: "Академический",
+    "intro-title": "Игра по изучению кампуса",
+    "intro-desc": "Узнайте об объектах кампуса в игровой форме!",
+    "menu-place-title": "Угадай место",
+    "menu-place-desc": "Посмотрите на фото и угадайте объект.",
+    "menu-ox-title": "Викторина Да/Нет",
+    "menu-ox-desc": "Ответьте на вопросы об объектах кампуса.",
+    "dash-my-score": "Мой последний результат",
+    "btn-next": "Следующий вопрос",
+    "live-score": "Текущий счёт",
+    "result-title": "Игра окончена!",
+    "result-score-label": "Итоговый счёт:",
+    "btn-retry": "Вернуться к началу",
+    "timer-label": "Лимит времени",
+    sec: "с",
+    "q-text-place": "Как точно называется объект на этом фото?",
+    "q-hint": "Подсказка место",
+    "correct-msg": "Правильно! 🎉",
+    "wrong-msg": "Неправильно! ✕",
+    "timeout-msg": "Время вышло! ⏰",
+    "ox-true-mid": "находится в",
+    "ox-true-end": ".",
+    "ox-ans-o": "Верно!",
+    "ox-ans-x": "Неверно!",
+    "ox-explain-o": "Точное местонахождение",
+    "ox-explain-x": "Фактическое местонахождение",
+    "ox-explain-end": ".",
+    "img-alt-text": "Изображение готовится",
+    "ox-explain-correct": "Правильно! Точное местонахождение \"{name}\" — {location}.",
+    "ox-explain-wrong": "Неправильно. Фактическое местонахождение \"{name}\" — {location}."
+  }
+};
+
+const FORM_RESULT_I18N = {
+  ko: {
+    result_badge: "추천 장소",
+    result_location_label: "위치",
+    result_hours_label: "운영시간",
+    result_detail_label: "특징",
+    result_reason_label: "추천 이유",
+    reason_same_building: "현재 위치와 같은 건물이라 짧은 공강에 이동 부담이 적습니다.",
+    reason_other_building: "공강 시간이 충분해서 다른 건물까지 추천 범위를 넓혔습니다.",
+    reason_walk: "가볍게 움직이며 환기하기 좋은 산책 코스입니다.",
+    no_result_title: "추천 결과가 없습니다.",
+    no_result_desc: "다른 조건을 선택해 다시 추천 받아보세요.",
+    facility_data_error: "시설 데이터를 불러오지 못했습니다. form.html에서 data.js가 form.js보다 먼저 연결되어 있는지 확인하세요."
+  },
+  en: {
+    result_badge: "Recommended Place",
+    result_location_label: "Location",
+    result_hours_label: "Hours",
+    result_detail_label: "Details",
+    result_reason_label: "Why recommended",
+    reason_same_building: "It is in your current building, so it is suitable for a short break.",
+    reason_other_building: "Your break is long enough, so places in other buildings are included.",
+    reason_walk: "A light walking route for fresh air during your break.",
+    no_result_title: "No recommendation found.",
+    no_result_desc: "Try again with different conditions.",
+    facility_data_error: "Facility data could not be loaded. Check that data.js is linked before form.js in form.html."
+  },
+  zh: {
+    result_badge: "推荐地点",
+    result_location_label: "位置",
+    result_hours_label: "营业时间",
+    result_detail_label: "特点",
+    result_reason_label: "推荐理由",
+    reason_same_building: "该地点与当前位置在同一栋楼，适合短暂空堂时间。",
+    reason_other_building: "空堂时间较充足，因此也推荐其他楼栋。",
+    reason_walk: "适合在空堂时间轻松散步、转换心情的路线。",
+    no_result_title: "没有找到推荐结果。",
+    no_result_desc: "请更换条件后重新尝试。",
+    facility_data_error: "无法加载设施数据。请确认 form.html 中 data.js 位于 form.js 之前。"
+  },
+  ja: {
+    result_badge: "おすすめ場所",
+    result_location_label: "位置",
+    result_hours_label: "営業時間",
+    result_detail_label: "特徴",
+    result_reason_label: "おすすめ理由",
+    reason_same_building: "現在地と同じ建物にあるため、短い空き時間に適しています。",
+    reason_other_building: "空き時間に余裕があるため、他の建物も含めておすすめします。",
+    reason_walk: "空き時間に気分転換しやすい軽い散歩コースです。",
+    no_result_title: "おすすめ結果がありません。",
+    no_result_desc: "別の条件で再度試してください。",
+    facility_data_error: "施設データを読み込めません。form.htmlでdata.jsがform.jsより先に読み込まれているか確認してください。"
+  },
+  de: {
+    result_badge: "Empfohlener Ort",
+    result_location_label: "Ort",
+    result_hours_label: "Öffnungszeiten",
+    result_detail_label: "Details",
+    result_reason_label: "Empfehlungsgrund",
+    reason_same_building: "Der Ort liegt im selben Gebäude und passt daher gut zu einer kurzen Pause.",
+    reason_other_building: "Die Pause ist lang genug, daher werden auch andere Gebäude empfohlen.",
+    reason_walk: "Eine leichte Route, um während der Pause frische Luft zu bekommen.",
+    no_result_title: "Keine Empfehlung gefunden.",
+    no_result_desc: "Versuche es mit anderen Bedingungen erneut.",
+    facility_data_error: "Die Einrichtungsdaten konnten nicht geladen werden. Prüfe, ob data.js vor form.js eingebunden ist."
+  },
+  fr: {
+    result_badge: "Lieu recommandé",
+    result_location_label: "Emplacement",
+    result_hours_label: "Horaires",
+    result_detail_label: "Détails",
+    result_reason_label: "Raison",
+    reason_same_building: "Ce lieu est dans le même bâtiment, donc adapté à une courte pause.",
+    reason_other_building: "La pause est assez longue, donc d'autres bâtiments sont aussi proposés.",
+    reason_walk: "Un petit itinéraire agréable pour prendre l'air pendant la pause.",
+    no_result_title: "Aucune recommandation trouvée.",
+    no_result_desc: "Essayez avec d'autres conditions.",
+    facility_data_error: "Impossible de charger les données. Vérifiez que data.js est chargé avant form.js."
+  },
+  ru: {
+    result_badge: "Рекомендованное место",
+    result_location_label: "Место",
+    result_hours_label: "Часы работы",
+    result_detail_label: "Детали",
+    result_reason_label: "Причина",
+    reason_same_building: "Это место находится в том же здании, поэтому подходит для короткого перерыва.",
+    reason_other_building: "Перерыв достаточно длинный, поэтому включены и другие здания.",
+    reason_walk: "Лёгкий маршрут для прогулки и смены обстановки.",
+    no_result_title: "Рекомендации не найдены.",
+    no_result_desc: "Попробуйте выбрать другие условия.",
+    facility_data_error: "Не удалось загрузить данные. Проверьте, что data.js подключён перед form.js."
+  }
+};
+
+[I18N_EXTRA, FORM_RESULT_I18N].forEach((source) => {
+  Object.entries(source).forEach(([lang, dict]) => {
+    I18N[lang] = { ...I18N[lang], ...dict };
+  });
+});
+
+let i18nInitialized = false;
+
+function normalizeI18nLanguage(lang) {
+  return Object.prototype.hasOwnProperty.call(I18N, lang) ? lang : "ko";
+}
+
+function getI18nDict(lang) {
+  return I18N[normalizeI18nLanguage(lang)];
+}
+
+function applyI18n(lang) {
+  const safeLang = normalizeI18nLanguage(lang);
+  const dict = getI18nDict(safeLang);
 
   document.documentElement.lang = safeLang;
 
@@ -138,19 +657,45 @@ function applyPageLanguage(lang) {
     const key = el.dataset.i18nHtml;
     if (dict[key]) el.innerHTML = dict[key];
   });
+
+  const selector = document.querySelector("#lang-selector") || document.querySelector("#language");
+  if (selector) selector.value = safeLang;
+
+  return safeLang;
 }
 
-function initPageI18n() {
-  const selector = document.querySelector("#lang-selector") || document.querySelector("#language");
-  const initialLang = selector?.value || "ko";
+function emitI18nChange(lang) {
+  const safeLang = normalizeI18nLanguage(lang);
+  document.dispatchEvent(new CustomEvent("i18n:change", {
+    detail: { lang: safeLang, dict: getI18nDict(safeLang) }
+  }));
+}
 
-  applyPageLanguage(initialLang);
+function initI18n() {
+  if (i18nInitialized) {
+    return applyI18n(localStorage.getItem("preferredLanguage") || document.querySelector("#lang-selector")?.value || document.documentElement.lang || "ko");
+  }
+
+  i18nInitialized = true;
+  const selector = document.querySelector("#lang-selector") || document.querySelector("#language");
+  const initialLang = localStorage.getItem("preferredLanguage") || selector?.value || "ko";
+  const appliedLang = applyI18n(initialLang);
 
   if (selector) {
+    selector.value = appliedLang;
     selector.addEventListener("change", (event) => {
-      applyPageLanguage(event.target.value);
+      const nextLang = applyI18n(event.target.value);
+      localStorage.setItem("preferredLanguage", nextLang);
+      emitI18nChange(nextLang);
     });
   }
+
+  emitI18nChange(appliedLang);
+  return appliedLang;
 }
 
-document.addEventListener("DOMContentLoaded", initPageI18n);
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initI18n);
+} else {
+  initI18n();
+}
