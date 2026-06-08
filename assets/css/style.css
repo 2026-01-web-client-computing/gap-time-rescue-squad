@@ -41,7 +41,6 @@
   --radius-md: 20px;
   --radius-sm: 12px;
 
-  /* 기존 JS/CSS 호환용 변수 */
   --primary: var(--color-primary);
   --accent: var(--color-primary);
   --bg: var(--color-bg);
@@ -56,6 +55,8 @@
   --border-color: var(--color-border);
   --success-color: var(--color-primary);
   --danger-color: #D94E3F;
+  
+  font-size: 18px; 
 }
 
 * {
@@ -77,6 +78,7 @@ body {
     var(--color-bg);
   line-height: 1.6;
   -webkit-tap-highlight-color: transparent;
+  font-size: 1.05rem;
 }
 
 a {
@@ -1186,4 +1188,9 @@ img {
   .tip-bubble::after {
     display: none;
   }
+}
+
+@keyframes bounceMarker {
+  0% { transform: translate(-50%, -100%); }
+  100% { transform: translate(-50%, -115%); }
 }
