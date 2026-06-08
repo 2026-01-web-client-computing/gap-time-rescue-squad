@@ -1,3 +1,76 @@
+const CAMPUS_BUILDING_COORDS = {
+    // WEST
+    'W1': { top: '32.5%', left: '37.8%', name: '공학관 (W1)' },
+    'W2': { top: '17.0%', left: '35.0%', name: '성곡도서관 (W2)' },
+    'W3': { top: '21.0%', left: '35.2%', name: '글로벌센터 (W3)' },
+    'W4': { top: '25.8%', left: '34.5%', name: '산학협력관 (W4)' },
+
+    // NORTH
+    'N1': { top: '41.5%', left: '75.5%', name: '본부관 (N1)' },
+    'N2': { top: '23.0%', left: '69.0%', name: '북악관 (N2)' },
+    'N3': { top: '29.2%', left: '76.7%', name: '조형관 (N3)' },
+    'N4': { top: '47.0%', left: '80.0%', name: '법학관 (N4)' },
+    'N5': { top: '47.0%', left: '84.5%', name: '형설관 (N5)' },
+    'N6': { top: '47.8%', left: '94.0%', name: '과학관 (N6)' },
+    'N7': { top: '35.0%', left: '62.0%', name: '경상관 (N7)' },
+    'N9': { top: '49.0%', left: '69.2%', name: '국제관 (N9)' },
+    'N10': { top: '53.5%', left: '73.0%', name: '경영관 (N10)' },
+    'N11': { top: '55.8%', left: '83.8%', name: '체육관 (N11)' },
+
+    // SOUTH
+    'S1': { top: '57.8%', left: '54.0%', name: '평생교육 교학팀 (S1)' },
+    'S2': { top: '64.0%', left: '67.8%', name: '종합복지관 / 미래관 주변 (S2)' },
+    'S3': { top: '61.8%', left: '72.8%', name: '예술관 (S3)' },
+    'S4': { top: '56.2%', left: '58.2%', name: '대주차장 (S4)' },
+    'S5': { top: '82.5%', left: '74.5%', name: '평생교육실기교육관 (S5)' },
+
+    // EAST
+    'E1': { top: '73.8%', left: '84.2%', name: '생활관 A동 (E1)' },
+    'E2': { top: '67.0%', left: '80.3%', name: '생활관 B동 (E2)' },
+    'E3': { top: '72.0%', left: '81.5%', name: '생활관 C동 (E3)' },
+    'E4': { top: '60.2%', left: '88.2%', name: '생활관 D동 (E4)' },
+    'E5': { top: '66.0%', left: '84.6%', name: '명원민속관 (E5)' },
+    'E6': { top: '63.2%', left: '96.0%', name: '명원박물관 (E6)' }
+};
+
+function helperExtractBuildingCode(locationText) {
+    if (!locationText) return null;
+
+    // WEST
+    if (locationText.includes('공학관')) return 'W1';
+    if (locationText.includes('성곡도서관') || locationText.includes('도서관')) return 'W2';
+
+    // NORTH
+    if (locationText.includes('본부관')) return 'N1';
+    if (locationText.includes('북악관')) return 'N2';
+    if (locationText.includes('조형관')) return 'N3';
+    if (locationText.includes('법학관')) return 'N4';
+    if (locationText.includes('형설관')) return 'N5';
+    if (locationText.includes('과학관')) return 'N6';
+    if (locationText.includes('경상관')) return 'N7';
+    if (locationText.includes('국제관')) return 'N9';
+    if (locationText.includes('경영관') || locationText.includes('콘서트홀')) return 'N10';
+    if (locationText.includes('체육관')) return 'N11';
+
+    // SOUTH
+    if (locationText.includes('종합복지관') || locationText.includes('복지관')) return 'S2';
+    if (locationText.includes('미래관')) return 'S2';
+    if (locationText.includes('예술관')) return 'S3';
+    if (locationText.includes('대운동장') || locationText.includes('운동장') || locationText.includes('주차장')) return 'S4';
+
+    // EAST - 생활관은 A/B/C/D동을 먼저 구분
+    if (locationText.includes('생활관(A동)') || locationText.includes('생활관 A')) return 'E1';
+    if (locationText.includes('생활관(B동)') || locationText.includes('생활관 B')) return 'E2';
+    if (locationText.includes('생활관(C동)') || locationText.includes('생활관 C')) return 'E3';
+    if (locationText.includes('생활관(D동)') || locationText.includes('생활관 D')) return 'E4';
+    if (locationText.includes('생활관')) return 'E2';
+
+    if (locationText.includes('명원민속관')) return 'E5';
+    if (locationText.includes('명원박물관')) return 'E6';
+
+    return null;
+}
+
 /**
  * [GRASP Pattern: Controller]
  * 오타나 데이터 누락에도 절대 멈추지 않는 방어적 렌더링을 적용한 컨트롤러입니다.
@@ -63,7 +136,6 @@ class KookminCodeController {
         const result = document.getElementById('ai-result');
         const lang = MOCK_DATA.currentLang || 'ko';
         
-        // 예외 방어: 만약 언어 사전이 비어있다면 한국어를 기본으로 사용
         const t = getI18nDict(lang);
 
         document.getElementById('ai-modal-header').innerText = t.ai_modal_title || 'AI Analysis';
@@ -76,7 +148,7 @@ class KookminCodeController {
             </div>`;
 
         setTimeout(() => {
-            const safeIngredients = ingredients || ''; // undefined 방어
+            const safeIngredients = ingredients || ''; 
             const hasPork = safeIngredients.includes('돼지') || safeIngredients.includes('Pork') || safeIngredients.includes('Schwein');
             
             const responses = {
@@ -102,7 +174,6 @@ class KookminCodeController {
         const lang = MOCK_DATA.currentLang || 'ko';
         const time = MOCK_DATA.currentMealTime || 'LUNCH';
         
-        // 어떤 상황에서도 에러가 나지 않도록 번역 사전 기본값 적용
         const t = getI18nDict(lang);
         let html = '';
         this.aiPayloads = [];
@@ -127,8 +198,33 @@ class KookminCodeController {
                     </div>`;
             });
 
-        // 2. 교내 시설 가이드 구역 (이모티콘 서브탭)
+        // 2. 교내 시설 가이드 구역 (지도 매핑 추가)
         } else if (this.currentSection === 'facility') {
+            
+            // 지도 렌더링
+            html += `
+            <div id="campus-map-wrapper" style="background-color: var(--color-bg); padding: 10px 0; margin-bottom: 15px; border-bottom: 1px solid var(--color-border);">
+                <div style="position: relative; max-width: 100%; border-radius: 12px; overflow: hidden; border: 2px solid var(--color-primary); box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                    <img src="assets/images/main/mapOfKookmin.jpg" alt="국민대학교 지도" style="width: 100%; display: block; height: auto;">`;
+            
+            const facilitiesInCat = MOCK_DATA.facilities.filter(f => f.category === this.selectedCategory);
+            if (this.openFacilityIndex !== -1 && facilitiesInCat[this.openFacilityIndex]) {
+                const currentOpenItem = facilitiesInCat[this.openFacilityIndex];
+                const bldgCode = helperExtractBuildingCode(currentOpenItem.originalLoc);
+                
+                if (bldgCode && CAMPUS_BUILDING_COORDS[bldgCode]) {
+                    const pos = CAMPUS_BUILDING_COORDS[bldgCode];
+                    html += `
+                    <div class="animated-map-marker" style="position: absolute; top: ${pos.top}; left: ${pos.left}; transform: translate(-50%, -100%); background: #E74C3C; color: #FFF; padding: 5px 11px; border-radius: 20px; font-weight: bold; font-size: 0.75rem; white-space: nowrap; box-shadow: 0 4px 8px rgba(0,0,0,0.35); border: 1px solid #FFF; z-index: 110; animation: bounceMarker 0.5s ease-out infinite alternate;">
+                        📍 ${pos.name}
+                    </div>`;
+                }
+            }
+            
+            html += `
+                </div>
+            </div>`;
+
             html += `<div class="emoji-container" style="display:flex; justify-content:space-between; margin: 10px 0 20px 0; background:#FFFFFF; padding:12px; border-radius:14px; gap:6px; border:1px solid #DADADA; overflow-x:auto; -webkit-overflow-scrolling:touch;">`;
             MOCK_DATA.categories.forEach(cat => {
                 const isSelected = (this.selectedCategory === cat.id);
@@ -214,7 +310,6 @@ class KookminCodeController {
     }
 }
 
-// 글로벌 컨트롤러 기동
 const controller = new KookminCodeController();
 
 document.querySelectorAll('[data-section]').forEach((button) => {
@@ -253,4 +348,4 @@ document.addEventListener('i18n:change', (event) => {
     controller.changeLanguage(event.detail.lang);
 });
 
-controller.changeLanguage(document.getElementById('lang-selector')?.value || 'ko');
+controller.changeLanguage(localStorage.getItem("preferredLanguage") || document.getElementById('lang-selector')?.value || 'ko');
