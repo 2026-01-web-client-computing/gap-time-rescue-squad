@@ -357,7 +357,7 @@ img {
 
 /* main.html */
 #app {
-  width: min(760px, calc(100% - 32px));
+  width: min(1120px, calc(100% - 32px));
   margin: 34px auto 0;
 }
 
@@ -888,7 +888,7 @@ img {
 
 /* game.html */
 .main-container {
-  width: min(920px, calc(100% - 32px));
+  width: min(1120px, calc(100% - 32px));
   margin: 42px auto 0;
 }
 
