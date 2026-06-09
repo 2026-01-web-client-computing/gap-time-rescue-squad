@@ -1013,7 +1013,7 @@ img {
 
 .image-area {
   width: 100%;
-  height: 280px;
+  height: 400px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1027,7 +1027,7 @@ img {
 .image-area img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .question-text {
@@ -1220,6 +1220,10 @@ img {
 
   .tip-bubble::after {
     display: none;
+  }
+
+  .image-area {
+    height: 280px;
   }
 }
 
