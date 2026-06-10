@@ -30,69 +30,71 @@
         </nav>
     </header>
 
-    <main class="main-container">
-        <section id="intro-screen" class="screen">
-            <section class="page-hero">
-                <p class="eyebrow" data-i18n="intro_eyebrow">CAMPUS FACILITY GAME</p>
-                <h1 data-i18n-html="intro_title">캠퍼스 시설 학습 게임</h1>
-                <p data-i18n="intro_desc">
-                    게임을 통해 학교 시설 정보를 재미있게 익혀보세요!
-                </p>
+    <main>
+        <section class="page-hero">
+            <p class="eyebrow" data-i18n="game_eyebrow">CAMPUS FACILITY GAME</p>
+            <h1 data-i18n="intro-title">캠퍼스 시설 학습 게임</h1>
+            <p data-i18n="intro-desc">
+                게임을 통해 학교 시설 정보를 재미있게 익혀보세요!
+            </p>
+        </section>
+
+        <div class="main-container">
+            <section id="intro-screen" class="screen">
+                <div class="game-selection">
+                    <button type="button" class="card game-card" data-game-type="place">
+                        <div class="icon">📍</div>
+                        <h3 data-i18n="menu-place-title">장소 맞히기</h3>
+                        <p data-i18n="menu-place-desc">사진을 보고 학교 시설을 맞춰보세요.</p>
+                    </button>
+                    <button type="button" class="card game-card" data-game-type="ox">
+                        <div class="icon">◎ ✕</div>
+                        <h3 data-i18n="menu-ox-title">OX 퀴즈</h3>
+                        <p data-i18n="menu-ox-desc">학교 시설에 대한 OX 문제를 풀어보세요.</p>
+                    </button>
+                </div>
+
+                <div class="dashboard">
+                    <div class="card score-box" style="text-align: center; width: 100%;">
+                        <h4 data-i18n="dash-my-score">내 최근 점수</h4>
+                        <p id="my-score">0 / 5</p>
+                    </div>
+                </div>
             </section>
 
-            <div class="game-selection">
-                <button type="button" class="card game-card" data-game-type="place">
-                    <div class="icon">📍</div>
-                    <h3 data-i18n="menu-place-title">장소 맞히기</h3>
-                    <p data-i18n="menu-place-desc">사진을 보고 학교 시설을 맞춰보세요.</p>
-                </button>
-                <button type="button" class="card game-card" data-game-type="ox">
-                    <div class="icon">◎ ✕</div>
-                    <h3 data-i18n="menu-ox-title">OX 퀴즈</h3>
-                    <p data-i18n="menu-ox-desc">학교 시설에 대한 OX 문제를 풀어보세요.</p>
-                </button>
-            </div>
-
-            <div class="dashboard">
-                <div class="card score-box" style="text-align: center; width: 100%;">
-                    <h4 data-i18n="dash-my-score">내 최근 점수</h4>
-                    <p id="my-score">0 / 5</p>
+            <section id="game-screen" class="screen hidden">
+                <div class="game-header">
+                    <span id="question-number">Question 1/5</span>
+                    <span id="current-score-board"><span data-i18n="live-score">현재 점수</span>: <span id="live-score-val">0</span></span>
+                    <span id="timer">제한시간: 10초</span>
                 </div>
-            </div>
-        </section>
 
-        <section id="game-screen" class="screen hidden">
-            <div class="game-header">
-                <span id="question-number">Question 1/5</span>
-                <span id="current-score-board"><span data-i18n="live-score">현재 점수</span>: <span id="live-score-val">0</span></span>
-                <span id="timer">제한시간: 10초</span>
-            </div>
+                <div id="image-area" class="image-area hidden">
+                    <img id="place-img" src="" alt="시설 사진 준비중">
+                </div>
 
-            <div id="image-area" class="image-area hidden">
-                <img id="place-img" src="" alt="시설 사진 준비중">
-            </div>
+                <div id="question-text" class="question-text"></div>
 
-            <div id="question-text" class="question-text"></div>
+                <div id="options-area" class="options-area"></div>
 
-            <div id="options-area" class="options-area"></div>
+                <div id="feedback-area" class="feedback-area hidden">
+                    <div id="feedback-result"></div>
+                    <div id="feedback-desc"></div>
+                    <button type="button" id="next-btn" class="btn btn-primary" data-i18n="btn-next">다음 문제</button>
+                </div>
+            </section>
 
-            <div id="feedback-area" class="feedback-area hidden">
-                <div id="feedback-result"></div>
-                <div id="feedback-desc"></div>
-                <button type="button" id="next-btn" class="btn btn-primary" data-i18n="btn-next">다음 문제</button>
-            </div>
-        </section>
+            <section id="result-screen" class="screen hidden">
+                <h2 data-i18n="result-title">게임 종료!</h2>
 
-        <section id="result-screen" class="screen hidden">
-            <h2 data-i18n="result-title">게임 종료!</h2>
+                <div class="final-score">
+                    <span data-i18n="result-score-label">최종 점수:</span>
+                    <span id="final-score-val">0</span> / 5
+                </div>
 
-            <div class="final-score">
-                <span data-i18n="result-score-label">최종 점수:</span>
-                <span id="final-score-val">0</span> / 5
-            </div>
-            
-            <button type="button" class="btn btn-primary retry-btn" id="retry-btn" data-i18n="btn-retry">처음으로 돌아가기</button>
-        </section>
+                <button type="button" class="btn btn-primary retry-btn" id="retry-btn" data-i18n="btn-retry">처음으로 돌아가기</button>
+            </section>
+        </div>
     </main>
 
     <footer class="footer">
